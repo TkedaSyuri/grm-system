@@ -1,6 +1,7 @@
 "use client";
 
 import { changeState, setFloor } from "@/app/features/Redux/FloorTable/FloorSlice";
+import { openModal } from "@/app/features/Redux/Modal/ModalSlice";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/store";
 import { room } from "@/app/features/Types";
 import React, { useEffect } from "react";
@@ -13,6 +14,7 @@ async function fetcher(key: string) {
 const FloorTable = () => {
   const floorData = useAppSelector((state) => state.FloorReducer.floorData);
   const dispatch = useAppDispatch();
+  //フロアのデータを取得
   const { data, isLoading, error } = useSWR(
     "http://localhost:8080/getFloorData",
     fetcher
@@ -23,6 +25,14 @@ const FloorTable = () => {
       dispatch(setFloor(data));
     }
   }, [dispatch, data]);
+
+  if (isLoading) return (
+  <div className="font-bold">
+    Loading...
+    <div className="animate-ping w-8 h-8 bg-blue-600 rounded-full"></div>
+    </div>
+)
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div className=" flex justify-center">
@@ -35,7 +45,7 @@ const FloorTable = () => {
                  ? `flex justify-center border-2 border-black py-6 px-16 bg-${roomData.roomState} `
                  : `flex justify-center  border-2 border-black py-6 px-16 bg-${roomData.roomState}-500`
              }
-             onClick={()=>dispatch(changeState({id: roomData.id,ChangRoomState:"white"}))}
+             onClick={()=>dispatch(openModal(roomData.roomNumber))}
           >
             <div>
             {roomData.roomNumber}
