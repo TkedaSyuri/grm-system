@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FloorLink = () => {
+const FloorLink : React.FC= () => {
   return (
     <div>FloorLink</div>
   )

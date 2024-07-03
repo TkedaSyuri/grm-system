@@ -11,7 +11,7 @@ async function fetcher(key: string) {
   return fetch(key).then((res) => res.json());
 }
 
-const FloorTable = () => {
+const FloorTable: React.FC = () => {
   const floorData = useAppSelector((state) => state.FloorReducer.floorData);
   const dispatch = useAppDispatch();
   //フロアのデータを取得
@@ -33,17 +33,16 @@ const FloorTable = () => {
     </div>
 )
   if (error) return <div>Error: {error.message}</div>;
-
   return (
     <div className=" flex justify-center">
-      <div className="grid grid-cols-5 gap-2">
+      <div className="grid grid-cols-5 gap-4">
         {floorData.map((roomData: room) => (
           <div
             key={roomData.id}
             className={
               roomData.roomState === "white"
-                 ? `flex justify-center border-2 border-black py-6 px-16 bg-${roomData.roomState} `
-                 : `flex justify-center  border-2 border-black py-6 px-16 bg-${roomData.roomState}-500`
+                 ? `py-6 px-16 text-2xl font-semibold  bg-${roomData.roomState} border-black flex justify-center border-2 `
+                 : `py-6 px-16 text-2xl font-semibold bg-${roomData.roomState}-500 flex justify-center  border-2 border-black `
              }
              onClick={()=>dispatch(openModal(roomData.roomNumber))}
           >
