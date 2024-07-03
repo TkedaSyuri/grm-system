@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import StateSign from './MainCompo/StateSign'
 import FloorTable from './MainCompo/FloorTable'
 import FloorLink from './MainCompo/FloorLink'
-import { useAppDispatch, useAppSelector } from '@/app/features/Redux/store'
+import { useAppSelector } from '@/app/features/Redux/hooks'
 import Modal from '@/app/features/Redux/Modal/Modal'
 
 

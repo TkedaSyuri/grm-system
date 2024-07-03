@@ -2,7 +2,7 @@
 
 import { changeState, setFloor } from "@/app/features/Redux/FloorTable/FloorSlice";
 import { openModal } from "@/app/features/Redux/Modal/ModalSlice";
-import { useAppDispatch, useAppSelector } from "@/app/features/Redux/store";
+import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import { room } from "@/app/features/Types";
 import React, { useEffect } from "react";
 import useSWR from "swr";

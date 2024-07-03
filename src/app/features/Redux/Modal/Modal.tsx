@@ -1,5 +1,5 @@
 import React from "react";
-import { useAppDispatch, useAppSelector } from "../store";
+import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import { closeModal} from "./ModalSlice";
 
 const Modal:React.FC = () => {
