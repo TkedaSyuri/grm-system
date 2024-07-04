@@ -14,7 +14,7 @@ useEffect(()=>{
   console.log("fslaj")
   window.addEventListener("mousedown",fadeModal)
 })
-  const {isOpen} = useAppSelector((state)=>state.modalReducer)
+  const {isOpen} = useAppSelector((state)=>state.modal)
 
   return (
     <div className='mt-12'>

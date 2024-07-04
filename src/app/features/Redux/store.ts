@@ -4,8 +4,8 @@ import modalReducer from "./modal/modalSlice";
 
 export const store = configureStore({
   reducer: {
-    floorReducer,
-    modalReducer,
+    floor:floorReducer,
+    modal: modalReducer,
   },
 });
 

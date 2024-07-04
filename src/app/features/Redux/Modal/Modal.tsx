@@ -4,7 +4,7 @@ import { closeModal} from "./modalSlice";
 
 const Modal:React.FC = () => {
 
-  const { roomNumber } = useAppSelector((state) => state.modalReducer);
+  const { roomNumber } = useAppSelector((state) => state.modal);
   const dispatch = useAppDispatch()
   return (
     <div>

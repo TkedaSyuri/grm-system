@@ -12,7 +12,7 @@ async function fetcher(key: string) {
 }
 
 const FloorTable: React.FC = () => {
-  const floorData = useAppSelector((state) => state.floorReducer.floorData);
+  const {floorData} = useAppSelector((state) => state.floor);
   const dispatch = useAppDispatch();
   //フロアのデータを取得
   const { data, isLoading, error } = useSWR(
