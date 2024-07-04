@@ -1,10 +1,10 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
-import { closeModal} from "./ModalSlice";
+import { closeModal} from "./modalSlice";
 
 const Modal:React.FC = () => {
 
-  const { roomNumber } = useAppSelector((state) => state.ModalReducer);
+  const { roomNumber } = useAppSelector((state) => state.modalReducer);
   const dispatch = useAppDispatch()
   return (
     <div>

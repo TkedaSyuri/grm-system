@@ -1,7 +1,7 @@
 "use client";
 
-import { changeState, setFloor } from "@/app/features/Redux/FloorTable/FloorSlice";
-import { openModal } from "@/app/features/Redux/Modal/ModalSlice";
+import {setFloor } from "@/app/features/Redux/floor/floorSlice";
+import { openModal } from "@/app/features/Redux/modal/modalSlice";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import { room } from "@/app/features/Types";
 import React, { useEffect } from "react";
@@ -12,7 +12,7 @@ async function fetcher(key: string) {
 }
 
 const FloorTable: React.FC = () => {
-  const floorData = useAppSelector((state) => state.FloorReducer.floorData);
+  const floorData = useAppSelector((state) => state.floorReducer.floorData);
   const dispatch = useAppDispatch();
   //フロアのデータを取得
   const { data, isLoading, error } = useSWR(

@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import FloorReducer from "./FloorTable/FloorSlice";
-import ModalReducer from "./Modal/ModalSlice";
+import floorReducer from "./floor/floorSlice";
+import modalReducer from "./modal/modalSlice";
 
 export const store = configureStore({
   reducer: {
-    FloorReducer,
-    ModalReducer,
+    floorReducer,
+    modalReducer,
   },
 });
 

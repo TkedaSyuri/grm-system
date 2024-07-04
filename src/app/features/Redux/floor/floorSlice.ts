@@ -5,7 +5,7 @@ const initialState: FloorData= {
   floorData:[]
 };
 
-const FloorSlice = createSlice({
+const floorSlice = createSlice({
   name: "floor",
   initialState,
   reducers: {
@@ -24,5 +24,5 @@ const FloorSlice = createSlice({
   },
 });
 
-export default FloorSlice.reducer;
-export const {setFloor,changeState} = FloorSlice.actions
+export default floorSlice.reducer;
+export const {setFloor,changeState} = floorSlice.actions

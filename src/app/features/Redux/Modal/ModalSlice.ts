@@ -10,7 +10,7 @@ const initialState: ModalState = {
   roomNumber: "", 
 };
 
-const ModalSlice = createSlice({
+const modalSlice = createSlice({
   name: "modal",
   initialState,
   reducers: {
@@ -24,5 +24,5 @@ const ModalSlice = createSlice({
   },
 });
 
-export const { openModal, closeModal} = ModalSlice.actions;
-export default ModalSlice.reducer;
+export const { openModal, closeModal} = modalSlice.actions;
+export default modalSlice.reducer;

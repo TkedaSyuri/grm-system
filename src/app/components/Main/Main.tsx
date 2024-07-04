@@ -5,7 +5,7 @@ import StateSign from './MainCompo/StateSign'
 import FloorTable from './MainCompo/FloorTable'
 import FloorLink from './MainCompo/FloorLink'
 import { useAppSelector } from '@/app/features/Redux/hooks'
-import Modal from '@/app/features/Redux/Modal/Modal'
+import Modal from '@/app/features/Redux/modal/Modal'
 
 
 const Main: React.FC = () => {
@@ -14,7 +14,7 @@ useEffect(()=>{
   console.log("fslaj")
   window.addEventListener("mousedown",fadeModal)
 })
-  const {isOpen} = useAppSelector((state)=>state.ModalReducer)
+  const {isOpen} = useAppSelector((state)=>state.modalReducer)
 
   return (
     <div className='mt-12'>
