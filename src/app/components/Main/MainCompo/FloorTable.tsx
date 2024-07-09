@@ -1,22 +1,25 @@
 "use client";
 
 import {setFloor } from "@/app/features/Redux/floor/floorSlice";
-import { openModal } from "@/app/features/Redux/modal/modalSlice";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import { room } from "@/app/features/Types";
 import React, { useEffect } from "react";
 import useSWR from "swr";
+import Room from "./Room";
+import Modal from '@/app/features/Redux/modal/Modal'
+
 
 async function fetcher(key: string) {
   return fetch(key).then((res) => res.json());
 }
 
 const FloorTable: React.FC = () => {
-  const {floorData} = useAppSelector((state) => state.floor);
+  const {isOpen} = useAppSelector((state)=>state.modal)
+  const {floorData,floorNumber} = useAppSelector((state) => state.floor);
   const dispatch = useAppDispatch();
   //フロアのデータを取得
   const { data, isLoading, error } = useSWR(
-    "http://localhost:8080/getFloorData",
+    `http://localhost:8080/getFloorData/${floorNumber}`,
     fetcher
   );
 
@@ -34,24 +37,21 @@ const FloorTable: React.FC = () => {
 )
   if (error) return <div>Error: {error.message}</div>;
   return (
-    <div className=" flex justify-center">
+    <div>
+            {isOpen && <Modal />}
+            <div className=" flex justify-strech">
       <div className="grid grid-cols-5 gap-4">
         {floorData.map((roomData: room) => (
-          <div
-            key={roomData.id}
-            className={
-              roomData.roomState === "white"
-                 ? `py-6 px-16 text-2xl font-semibold  bg-${roomData.roomState} border-black flex justify-center border-2 `
-                 : `py-6 px-16 text-2xl font-semibold bg-${roomData.roomState}-500 flex justify-center  border-2 border-black `
-             }
-             onClick={()=>dispatch(openModal(roomData.roomNumber))}
-          >
-            <div>
-            {roomData.roomNumber}
-            </div>
-          </div>
+          <Room 
+          key={roomData.id}
+          id={roomData.id}
+          roomNumber={roomData.roomNumber}
+          roomState={roomData.roomState}
+          />
         ))}
       </div>
+    </div>
+
     </div>
   );
 };

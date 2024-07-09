@@ -1,9 +1,10 @@
 export interface room {
-id: number;
-roomNumber: string;
-roomState: string;
+  id: number;
+  roomNumber: string;
+  roomState: string;
 }
 
 export interface FloorData {
-    floorData: room[]
+  floorData: room[];
+  floorNumber: string;
 }

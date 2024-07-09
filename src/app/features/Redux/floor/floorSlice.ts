@@ -2,7 +2,8 @@ import { createSlice, PayloadAction,createAsyncThunk} from "@reduxjs/toolkit";
 import { FloorData, room} from "../../Types";
 
 const initialState: FloorData= {
-  floorData:[]
+  floorData:[],
+  floorNumber: "2"
 };
 
 const floorSlice = createSlice({
@@ -11,6 +12,9 @@ const floorSlice = createSlice({
   reducers: {
     setFloor: (state, action: PayloadAction<room[]>) => {
       state.floorData = action.payload;
+    },
+    changeFloor: (state,action)=>{
+      state.floorNumber = action.payload;
     },
     changeState: (state, action: PayloadAction<{ id: number; ChangRoomState: string }>) => {
       const { id, ChangRoomState } = action.payload;
@@ -25,4 +29,4 @@ const floorSlice = createSlice({
 });
 
 export default floorSlice.reducer;
-export const {setFloor,changeState} = floorSlice.actions
+export const {setFloor,changeFloor,changeState} = floorSlice.actions
