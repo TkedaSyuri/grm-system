@@ -1,5 +1,4 @@
 
-
 import Main from "./components/Main/Main";
 import ChatBar from "./components/ChatBar/ChatBar";
 
@@ -15,5 +14,6 @@ export default function Home() {
         </div>
       </div>
     </main>
+
   );
 }

@@ -1,24 +1,21 @@
 "use client"
-
-import React, { useEffect } from 'react'
+import React from 'react'
 import StateSign from './MainCompo/StateSign'
 import FloorTable from './MainCompo/FloorTable'
 import FloorLink from './MainCompo/FloorLink'
-import { useAppSelector } from '@/app/features/Redux/hooks'
-import Modal from '@/app/features/Redux/modal/Modal'
+import { Provider } from "react-redux";
+import { store } from "../../features/Redux/store";
+
+
+
+
 
 
 const Main: React.FC = () => {
-  const fadeModal = ()=> !isOpen
-useEffect(()=>{
-  console.log("fslaj")
-  window.addEventListener("mousedown",fadeModal)
-})
-  const {isOpen} = useAppSelector((state)=>state.modal)
 
   return (
+    <Provider store={store}>
     <div className='mt-12'>
-      {isOpen && <Modal />}
       <div className=''>
         <StateSign />
       </div>
@@ -29,6 +26,8 @@ useEffect(()=>{
         <FloorLink/>
       </div>
     </div>
+    </Provider>
+
   )
 }
 
