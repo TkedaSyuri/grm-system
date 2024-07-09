@@ -1,11 +1,13 @@
-"use client"
 
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Provider } from "react-redux";
-import { store } from "./features/Redux/store";
-
+import { Metadata } from "next";
 const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "GRM-SYSTEM",
+  description: "Please Check Gest Room",
+};
 
 
 export default function RootLayout({
@@ -16,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={inter.className}>
-        <Provider store={store}>{children}</Provider>
+          {children}
       </body>
     </html>
   );
