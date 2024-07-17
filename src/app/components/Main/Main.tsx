@@ -16,7 +16,7 @@ const Main: React.FC = () => {
   return (
     <Provider store={store}>
     <div className='mt-12'>
-      <div className=''>
+      <div>
         <StateSign />
       </div>
       <div className="py-14">
