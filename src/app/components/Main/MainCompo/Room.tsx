@@ -1,6 +1,6 @@
 "use client";
 
-import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
+import { useAppDispatch } from "@/app/features/Redux/hooks";
 import { openModal } from "@/app/features/Redux/modal/modalSlice";
 import React from "react";
 
@@ -30,8 +30,10 @@ const Room: React.FC<RoomProps> = (props) => {
   return (
     <div
       key={id}
-      className={`${color} py-6 px-16 text-2xl font-semibold   border-black flex justify-center border-2`}
-      onClick={() => dispatch(openModal(roomNumber))}
+      className={`${color} py-6 px-16 text-2xl font-semibold   border-black flex justify-center border-2  overflow-hidden rounded transition-all duration-300  hover:ring-4 hover:ring-green-600 hover:ring-offset-2 cursor-default`}
+      onClick={() =>
+        dispatch(openModal({ roomNumber: roomNumber, roomId: id }))
+      }
     >
       <div>{roomNumber}</div>
     </div>
