@@ -3,8 +3,6 @@ import React from 'react'
 import StateSign from './MainCompo/StateSign'
 import FloorTable from './MainCompo/FloorTable'
 import FloorLink from './MainCompo/FloorLink'
-import { Provider } from "react-redux";
-import { store } from "../../features/Redux/store";
 
 
 
@@ -12,9 +10,7 @@ import { store } from "../../features/Redux/store";
 
 
 const Main: React.FC = () => {
-
   return (
-    <Provider store={store}>
     <div className='mt-12'>
       <div>
         <StateSign />
@@ -26,8 +22,6 @@ const Main: React.FC = () => {
         <FloorLink/>
       </div>
     </div>
-    </Provider>
-
   )
 }
 
