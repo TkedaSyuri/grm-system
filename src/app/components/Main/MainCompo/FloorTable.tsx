@@ -1,37 +1,24 @@
 "use client";
 
-import {setFloor } from "@/app/features/Redux/floor/floorSlice";
-import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
+import { useAppSelector } from "@/app/features/Redux/hooks";
 import { room } from "@/app/features/Types";
-import React, { useEffect } from "react";
-import useSWR from "swr";
+import React from "react";
 import Room from "./Room";
 import Modal from '@/app/features/Redux/modal/Modal'
+import { useGetData } from "@/app/features/hooks/useGetData";
 
-
-async function fetcher(key: string) {
-  return fetch(key).then((res) => res.json());
-}
 
 const FloorTable: React.FC = () => {
   const {isOpen} = useAppSelector((state)=>state.modal)
   const {floorData,floorNumber} = useAppSelector((state) => state.floor);
-  const dispatch = useAppDispatch();
-  //フロアのデータを取得
-  const { data, isLoading, error } = useSWR(
-    `http://localhost:8080/getFloorData/${floorNumber}`,
-    fetcher
-  );
 
-  useEffect(() => {
-    if (data) {
-      dispatch(setFloor(data));
-    }
-  }, [dispatch, data]);
+  //フロアのデータを取得
+  const {isLoading,error} = useGetData(floorNumber)
+
 
   if (isLoading) return (
   <div className="font-bold">
-    Loading...
+    フロアのデータを取得中...
     <div className="animate-ping w-8 h-8 bg-blue-600 rounded-full"></div>
     </div>
 )
