@@ -3,7 +3,7 @@
 import React, { useRef, useState } from "react";
 import io from "socket.io-client";
 
-const socket = io("http://localhost:8080");
+const socket = io(`${process.env.NEXT_PUBLIC_API_BASEURL}`);
 
 interface chatMessage {
   message: string;
