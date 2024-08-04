@@ -17,7 +17,7 @@ const FloorTable: React.FC = () => {
 
 
   if (isLoading) return (
-  <div className="font-bold">
+  <div className="font-bold text-white text-4xl">
     フロアのデータを取得中...
     <div className="animate-ping w-8 h-8 bg-blue-600 rounded-full"></div>
     </div>

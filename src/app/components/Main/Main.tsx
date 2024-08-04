@@ -11,8 +11,8 @@ import FloorLink from './MainCompo/FloorLink'
 
 const Main: React.FC = () => {
   return (
-    <div className='mt-12'>
-      <div>
+    <div className='mt-12 '>
+      <div >
         <StateSign />
       </div>
       <div className="py-14">

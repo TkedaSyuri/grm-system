@@ -25,17 +25,6 @@ export const useGetData = (floorNumber: string) => {
     }
   }, [dispatch, data]);
 
-  
-
-  // if (isLoading) return (
-  //   <div className="font-bold">
-  //     Loading...
-  //    <div className="animate-ping w-8 h-8 bg-blue-600 rounded-full"></div>
-  //   </div>
-  // )
-  //   if (error) return <div>Error: {error.message}</div>;
-  
-  
 
 
 
