@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { TypedUseSelectorHook, useDispatch } from "react-redux";
-import { store } from "./store";
+import { store } from "@/app/features/Redux/store";
 
 
 

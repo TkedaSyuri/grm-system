@@ -3,7 +3,7 @@
 import { useAppSelector } from "@/app/features/Redux/hooks";
 import { room } from "@/app/features/Types";
 import React from "react";
-import Room from "./Room";
+import Room from "@/app/components/Main/MainCompo/Room";
 import Modal from "@/app/features/Redux/modal/Modal";
 import { useGetData } from "@/app/features/hooks/useGetData";
 

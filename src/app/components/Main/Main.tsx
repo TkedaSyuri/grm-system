@@ -1,8 +1,8 @@
 "use client"
 import React from 'react'
-import StateSign from './MainCompo/StateSign'
-import FloorTable from './MainCompo/FloorTable'
-import FloorLink from './MainCompo/FloorLink'
+import StateSign from '@/app/components/Main/MainCompo/StateSign'
+import FloorLink from '@/app/components/Main/MainCompo/FloorLink'
+import FloorTable from '@/app/components/Main/MainCompo/FloorTable'
 
 
 
