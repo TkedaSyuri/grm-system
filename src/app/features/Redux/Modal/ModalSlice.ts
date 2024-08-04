@@ -2,7 +2,7 @@
 import { createSlice, PayloadAction,createAsyncThunk } from "@reduxjs/toolkit";
 import { ModalState } from "../../Types";
 
-const apiUrl = "http://localhost:8080/editRoomState/"
+const apiUrl = `${process.env.NEXT_PUBLIC_API_BASEURL}/editRoomState/`
 
 interface UpdateRoomStatePayload {
   state: string;
