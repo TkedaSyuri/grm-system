@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import floorReducer from "@/app/features/Redux/floor/floorSlice";
-import modalReducer from "@/app/features/Redux/modal/modalSlice";
+import floorReducer from "./floor/floorSlice";
+import modalReducer from "./modal/modalSlice";
 
 export const store = configureStore({
   reducer: {

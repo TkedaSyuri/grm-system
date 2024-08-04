@@ -1,9 +1,8 @@
 
-import { useEffect } from "react";
 import useSWR from "swr";
-import { useAppDispatch } from "@/app/features/Redux/hooks";
-import { setFloor } from "@/app/features/Redux/floor/floorSlice";
-
+import { useEffect } from "react";
+import { useAppDispatch } from "../Redux/hooks";
+import { setFloor } from "../Redux/floor/floorSlice";
 async function fetcher(key: string) {
   return fetch(key).then((res) => res.json());
 }

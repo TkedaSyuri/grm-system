@@ -1,6 +1,6 @@
 
 import { createSlice, PayloadAction,createAsyncThunk } from "@reduxjs/toolkit";
-import { ModalState } from "@/app/features/Types";
+import { ModalState } from "../../Types";
 
 const apiUrl = "http://localhost:8080/editRoomState/"
 

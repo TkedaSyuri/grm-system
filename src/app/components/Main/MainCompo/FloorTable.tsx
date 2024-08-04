@@ -1,12 +1,11 @@
 "use client";
 
+import { useGetData } from "@/app/features/hooks/useGetData";
 import { useAppSelector } from "@/app/features/Redux/hooks";
+import Modal from "@/app/features/Redux/modal/Modal";
 import { room } from "@/app/features/Types";
 import React from "react";
-import Room from "@/app/components/Main/MainCompo/Room";
-import Modal from "@/app/features/Redux/modal/Modal";
-import { useGetData } from "@/app/features/hooks/useGetData";
-
+import Room from "./Room";
 const FloorTable: React.FC = () => {
   //ModalSliceから値を取得する
   const { isOpen } = useAppSelector((state) => state.modal);

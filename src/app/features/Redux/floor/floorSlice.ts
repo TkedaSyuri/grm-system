@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction} from "@reduxjs/toolkit";
-import { FloorData, room} from "@/app/features/Types";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { FloorData, room } from "../../Types";
 
 const initialState: FloorData= {
   floorData:[],

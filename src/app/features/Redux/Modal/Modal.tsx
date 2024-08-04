@@ -1,7 +1,7 @@
 
 import React from "react";
-import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
-import { closeModal, fetchAsyncUpdate } from "@/app/features/Redux/modal/modalSlice";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { closeModal, fetchAsyncUpdate } from "./modalSlice";
 
 const Modal: React.FC = () => {
   const { roomNumber, roomId } = useAppSelector((state) => state.modal);
