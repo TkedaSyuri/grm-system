@@ -1,4 +1,4 @@
-import { changeFloor } from "@/app/features/Redux/Floor/floorSlice";
+import { changeFloor } from "@/app/features/Redux/Floor/FloorSlice";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import React from "react";
 

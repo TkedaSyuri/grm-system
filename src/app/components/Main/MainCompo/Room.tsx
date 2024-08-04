@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppDispatch } from "@/app/features/Redux/hooks";
-import { openModal } from "@/app/features/Redux/Modal/modalSlice";
+import { openModal } from "@/app/features/Redux/Modal/ModalSlice";
 import React from "react";
 
 interface RoomProps {
