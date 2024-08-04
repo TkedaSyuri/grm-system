@@ -4,7 +4,7 @@ import { useAppSelector } from "@/app/features/Redux/hooks";
 import { room } from "@/app/features/Types";
 import React from "react";
 import Room from "./Room";
-import Modal from "../../../features/Redux/modal/Modal";
+import Modal from "@/app/features/Redux/modal/Modal";
 import { useGetData } from "@/app/features/hooks/useGetData";
 
 const FloorTable: React.FC = () => {
