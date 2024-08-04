@@ -2,7 +2,7 @@
 import useSWR from "swr";
 import { useEffect } from "react";
 import { useAppDispatch } from "../Redux/hooks";
-import { setFloor } from "../Redux/floor/floorSlice";
+import { setFloor } from "../Redux/Floor/floorSlice";
 async function fetcher(key: string) {
   return fetch(key).then((res) => res.json());
 }
