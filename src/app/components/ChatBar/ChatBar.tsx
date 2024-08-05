@@ -13,8 +13,8 @@ const ChatBar: React.FC = () => {
   const [chatList, setChatList] = useState<Array<ChatMessage>>([]);
   const messageRef = useRef<HTMLInputElement | null>(null);
 
+      // サーバーからメッセージのデータを受け取る。
   useEffect(() => {
-    // サーバーからデータを受け取る。
     socket.on("received_message", (data: ChatMessage) => {
       setChatList((prevChatList) => [...prevChatList, data]);
     });
