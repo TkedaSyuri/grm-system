@@ -18,7 +18,6 @@ const ChatBar: React.FC = () => {
     socket.on("received_message", (data: ChatMessage) => {
       setChatList((prevChatList) => [...prevChatList, data]);
     });
-
     return () => {
       socket.off("received_message");
     };
