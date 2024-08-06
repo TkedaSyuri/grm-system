@@ -6,6 +6,7 @@ import Modal from "@/app/features/Redux/Modal/Modal";
 import { Rooms } from "@/app/features/Types";
 import React from "react";
 import Room from "./Room";
+
 const FloorTable: React.FC = () => {
   //ModalSliceから値を取得する
   const { isOpen } = useAppSelector((state) => state.modal);
@@ -18,8 +19,7 @@ const FloorTable: React.FC = () => {
   if (isLoading)
     return (
       <div className="font-bold text-white text-4xl">
-        フロアのデータを取得中...
-        <div className="animate-ping w-8 h-8 bg-blue-600 rounded-full"></div>
+        <div className="animate-ping w-8 h-8 bg-blue-600 rounded-full"> フロアのデータを取得中...</div>
       </div>
     );
 
