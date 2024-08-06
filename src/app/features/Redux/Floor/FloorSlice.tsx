@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { FloorData, Rooms, RoomState } from "../../Types";
+import { FloorData, Rooms} from "../../Types";
 
 const initialState: FloorData= {
   floorData:[],
@@ -14,7 +14,7 @@ const floorSlice = createSlice({
     setFloor: (state, action: PayloadAction<Rooms[]>) => {
       state.floorData = action.payload;
     },
-    //フロアを
+    //クリックしたフロアに変更
     changeFloor: (state,action)=>{
       state.floorNumber = action.payload;
     },
