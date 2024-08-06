@@ -9,13 +9,11 @@ async function fetcher(key: string) {
 
 
 
-
-
 //フロアのデータを取得するカスタムフック
 export const useGetData = (floorNumber: string) => {
   const dispatch = useAppDispatch();
   const { data, isLoading, error } = useSWR(
-    `${process.env.NEXT_PUBLIC_API_BASEURL}/getFloorData/${floorNumber}` || `http://localhost:10000/getFloorData/${floorNumber}`,
+    `${process.env.NEXT_PUBLIC_API_BASEURL}/getFloorData/${floorNumber}` ,
     fetcher,
     {
       refreshInterval: 1000,
