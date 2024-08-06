@@ -1,13 +1,9 @@
 
 import { createSlice, PayloadAction,createAsyncThunk } from "@reduxjs/toolkit";
-import { ModalState } from "../../Types";
+import { ModalState, UpdateRoomStatePayload } from "../../Types";
 
 const apiUrl = `${process.env.NEXT_PUBLIC_API_BASEURL}/editRoomState/`
 
-interface UpdateRoomStatePayload {
-  state: string;
-  roomId: number;
-}
 
 export const fetchAsyncUpdate =createAsyncThunk("room/put",async ({ state, roomId }: UpdateRoomStatePayload,thunkAPI)=>{
   try {
