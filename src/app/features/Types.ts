@@ -1,7 +1,9 @@
-//floorSliceで使用するinterface
+/*floorSliceで使用するinterface*/
+
+//roomStateの型エイリアス
 export type RoomState  =  "white" | "red" | "blue" | "green" | "gray"
 
-
+//roomsの
 export interface Rooms {
   id: number;
   roomNumber: string ;
