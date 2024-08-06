@@ -1,11 +1,13 @@
 //floorSliceで使用するinterface
+export type RoomState  =  "white" | "red" | "blue" | "green" | "gray"
+
+
 export interface Rooms {
   id: number;
   roomNumber: string ;
-  roomState:  "white" | "red" | "blue" | "green" | "gray";
+  roomState:  RoomState;
 }
 
-export type RoomState  =  "white" | "red" | "blue" | "green" | "gray"
 
 export interface FloorData {
   floorData: Rooms[];
