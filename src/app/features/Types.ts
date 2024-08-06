@@ -2,7 +2,7 @@
 export interface room {
   id: number;
   roomNumber: string ;
-  roomState: string;
+  roomState:  "white" | "red" | "blue" | "green" | "gray";
 }
 
 export interface FloorData {

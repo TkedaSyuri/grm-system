@@ -16,7 +16,7 @@ const floorSlice = createSlice({
     changeFloor: (state,action)=>{
       state.floorNumber = action.payload;
     },
-    changeState: (state, action: PayloadAction<{ id: number; ChangRoomState: string }>) => {
+    changeState: (state, action: PayloadAction<{ id: number; ChangRoomState: "white" | "red" | "blue" | "green" | "gray" }>) => {
       const { id, ChangRoomState } = action.payload;
       
       const roomToUpdate = state.floorData.find(room => room.id === id);
