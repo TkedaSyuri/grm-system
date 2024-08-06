@@ -18,7 +18,7 @@ export const fetchAsyncUpdate =createAsyncThunk("room/put",async ({ state, roomI
        body: JSON.stringify({ roomState: `${state}` }),
      });
      if (!response.ok) {
-      return thunkAPI.rejectWithValue('Failed to update room state');
+      return thunkAPI.rejectWithValue('部屋のステータス変更に失敗しました。');
     }
      return response.json()
    } catch (err) {
