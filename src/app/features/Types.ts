@@ -1,12 +1,14 @@
-//floorSliceで使用するType
-export interface room {
+//floorSliceで使用するinterface
+export interface Room {
   id: number;
   roomNumber: string ;
   roomState:  "white" | "red" | "blue" | "green" | "gray";
 }
 
+export type RoomState  =  "white" | "red" | "blue" | "green" | "gray"
+
 export interface FloorData {
-  floorData: room[];
+  floorData: Room[];
   floorNumber: string;
 }
 
