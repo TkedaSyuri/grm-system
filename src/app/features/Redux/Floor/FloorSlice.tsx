@@ -18,16 +18,8 @@ const floorSlice = createSlice({
     changeFloor: (state,action)=>{
       state.floorNumber = action.payload;
     },
-    changeState: (state, action: PayloadAction<{ id: number; ChangRoomState: RoomState}>) => {
-      const { id, ChangRoomState } = action.payload;
-      
-      const roomToUpdate = state.floorData.find(room => room.id === id);
-      if (roomToUpdate) {
-        roomToUpdate.roomState = ChangRoomState ;
-      }
-    }
   },
 });
 
 export default floorSlice.reducer;
-export const {setFloor,changeFloor,changeState} = floorSlice.actions
+export const {setFloor,changeFloor} = floorSlice.actions
