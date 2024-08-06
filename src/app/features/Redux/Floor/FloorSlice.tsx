@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { FloorData, Room, RoomState } from "../../Types";
+import { FloorData, Rooms, RoomState } from "../../Types";
 
 const initialState: FloorData= {
   floorData:[],
@@ -10,9 +10,11 @@ const floorSlice = createSlice({
   name: "floor",
   initialState,
   reducers: {
-    setFloor: (state, action: PayloadAction<Room[]>) => {
+    //取得してきたデータをstoreにセット
+    setFloor: (state, action: PayloadAction<Rooms[]>) => {
       state.floorData = action.payload;
     },
+    //フロアを
     changeFloor: (state,action)=>{
       state.floorNumber = action.payload;
     },
@@ -23,7 +25,6 @@ const floorSlice = createSlice({
       if (roomToUpdate) {
         roomToUpdate.roomState = ChangRoomState ;
       }
-      
     }
   },
 });

@@ -3,7 +3,7 @@
 import { useGetData } from "@/app/features/hooks/useGetData";
 import { useAppSelector } from "@/app/features/Redux/hooks";
 import Modal from "@/app/features/Redux/Modal/Modal";
-import { room } from "@/app/features/Types";
+import { Rooms } from "@/app/features/Types";
 import React from "react";
 import Room from "./Room";
 const FloorTable: React.FC = () => {
@@ -29,7 +29,7 @@ const FloorTable: React.FC = () => {
       {isOpen && <Modal />}
       <div className=" flex justify-strech">
         <div className="grid grid-cols-5 gap-4">
-          {floorData.map((roomData: room) => (
+          {floorData.map((roomData: Rooms) => (
             <Room
               key={roomData.id}
               id={roomData.id}
