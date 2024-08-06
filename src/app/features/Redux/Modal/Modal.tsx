@@ -2,13 +2,14 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { closeModal, fetchAsyncUpdate } from "./ModalSlice";
+import { RoomState } from "../../Types";
 
 const Modal: React.FC = () => {
   const { roomNumber, roomId } = useAppSelector((state) => state.modal);
   const dispatch = useAppDispatch();
 
   //roomのroomStateの状態を変更
-  const renewState= async(state: string,roomId: number)=>{
+  const renewState= async(state: RoomState,roomId: number)=>{
     await dispatch(fetchAsyncUpdate({state,roomId}))
     dispatch(closeModal())
   }
