@@ -2,8 +2,8 @@ import { changeFloor } from "@/app/features/Redux/Floor/FloorSlice";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import React from "react";
 
-//フロアの階用の配列
-const RoomNumbers  = Array.from({ length: 14 }, (_, i) => i + 1);
+//フロア番号の配列
+const RoomNumbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, , 11, 12, 13, 14];
 
 const FloorLink: React.FC = () => {
   const {floorNumber} = useAppSelector((state)=>state.floor)
