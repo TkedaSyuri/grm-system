@@ -1,18 +1,13 @@
 
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../hooks";
-import { closeModal, fetchAsyncUpdate } from "./ModalSlice";
-import { RoomState } from "../../Types";
+import { closeModal} from "./ModalSlice";
+import StateButn from "./StateBtn";
 
 const Modal: React.FC = () => {
-  const { roomNumber, roomId } = useAppSelector((state) => state.modal);
+  const { roomNumber} = useAppSelector((state) => state.modal);
   const dispatch = useAppDispatch();
 
-  //roomのroomStateの状態を変更
-  const renewState= async(state: RoomState,roomId: number)=>{
-    await dispatch(fetchAsyncUpdate({state,roomId}))
-    dispatch(closeModal())
-  }
 
   return (
     <div>
@@ -22,38 +17,11 @@ const Modal: React.FC = () => {
             部屋番号 {roomNumber}
           </div>
           <div className="text-4xl my-4 flex gap-3  ">
-            <div
-             className="border-4 border-black px-6 hover:bg-slate-100"
-             onClick={()=>renewState("white",roomId)}
-             >
-              空室
-            </div>
-            <div
-              className="border-4 border-black px-3  bg-red-400  hover:bg-red-600"
-              onClick={()=>renewState("red",roomId)}
-              >
-              在室中
-            </div>
-            <div
-              className="border-4 border-black px-3  bg-blue-400  hover:bg-blue-600 "
-              onClick={()=>renewState("blue",roomId)}
-
-            >
-              清掃中
-            </div>
-            <div
-              className="border-4 border-black bg-green-400 hover:bg-green-600  "
-              onClick={()=>renewState("green",roomId)}
-
-            >
-              清掃完了
-            </div>
-            <div className="border-4 border-black bg-gray-400  hover:bg-gray-600 "
-             onClick={()=>renewState("gray",roomId)}
-
-            >
-              清掃不要
-            </div>
+            <StateButn color="white" text="空室" bg="bg-white" bgHover="hover:bg-slate-100"/>
+            <StateButn color="red" text="在室中" bg="bg-red-400" bgHover="hover:bg-red-600"/>
+            <StateButn color="blue" text="清掃中" bg="bg-blue-400"  bgHover="hover:bg-blue-600"/>
+            <StateButn color="green" text="清掃完了" bg="bg-green-400"  bgHover="hover:bg-green-600"/>
+            <StateButn color="gray" text="清掃不要" bg="bg-gray-400"  bgHover="hover:bg-gray-600"/>
           </div>
           <div
             className="text-2xl flex justify-end"
