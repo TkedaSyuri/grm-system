@@ -2,7 +2,7 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { closeModal} from "./ModalSlice";
-import StateButn from "./StateBtn";
+import StateBtn from "./StateBtn";
 
 const Modal: React.FC = () => {
   const { roomNumber} = useAppSelector((state) => state.modal);
@@ -17,11 +17,11 @@ const Modal: React.FC = () => {
             部屋番号 {roomNumber}
           </div>
           <div className="text-4xl my-4 flex gap-3  ">
-            <StateButn color="white" text="空室" bg="bg-white" bgHover="hover:bg-slate-100"/>
-            <StateButn color="red" text="在室中" bg="bg-red-400" bgHover="hover:bg-red-600"/>
-            <StateButn color="blue" text="清掃中" bg="bg-blue-400"  bgHover="hover:bg-blue-600"/>
-            <StateButn color="green" text="清掃完了" bg="bg-green-400"  bgHover="hover:bg-green-600"/>
-            <StateButn color="gray" text="清掃不要" bg="bg-gray-400"  bgHover="hover:bg-gray-600"/>
+            <StateBtn color="white" text="空室" bg="bg-white" bgHover="hover:bg-slate-100"/>
+            <StateBtn color="red" text="在室中" bg="bg-red-400" bgHover="hover:bg-red-600"/>
+            <StateBtn color="blue" text="清掃中" bg="bg-blue-400"  bgHover="hover:bg-blue-600"/>
+            <StateBtn color="green" text="清掃完了" bg="bg-green-400"  bgHover="hover:bg-green-600"/>
+            <StateBtn color="gray" text="清掃不要" bg="bg-gray-400"  bgHover="hover:bg-gray-600"/>
           </div>
           <div
             className="text-2xl flex justify-end"

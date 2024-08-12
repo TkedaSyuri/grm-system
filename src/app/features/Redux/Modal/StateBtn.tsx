@@ -10,7 +10,7 @@ interface StateBtnProps {
   bgHover: string
 }
 
-const StateButn:React.FC<StateBtnProps> = (props)=> {
+const StateBtn:React.FC<StateBtnProps> = (props)=> {
   const { roomId } = useAppSelector((state) => state.modal);
   const dispatch = useAppDispatch();
 const {color,text,bgHover,bg} = props
@@ -31,4 +31,4 @@ const {color,text,bgHover,bg} = props
   );
 };
 
-export default StateButn;
+export default StateBtn;
