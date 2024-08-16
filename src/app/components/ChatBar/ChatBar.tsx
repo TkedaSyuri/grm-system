@@ -32,11 +32,6 @@ const ChatBar: React.FC = () => {
     }
   };
 
-  const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      submitMessage();
-    }
-  };
 
   return (
     <div className="w-96 h-full border-2 border-black flex flex-col">
@@ -56,7 +51,7 @@ const ChatBar: React.FC = () => {
           placeholder="チャットを入力"
           className="outline-none w-full"
           ref={messageRef}
-          onKeyDown={handleEnter}
+          // onKeyDown={handleEnter}
         />
         <button
           onClick={submitMessage}

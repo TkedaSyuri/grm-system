@@ -1,6 +1,6 @@
 "use client";
 
-import { useGetData } from "@/app/features/hooks/useGetData";
+import { useGetData} from "@/app/features/hooks/useGetData";
 import { useAppSelector } from "@/app/features/Redux/hooks";
 import Modal from "@/app/features/Redux/Modal/Modal";
 import { Rooms } from "@/app/features/Types";
@@ -18,13 +18,21 @@ const FloorTable: React.FC = () => {
 
   if (isLoading)
     return (
-      <div className="font-bold text-white text-4xl">
+  <div className="flex justify-center"> 
+      <div className="font-bold text-white text-4xl flex justify-normal">
         <div className="animate-ping w-8 h-8 bg-blue-600 rounded-full"></div>
-        フロアのデータを取得中...
+        <div>フロアのデータを取得中...</div>
       </div>
+
+  </div>
     );
 
-  if (error) return <div>Error: {error.message}</div>;
+  if (error) return 
+  (
+  <div>
+    Error: "データを取得出来ません"
+  </div>)
+
   return (
     <div>
       {isOpen && <Modal />}
@@ -36,6 +44,7 @@ const FloorTable: React.FC = () => {
               id={roomData.id}
               roomNumber={roomData.roomNumber}
               roomState={roomData.roomState}
+              isConsec = {roomData.isConsec}
             />
           ))}
         </div>
