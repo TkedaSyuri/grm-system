@@ -16,7 +16,7 @@ export const useGetData = (floorNumber: string) => {
     `${process.env.NEXT_PUBLIC_API_BASEURL}/getFloorData/${floorNumber}` ,
     fetcher,
     {
-      refreshInterval: 1000,
+      refreshInterval: 3000,
     }
   );
 
