@@ -44,7 +44,6 @@ const FloorTable: React.FC = () => {
               id={roomData.id}
               roomNumber={roomData.roomNumber}
               roomState={roomData.roomState}
-              isConsec = {roomData.isConsec}
             />
           ))}
         </div>
