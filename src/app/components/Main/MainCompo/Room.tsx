@@ -8,11 +8,12 @@ interface RoomProps {
   id: number;
   roomNumber: string;
   roomState: string;
+  isConsec: boolean;
 }
 
 const Room: React.FC<RoomProps> = (props) => {
   const dispatch = useAppDispatch();
-  const { id, roomNumber, roomState } = props;
+  const { id, roomNumber, roomState, isConsec } = props;
 
   let color = "";
   if (roomState === "white") {
@@ -30,12 +31,22 @@ const Room: React.FC<RoomProps> = (props) => {
   return (
     <div
       key={id}
-      className={`${color} py-6 px-16 text-2xl font-semibold   border-black flex justify-center border-2  overflow-hidden rounded transition-all duration-300  hover:ring-4 hover:ring-green-600 hover:ring-offset-2 cursor-default`}
+      className={`${color} py-8 px-16 text-2xl font-semibold   border-black flex justify-center border-2  overflow-hidden rounded transition-all duration-300  hover:ring-4 hover:ring-green-600 hover:ring-offset-2 cursor-default`}
       onClick={() =>
         dispatch(openModal({ roomNumber: roomNumber, roomId: id }))
       }
     >
-      <div>{roomNumber}</div>
+      <div className=" w-auto whitespace-nowrap ">
+        <div> {roomNumber}</div>
+        <div>
+          {isConsec && roomState !== "white" ? (
+            <div className="flex justify-center absolute px-1 bg-yellow-400 rounded-sm text-xl">
+              連泊
+            </div>
+          ) : null}
+        </div>
+      </div>
+      {/* <button onClick={()=>setIsTrue(!isTrue)}>ボタン</button> */}
     </div>
   );
 };
