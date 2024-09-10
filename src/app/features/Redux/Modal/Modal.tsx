@@ -1,4 +1,3 @@
-import React from "react";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { closeModal, fetchAsyncToggleConsec } from "./ModalSlice";
 import StateBtn from "./StateBtn";

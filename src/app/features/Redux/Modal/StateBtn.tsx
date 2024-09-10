@@ -1,4 +1,3 @@
-import React from "react";
 import { RoomState } from "../../Types";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { closeModal, fetchAsyncUpdate } from "./ModalSlice";
