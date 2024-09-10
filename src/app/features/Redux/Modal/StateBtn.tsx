@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../hooks";
 import { closeModal, fetchAsyncUpdate } from "./ModalSlice";
 
 interface StateBtnProps {
-  color: RoomState
+  state: RoomState
   text:string
   bg: string
   bgHover: string
@@ -13,7 +13,7 @@ interface StateBtnProps {
 const StateBtn:React.FC<StateBtnProps> = (props)=> {
   const { roomId } = useAppSelector((state) => state.modal);
   const dispatch = useAppDispatch();
-const {color,text,bgHover,bg} = props
+const {state,text,bgHover,bg} = props
 
   //roomのroomStateの状態を変更
   const renewState = async (state: RoomState, roomId: number) => {
@@ -24,7 +24,7 @@ const {color,text,bgHover,bg} = props
   return (
     <div
       className={`border-4 border-black px-6 ${bg} ${bgHover}`}
-      onClick={() => renewState(`${color}`, roomId)}
+      onClick={() => renewState(`${state}`, roomId)}
     >
       {text}
     </div>
