@@ -14,7 +14,6 @@ const StateBtn:React.FC<StateBtnProps> = (props)=> {
   const dispatch = useAppDispatch();
 const {state,text,bgHover,bg} = props
 
-  //roomのroomStateの状態を変更
   const renewState = async (state: RoomState, roomId: number) => {
     await dispatch(fetchAsyncUpdate({ state, roomId }));
     dispatch(closeModal());

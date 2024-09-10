@@ -9,7 +9,6 @@ async function fetcher(key: string) {
 
 
 
-//フロアのデータを取得するカスタムフック
 export const useGetData = (floorNumber: string) => {
   const dispatch = useAppDispatch();
   const { data, isLoading, error } = useSWR(
@@ -22,7 +21,6 @@ export const useGetData = (floorNumber: string) => {
 
   useEffect(() => {
     if (data) {
-      //取得したデータでstoreを更新
       dispatch(setFloor(data));
     }
   }, [dispatch, data]);

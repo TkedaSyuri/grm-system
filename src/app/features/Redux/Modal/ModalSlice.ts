@@ -5,7 +5,6 @@ const apiUrl = `${process.env.NEXT_PUBLIC_API_BASEURL}`;
 
 
 
-//roomの状態を変更するapi
 export const fetchAsyncUpdate = createAsyncThunk(
   "room/put",
   async ({ state, roomId }: UpdateRoomState, thunkAPI) => {

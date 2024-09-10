@@ -10,11 +10,9 @@ const floorSlice = createSlice({
   name: "floor",
   initialState,
   reducers: {
-    //取得してきたデータをstoreにセット
     setFloor: (state, action: PayloadAction<Rooms[]>) => {
       state.floorData = action.payload;
     },
-    //クリックしたフロアに変更
     changeFloor: (state,action)=>{
       state.floorNumber = action.payload;
     },
