@@ -46,7 +46,6 @@ const Room: React.FC<RoomProps> = (props) => {
           ) : null}
         </div>
       </div>
-      {/* <button onClick={()=>setIsTrue(!isTrue)}>ボタン</button> */}
     </div>
   );
 };
