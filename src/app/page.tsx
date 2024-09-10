@@ -1,6 +1,6 @@
 
-import ChatBar from "./components/ChatBar/ChatBar";
-import Main from "./components/Main/Main";
+import ChatBar from "../components/ChatBar/ChatBar";
+import Main from "../components/Main/Main";
 import { Providers } from "./features/Redux/provider";
 
 export default function Home() {
