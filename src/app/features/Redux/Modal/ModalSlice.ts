@@ -29,13 +29,22 @@ export const fetchAsyncToggleConsec = createAsyncThunk(
   "isConsec/toggle",
   async (roomId: number, thunkAPI) => {
     try {
+      const currentIsConsecRes = await fetch(`${apiUrl}/isConsec/${roomId}`);
+      if (!currentIsConsecRes .ok) {
+        return thunkAPI.rejectWithValue("現在の状態の取得に失敗しました。");
+      }
+      const currentIsConsec = await currentIsConsecRes.json();
+      const isConsec = currentIsConsec.is_ConsecRoom;
+
+      const reversedIsConsec = !isConsec 
+
       const response = await fetch(`${apiUrl}/isConsec/${roomId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ is_ConsecRoom: true }),
+        body: JSON.stringify({ is_ConsecRoom: reversedIsConsec }),
       });
       if (!response.ok) {
-        return thunkAPI.rejectWithValue("isConsecの変更に失敗しました。");
+        return thunkAPI.rejectWithValue("真偽値の変更に失敗しました。");
       }
       return response.json();
     } catch (err) {
