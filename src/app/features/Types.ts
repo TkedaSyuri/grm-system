@@ -1,13 +1,14 @@
 /*floorSliceで使用するinterface*/
 
 //roomStateの型エイリアス
-export type RoomState  =  "white" | "red" | "blue" | "green" | "gray"
+export type RoomState  =  "white" | "red" | "blue" | "green" | "gray" 
 
 //roomsで使用
 export interface Rooms {
   id: number;
   roomNumber: string ;
   roomState:  RoomState;
+  is_ConsecRoom: boolean;
 }
 
 //initialStateで使用
@@ -20,7 +21,7 @@ export interface FloorData {
 /*ModalSliceで使用するinterface*/
 
 //fetchAsyncUpdateで使用
-export interface UpdateRoomStatePayload {
+export interface UpdateRoomState {
   state: RoomState;
   roomId: number;
 }
