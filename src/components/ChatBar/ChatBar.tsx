@@ -43,18 +43,18 @@ const ChatBar: React.FC = () => {
           </div>
         ))}
       </div>
-      <div className="border-t-2 p-2 flex">
+      <div className="border-t-2 p-2 flex ">
         <input
           type="text"
           placeholder="チャットを入力"
-          className="outline-none w-full"
           ref={messageRef}
+          className="outline-none w-full rounded-lg"
         />
         <button
           onClick={submitMessage}
-          className="px-1 bg-green-500 border-2 border-gray-500"
+          className="px-1 ml-1 bg-green-500 border-2 border-gray-500 hover:bg-green-300 rounded-lg"
         >
-          <FiSend />
+          <FiSend className="text-xl"/>
         </button>
       </div>
     </div>
