@@ -11,7 +11,7 @@ interface ChatMessage {
 
 const ChatBar: React.FC = () => {
   const [chatList, setChatList] = useState<Array<ChatMessage>>([]);
-  const messageRef = useRef<HTMLInputElement | null>(null);
+  const messageRef = useRef<HTMLTextAreaElement | null>(null);
 
   useEffect(() => {
     socket.on("received_message", (data: ChatMessage) => {
@@ -30,7 +30,6 @@ const ChatBar: React.FC = () => {
     }
   };
 
-
   return (
     <div className="w-96 h-full border-2 border-black flex flex-col">
       <div className="py-2 bg-green-500 border-b-2 border-black flex justify-center">
@@ -38,23 +37,22 @@ const ChatBar: React.FC = () => {
       </div>
       <div className="flex-grow bg-white overflow-y-auto">
         {chatList.map((chat, index) => (
-          <div key={index} className="break-words border-b border-black">
+          <div key={index} className="break-words border-b border-gray-200">
             <p>{chat.message}</p>
           </div>
         ))}
       </div>
-      <div className="border-t-2 p-2 flex ">
-        <input
-          type="text"
+      <div className="flex items-center bg-white  p-2">
+        <textarea
           placeholder="チャットを入力"
           ref={messageRef}
-          className="outline-none w-full rounded-lg"
+          className="outline-none flex-grow mr-2 rounded-lg p-2 border overflow-hidden"
         />
         <button
           onClick={submitMessage}
-          className="px-1 ml-1 bg-green-500 border-2 border-gray-500 hover:bg-green-300 rounded-lg"
+          className="bg-green-500 p-2 border-2 border-gray-500 hover:bg-green-300 rounded-lg"
         >
-          <FiSend className="text-xl"/>
+          <FiSend className="text-xl" />
         </button>
       </div>
     </div>
