@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
-import { ModalState, UpdateRoomState } from "../../Types";
+import { InitialModalState, UpdateRoomState } from "../../Types";
 
 const apiUrl = `${process.env.NEXT_PUBLIC_API_BASEURL}`;
 
@@ -55,7 +55,7 @@ export const fetchAsyncToggleConsec = createAsyncThunk(
 
 
 
-const initialState: ModalState = {
+const initialState: InitialModalState = {
   isOpen: false,
   roomNumber: "",
   roomId: 0,
