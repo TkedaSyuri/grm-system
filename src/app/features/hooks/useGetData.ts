@@ -11,7 +11,7 @@ async function fetcher(key: string) {
 
 export const useGetData = (floorNumber: string) => {
   const dispatch = useAppDispatch();
-  const { data, isLoading, error } = useSWR(
+  const { data, isLoading } = useSWR(
     `${process.env.NEXT_PUBLIC_API_BASEURL}/getFloorData/${floorNumber}` ,
     fetcher,
     {
@@ -24,13 +24,9 @@ export const useGetData = (floorNumber: string) => {
       dispatch(setFloor(data));
     }
   }, [dispatch, data]);
-
-
-
-
+  
   return {
     data,
     isLoading,
-    error,
   };
 };
