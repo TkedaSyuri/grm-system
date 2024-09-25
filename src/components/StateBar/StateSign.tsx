@@ -2,7 +2,7 @@ import React from 'react'
 
 const StateSign: React.FC = () => {
   return (
-    <div className="flex justify-evenly">
+    <div className="flex justify-between">
     <div className="bg-white text-2xl py-2 px-6 border-2 border-black ">
       空室
     </div>

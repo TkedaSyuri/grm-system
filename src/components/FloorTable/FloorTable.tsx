@@ -4,13 +4,13 @@ import { useGetData} from "@/app/features/hooks/useGetData";
 import { useAppSelector } from "@/app/features/Redux/hooks";
 import Modal from "@/app/features/Redux/Modal/Modal";
 import { Rooms } from "@/app/features/Types";
-import Room from "./Room";
+import Room from "@/components/Room/Room";
 
 const FloorTable: React.FC = () => {
   const { isOpen } = useAppSelector((state) => state.modal);
   const { floorData, floorNumber } = useAppSelector((state) => state.floor);
 
-  const { isLoading, error } = useGetData(floorNumber);
+  const { isLoading } = useGetData(floorNumber);
 
   if (isLoading)
     return (
@@ -22,13 +22,7 @@ const FloorTable: React.FC = () => {
 
   </div>
     );
-
-  if (error) return 
-  (
-  <div>
-    Error: "データを取得出来ません"
-  </div>)
-
+    
   return (
     <div>
       {isOpen && <Modal />}
