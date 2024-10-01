@@ -49,7 +49,7 @@ export const fetchAsyncSingup = createAsyncThunk(
   async ({ staffName, email, password }: SignupValue) => {
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/auth/signup`,
+        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/staff/signup`,
         {
           method: "POST",
           headers: {
