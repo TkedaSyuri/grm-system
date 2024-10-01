@@ -1,7 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { FloorData, Rooms} from "../../Main/Types";
+import {  Rooms} from "../../Main/Types";
 
-const initialState: FloorData= {
+export interface FloorInitialState {
+  floorData: Rooms[];
+  floorNumber: string;
+}
+
+
+const initialState: FloorInitialState= {
   floorData:[],
   floorNumber: "2"
 };
