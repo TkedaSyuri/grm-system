@@ -68,7 +68,7 @@ export const fetchAsyncSingup = createAsyncThunk(
       }
     } catch (err: any) {
       console.log(err);
-      alert(`エラー: ${err.message}`);
+      alert(`ログイン失敗${err.message}`);
     }
   }
 );
