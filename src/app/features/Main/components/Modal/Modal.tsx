@@ -1,6 +1,6 @@
-import { useAppDispatch, useAppSelector } from "../hooks";
-import { closeModal, fetchAsyncToggleConsec } from "./ModalSlice";
-import StateBtn from "./StateBtn";
+import { useAppDispatch, useAppSelector } from "../../../Redux/hooks";
+import { closeModal, fetchAsyncToggleConsec } from "../../../Redux/Modal/ModalSlice";
+import StateBtn from "./StateBtn/StateBtn";
 import { IoMdClose } from "react-icons/io";
 
 const Modal: React.FC = () => {
@@ -11,7 +11,6 @@ const handleIsConsec = async( roomId: number)=>{
     await dispatch(fetchAsyncToggleConsec(roomId));
     dispatch(closeModal());
 }
-
 
   return (
     <div>
@@ -51,12 +50,12 @@ const handleIsConsec = async( roomId: number)=>{
               bg="bg-gray-400"
               bgHover="hover:bg-gray-600"
             />
-            <div
+            <button
               className="border-4 border-black px-6 bg-yellow-400 hover:bg-yellow-500"
               onClick={()=>handleIsConsec(roomId)}
             >
               連泊
-            </div>
+            </button>
           </div>
           <div
             className="text-4xl font-normal flex justify-end items-center"

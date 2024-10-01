@@ -1,6 +1,6 @@
-import { RoomState } from "../../Types";
-import { useAppDispatch, useAppSelector } from "../hooks";
-import { closeModal, fetchAsyncUpdate } from "./ModalSlice";
+import { RoomState } from "../../../Types";
+import { useAppDispatch, useAppSelector } from "../../../../Redux/hooks";
+import { closeModal, fetchAsyncUpdate } from "../../../../Redux/Modal/ModalSlice";
 
 interface StateBtnProps {
   state: RoomState

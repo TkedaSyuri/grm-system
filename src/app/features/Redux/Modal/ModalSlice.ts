@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
-import { InitialModalState, UpdateRoomState } from "../../Types";
+import {  UpdateRoomState } from "../../Main/Types";
 
-const apiUrl = `${process.env.NEXT_PUBLIC_API_BASEURL}`;
+
 
 
 
@@ -9,7 +9,7 @@ export const fetchAsyncUpdate = createAsyncThunk(
   "room/put",
   async ({ state, roomId }: UpdateRoomState, thunkAPI) => {
     try {
-      const response = await fetch(`${apiUrl}/editRoomState/${roomId}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/editRoomState/${roomId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ roomState: `${state}` }),
@@ -29,7 +29,7 @@ export const fetchAsyncToggleConsec = createAsyncThunk(
   "isConsec/toggle",
   async (roomId: number, thunkAPI) => {
     try {
-      const currentIsConsecRes = await fetch(`${apiUrl}/isConsec/${roomId}`);
+      const currentIsConsecRes = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/isConsec/${roomId}`);
       if (!currentIsConsecRes .ok) {
         return thunkAPI.rejectWithValue("現在の状態の取得に失敗しました。");
       }
@@ -38,7 +38,7 @@ export const fetchAsyncToggleConsec = createAsyncThunk(
 
       const reversedIsConsec = !isConsec 
 
-      const response = await fetch(`${apiUrl}/isConsec/${roomId}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/isConsec/${roomId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ is_ConsecRoom: reversedIsConsec }),
@@ -53,9 +53,14 @@ export const fetchAsyncToggleConsec = createAsyncThunk(
   }
 );
 
+interface ModalInitialState {
+  isOpen: boolean;
+  roomNumber: string; 
+  roomId: number;
 
+}
 
-const initialState: InitialModalState = {
+const initialState: ModalInitialState = {
   isOpen: false,
   roomNumber: "",
   roomId: 0,

@@ -18,16 +18,4 @@ export interface UpdateRoomState {
   roomId: number;
 }
 
-export interface InitialModalState {
-  isOpen: boolean;
-  roomNumber: string; 
-  roomId: number;
-
-}
-
-export interface SignUpForm {
-  name: string;
-  email: string;
-  password: string;
-}
 
