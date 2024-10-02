@@ -5,11 +5,16 @@ import StateSign from "../features/Main/components/StateBar/StateSign";
 import FloorTable from "../features/Main/components/FloorTable/FloorTable";
 import FloorLink from "../features/Main/components/FloorLink/FloorLink";
 import ChatBar from "../features/Main/components/ChatBar/ChatBar";
-import { useAppSelector } from "../features/Redux/hooks";
+import { useAppDispatch, useAppSelector } from "../features/Redux/hooks";
+import { LuLogOut } from "react-icons/lu";
+import { fetchAsyncLogout } from "../features/Redux/Auth/AuthSlice";
 
 export default function Home() {
+  const dispatch = useAppDispatch();
   const { staff } = useAppSelector((state) => state.staff);
-  console.log(staff)
+  const logoutStaff = () => {
+    dispatch(fetchAsyncLogout());
+  };
   return (
     <main className=" flex min-h-fit overflow-hidden">
       <div className="flex" style={{ width: "1280px" }}>
@@ -18,14 +23,28 @@ export default function Home() {
         </div>
         <div className="w-3/5">
           <div className="mt-12 ">
-            <div className="font-semibold text-white flex justify-end pb-2 ">
-              <Link
-                href="/auth/login"
-                className="border-b hover:text-green-400 duration-300 "
-              >
-                スタッフはこちらへ
-              </Link>
-            </div>
+            {staff ? (
+              <div className=" pb-2 text-white font-semibold hover:text-green-400  flex justify-end items-center ">
+                <button
+                  className="border-b duration-300 cursor-pointer"
+                  onClick={() => {
+                    logoutStaff();
+                  }}
+                >
+                  ログアウト
+                </button>
+                <LuLogOut />
+              </div>
+            ) : (
+              <div className="font-semibold text-white flex justify-end pb-2 ">
+                <Link
+                  href="/auth/login"
+                  className="border-b hover:text-green-400 duration-300 cursor-pointer "
+                >
+                  スタッフはこちらへ
+                </Link>
+              </div>
+            )}
             <div>
               <StateSign />
             </div>

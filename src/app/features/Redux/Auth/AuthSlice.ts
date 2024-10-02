@@ -84,7 +84,21 @@ const token = localStorage.getItem("localJWT")
     }
   );
   const data = await res.json()
-  console.log(data)
+  return data;
+});
+
+export const fetchAsyncLogout = createAsyncThunk("staff/logout", async () => {
+const token = localStorage.getItem("localJWT")
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASEURL}/api/staff/find`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+  const data = await res.json()
   return data;
 });
 
@@ -99,23 +113,22 @@ interface initialStaffState {
 
 const initialState: initialStaffState = {
   staff: null 
-
 };
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {
-    logout: (state, action) => {
-      state.staff = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchAsyncStaff.fulfilled, (state, action) => {
       state.staff = action.payload;
+    });
+    builder.addCase(fetchAsyncLogout.fulfilled, (state, action) => {
+      localStorage.removeItem("localJWT")
+      delete action.payload.token
+      state.staff = null;
     });
   },
 });
 
 export default authSlice.reducer;
-export const { logout } = authSlice.actions;
