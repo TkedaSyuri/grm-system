@@ -2,6 +2,7 @@
 import { FiSend } from "react-icons/fi";
 import React, { useRef, useState, useEffect } from "react";
 import io from "socket.io-client";
+import { useAppSelector } from "@/app/features/Redux/hooks";
 
 const socket = io(`${process.env.NEXT_PUBLIC_API_BASEURL}`);
 
@@ -10,6 +11,7 @@ interface ChatMessage {
 }
 
 const ChatBar: React.FC = () => {
+  const { staff } = useAppSelector((state) => state.staff);
   const [chatList, setChatList] = useState<Array<ChatMessage>>([]);
   const messageRef = useRef<HTMLTextAreaElement | null>(null);
 
@@ -42,19 +44,21 @@ const ChatBar: React.FC = () => {
           </div>
         ))}
       </div>
-      <div className="flex items-center bg-white  p-2">
-        <textarea
-          placeholder="チャットを入力"
-          ref={messageRef}
-          className="outline-none flex-grow mr-2 rounded-lg p-2 border overflow-hidden"
-        />
-        <button
-          onClick={submitMessage}
-          className="bg-green-500 p-2 border-2 border-gray-500 hover:bg-green-300 rounded-lg"
-        >
-          <FiSend className="text-xl" />
-        </button>
-      </div>
+      {staff && (
+        <div className="flex items-center bg-white  p-2">
+          <textarea
+            placeholder="チャットを入力"
+            ref={messageRef}
+            className="outline-none flex-grow mr-2 rounded-lg p-2 border overflow-hidden"
+          />
+          <button
+            onClick={submitMessage}
+            className="bg-green-500 p-2 border-2 border-gray-500 hover:bg-green-300 rounded-lg"
+          >
+            <FiSend className="text-xl" />
+          </button>
+        </div>
+      )}
     </div>
   );
 };

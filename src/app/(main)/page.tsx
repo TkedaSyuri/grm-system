@@ -41,7 +41,7 @@ export default function Home() {
                   href="/auth/login"
                   className="border-b hover:text-green-400 duration-300 cursor-pointer "
                 >
-                  スタッフはこちらへ
+                  フロントスタッフはこちらへ
                 </Link>
               </div>
             )}
