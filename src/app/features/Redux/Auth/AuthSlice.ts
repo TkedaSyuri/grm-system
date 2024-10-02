@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { number } from "zod";
 
 interface LoginValue {
   email: string;
@@ -103,14 +102,11 @@ const initialState: initialStaffState = {
 
 };
 
-const loginSlice = createSlice({
-  name: "staff",
+const authSlice = createSlice({
+  name: "auth",
   initialState,
   reducers: {
-    logIn: (state, action) => {
-      state.staff = action.payload;
-    },
-    logOut: (state, action) => {
+    logout: (state, action) => {
       state.staff = action.payload;
     },
   },
@@ -121,5 +117,5 @@ const loginSlice = createSlice({
   },
 });
 
-export default loginSlice.reducer;
-export const { logIn, logOut } = loginSlice.actions;
+export default authSlice.reducer;
+export const { logout } = authSlice.actions;
