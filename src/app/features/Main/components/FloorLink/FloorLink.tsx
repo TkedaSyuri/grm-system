@@ -13,7 +13,7 @@ const FloorLink: React.FC = () => {
         {RoomNumbers.map((roomNumber, index) => (
           <button
             key={index}
-            className="font-bold text-2xl hover:text-green-500 duration-500 cursor-pointer "
+            className="font-bold text-2xl hover:text-green-500 duration-500 cursor-default"
             onClick={() => dispatch(changeFloor(roomNumber))}
           >
             <p>{roomNumber}F</p>
