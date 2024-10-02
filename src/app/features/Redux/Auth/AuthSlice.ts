@@ -104,9 +104,8 @@ const token = localStorage.getItem("localJWT")
 
 interface initialStaffState {
   staff: null | {
-    staffId: number;
+    staffId: number
     staffName: string;
-    email: string;
   };
 }
 
