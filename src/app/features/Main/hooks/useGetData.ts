@@ -12,7 +12,7 @@ async function fetcher(key: string) {
 export const useGetData = (floorNumber: string) => {
   const dispatch = useAppDispatch();
   const { data, isLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_API_BASEURL}/getFloorData/${floorNumber}` ,
+    `${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/get/floor/${floorNumber}` ,
     fetcher,
     {
       refreshInterval: 3000,

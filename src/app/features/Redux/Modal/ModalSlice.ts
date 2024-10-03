@@ -15,7 +15,7 @@ export const fetchAsyncUpdate = createAsyncThunk(
   "room/put",
   async ({ state, roomId }: UpdateRoomState, thunkAPI) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/editRoomState/${roomId}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/edit/room-state/${roomId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ roomState: `${state}` }),
@@ -35,7 +35,7 @@ export const fetchAsyncToggleConsec = createAsyncThunk(
   "isConsec/toggle",
   async (roomId: number, thunkAPI) => {
     try {
-      const currentIsConsecRes = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/isConsec/${roomId}`);
+      const currentIsConsecRes = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/get/is-consecutive-nights/${roomId}`);
       if (!currentIsConsecRes .ok) {
         return thunkAPI.rejectWithValue("現在の状態の取得に失敗しました。");
       }
@@ -44,7 +44,7 @@ export const fetchAsyncToggleConsec = createAsyncThunk(
 
       const reversedIsConsec = !isConsec 
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/isConsec/${roomId}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/edit/is-consecutive-nights/${roomId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ is_ConsecRoom: reversedIsConsec }),
