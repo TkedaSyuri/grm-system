@@ -3,7 +3,6 @@ import { FiSend } from "react-icons/fi";
 import React, { useRef, useState, useEffect } from "react";
 import io from "socket.io-client";
 import { useAppSelector } from "@/app/features/Redux/hooks";
-import { useGetTasks } from "../../hooks/useGetTask";
 
 const socket = io(`${process.env.NEXT_PUBLIC_API_BASEURL}`);
 
@@ -16,7 +15,6 @@ const ChatBar: React.FC = () => {
   const { taskData } = useAppSelector((state) => state.task);
   const [chatList, setChatList] = useState<Array<ChatMessage>>([]);
   const messageRef = useRef<HTMLTextAreaElement | null>(null);
-  const { isLoading } = useGetTasks();
 
   useEffect(() => {
     socket.on("received_message", (data: ChatMessage) => {
@@ -46,14 +44,6 @@ const ChatBar: React.FC = () => {
             <p>{chat.message}</p>
           </div>
         ))}
-                    <div>
-              {taskData.map((task) => (
-                <div key={task.id}>
-                  <h2 className="text-bÏlack">{task.task}</h2>
-                </div>
-              ))}
-            </div>
-
       </div>
       {staff && (
         <div className="flex items-center bg-white  p-2">
