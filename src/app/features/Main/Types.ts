@@ -9,3 +9,9 @@ export interface Rooms {
   is_ConsecRoom: boolean;
 }
 
+export interface Tasks {
+  id: number;
+  task: string;
+  isCompleted: boolean
+}
+
