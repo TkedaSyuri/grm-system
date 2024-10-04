@@ -1,18 +1,16 @@
-
 import useSWR from "swr";
 import { useEffect } from "react";
 import { useAppDispatch } from "../../Redux/hooks";
-import { setFloor } from "../../Redux/Floor/FloorSlice";
+import { setFloor } from "@/app/features/Redux/floor/floorSlice";
+
 async function fetcher(key: string) {
   return fetch(key).then((res) => res.json());
 }
 
-
-
 export const useGetData = (floorNumber: string) => {
   const dispatch = useAppDispatch();
   const { data, isLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/get/floor/${floorNumber}` ,
+    `${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/get/floor/${floorNumber}`,
     fetcher,
     {
       refreshInterval: 3000,
@@ -24,7 +22,7 @@ export const useGetData = (floorNumber: string) => {
       dispatch(setFloor(data));
     }
   }, [dispatch, data]);
-  
+
   return {
     data,
     isLoading,

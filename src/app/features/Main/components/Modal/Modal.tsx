@@ -2,7 +2,7 @@ import { useAppDispatch, useAppSelector } from "../../../Redux/hooks";
 import {
   closeModal,
   fetchAsyncToggleConsec,
-} from "../../../Redux/Modal/ModalSlice";
+} from "../../../Redux/modal/modalSlice";
 import StateBtn from "./StateBtn/StateBtn";
 import { IoMdClose } from "react-icons/io";
 

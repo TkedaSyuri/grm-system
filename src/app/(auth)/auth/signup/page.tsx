@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { signupFormSchema } from "@/app/features/Auth/utils/AuthFormSchema";
-import { fetchAsyncSingup } from "@/app/features/Redux/Auth/AuthSlice";
+import { fetchAsyncSingup } from "@/app/features/Redux/auth/authSlice";
 import { useAppDispatch } from "@/app/features/Redux/hooks";
 
 export interface SignUpForm {

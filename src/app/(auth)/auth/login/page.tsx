@@ -8,7 +8,7 @@ import Link from "next/link";
 import {
   fetchAsyncLogin,
   fetchAsyncStaff,
-} from "@/app/features/Redux/Auth/AuthSlice";
+} from "@/app/features/Redux/auth/authSlice";
 import { useAppDispatch} from "@/app/features/Redux/hooks";
 
 interface LoginForm {

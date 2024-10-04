@@ -6,8 +6,8 @@ import FloorTable from "../features/Main/components/FloorTable/FloorTable";
 import FloorLink from "../features/Main/components/FloorLink/FloorLink";
 import ChatBar from "../features/Main/components/ChatBar/ChatBar";
 import { useAppDispatch, useAppSelector } from "../features/Redux/hooks";
+import { fetchAsyncLogout } from "../features/Redux/auth/authSlice";
 import { LuLogOut } from "react-icons/lu";
-import { fetchAsyncLogout } from "../features/Redux/Auth/AuthSlice";
 
 export default function Home() {
   const dispatch = useAppDispatch();
@@ -15,6 +15,7 @@ export default function Home() {
   const logoutStaff = () => {
     dispatch(fetchAsyncLogout());
   };
+  
   return (
     <main className=" flex min-h-fit overflow-hidden">
       <div className="flex" style={{ width: "1280px" }}>
