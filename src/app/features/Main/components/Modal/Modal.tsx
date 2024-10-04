@@ -12,8 +12,12 @@ const Modal: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const handleIsConsec = async (roomId: number) => {
-    await dispatch(fetchAsyncToggleConsec(roomId));
-    dispatch(closeModal());
+    try{
+      await dispatch(fetchAsyncToggleConsec(roomId));
+      dispatch(closeModal());
+    }catch(err){
+      console.log(err)
+    }
   };
 
   return (
