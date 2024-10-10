@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
 interface LoginValue {
   email: string;
@@ -119,13 +119,13 @@ const authSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchAsyncStaff.fulfilled, (state, action) => {
+    builder.addCase(fetchAsyncStaff.fulfilled, (state, action:PayloadAction<{staffId: number;staffName: string;}>) => {
       state.staff = action.payload;
     });
     builder.addCase(fetchAsyncLogout.fulfilled, (state, action) => {
       localStorage.removeItem("localJWT")
       delete action.payload.token
-      state.staff = null;
+           state.staff = null;
     });
   },
 });
