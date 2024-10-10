@@ -29,7 +29,10 @@ export default function Home() {
                 <button
                   className="border-b duration-300 cursor-pointer"
                   onClick={() => {
+                    const isConfirmed = window.confirm("本当にログアウトしますか？");
+                    if (isConfirmed) {
                     logoutStaff();
+                    }
                   }}
                 >
                   ログアウト
