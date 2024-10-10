@@ -8,6 +8,8 @@ import ChatBar from "../features/Main/components/ChatBar/ChatBar";
 import { useAppDispatch, useAppSelector } from "../features/Redux/hooks";
 import { fetchAsyncLogout } from "../features/Redux/auth/authSlice";
 import { LuLogOut } from "react-icons/lu";
+import {  useEffect, useState } from "react";
+import SideBar from "../features/Main/components/SideBar/SideBar";
 
 export default function Home() {
   const dispatch = useAppDispatch();
@@ -15,6 +17,24 @@ export default function Home() {
   const logoutStaff = () => {
     dispatch(fetchAsyncLogout());
   };
+  const [time, setTime] = useState("");
+  const showNowTime = () => {
+    const now = new Date();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const date = String(now.getDate()).padStart(2, "0");
+    const hour = String(now.getHours()).padStart(2, "0");
+    const minute = String(now.getMinutes()).padStart(2, "0");
+
+    const nowTime = `${month}月${date}日 ${hour}時${minute}分`;
+
+    setTime(nowTime);
+  };
+
+  useEffect(() => {
+    showNowTime();
+    const timer = setInterval(showNowTime, 60 * 1000);
+    return () => clearInterval(timer);
+  }, []);
   
   return (
     <main className=" flex min-h-fit overflow-hidden">
@@ -23,7 +43,8 @@ export default function Home() {
           <ChatBar />
         </div>
         <div className="w-3/5">
-          <div className="mt-12 ">
+          <div className="text-white text-2xl">現在の日時 : {time}</div>
+          <div>
             {staff ? (
               <div className=" pb-2 text-white font-semibold hover:text-green-400  flex justify-end items-center ">
                 <button
