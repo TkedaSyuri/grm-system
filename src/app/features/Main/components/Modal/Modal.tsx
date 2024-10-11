@@ -21,7 +21,6 @@ const Modal: React.FC = () => {
   };
 
   return (
-    <div>
       <div className="bg-black text-lg fixed inset-0 bg-opacity-50 z-50 flex justify-center items-center cursor-default  ">
         <div className="bg-white p-10 ">
           <div className="text-4xl underline font-semibold">
@@ -73,7 +72,6 @@ const Modal: React.FC = () => {
           >
             <IoMdClose className="text-red-600" />
             <p>閉じる</p>
-          </div>
         </div>
       </div>
     </div>
