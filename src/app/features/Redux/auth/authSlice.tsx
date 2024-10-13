@@ -11,38 +11,6 @@ interface SignupValue {
   password: string;
 }
 
-
-export const fetchAsyncLogin = createAsyncThunk(
-  "login/post",
-  async ({ email, password }: LoginValue) => {
-    try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/auth/login`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: email,
-            password: password,
-          }),
-        }
-      );
-      if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.message);
-      }
-      const data = await res.json();
-      const token = data.token
-      localStorage.setItem("localJWT", token);
-    } catch (err: any) {
-      console.log(err);
-      alert(`エラー: ${err.message}`);
-    }
-  }
-);
-
 export const fetchAsyncSingup = createAsyncThunk(
   "register/post",
   async ({ staffName, email, password }: SignupValue) => {
@@ -72,8 +40,41 @@ export const fetchAsyncSingup = createAsyncThunk(
   }
 );
 
+export const fetchAsyncLogin = createAsyncThunk(
+  "login/post",
+  async ({ email, password }: LoginValue) => {
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/auth/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password,
+          }),
+        }
+      );
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.message);
+      }
+      const data = await res.json();
+      const token = data.token;
+      if (token) {
+        localStorage.setItem("localJWT", token);
+      }
+    } catch (err: any) {
+      console.log(err);
+      alert(`エラー: ${err.message}`);
+    }
+  }
+);
+
 export const fetchAsyncStaff = createAsyncThunk("staff/get", async () => {
-const token = localStorage.getItem("localJWT")
+  const token = localStorage.getItem("localJWT");
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_BASEURL}/api/staff/find`,
     {
@@ -83,12 +84,12 @@ const token = localStorage.getItem("localJWT")
       },
     }
   );
-  const data = await res.json()
+  const data = await res.json();
   return data;
 });
 
 export const fetchAsyncLogout = createAsyncThunk("staff/logout", async () => {
-const token = localStorage.getItem("localJWT")
+  const token = localStorage.getItem("localJWT");
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_BASEURL}/api/staff/find`,
     {
@@ -98,20 +99,19 @@ const token = localStorage.getItem("localJWT")
       },
     }
   );
-  const data = await res.json()
+  const data = await res.json();
   return data;
 });
 
 interface initialStaffState {
   staff: null | {
-    staffId: number
+    staffId: number;
     staffName: string;
   };
 }
 
-
 const initialState: initialStaffState = {
-  staff: null 
+  staff: null,
 };
 
 const authSlice = createSlice({
@@ -119,13 +119,19 @@ const authSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchAsyncStaff.fulfilled, (state, action:PayloadAction<{staffId: number;staffName: string;}>) => {
-      state.staff = action.payload;
-    });
+    builder.addCase(
+      fetchAsyncStaff.fulfilled,
+      (
+        state,
+        action: PayloadAction<{ staffId: number; staffName: string }>
+      ) => {
+        state.staff = action.payload;
+      }
+    );
     builder.addCase(fetchAsyncLogout.fulfilled, (state, action) => {
-      localStorage.removeItem("localJWT")
-      delete action.payload.token
-           state.staff = null;
+      localStorage.removeItem("localJWT");
+      delete action.payload.token;
+      state.staff = null;
     });
   },
 });
