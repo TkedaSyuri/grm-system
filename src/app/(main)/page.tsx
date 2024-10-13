@@ -17,9 +17,16 @@ import {  useEffect, useState } from "react";
 export default function Home() {
   const dispatch = useAppDispatch();
   const { staff } = useAppSelector((state) => state.staff);
+
   const logoutStaff = () => {
+    const isConfirmed =
+    window.confirm("本当にログアウトしますか？");
+  if (isConfirmed) {
     dispatch(fetchAsyncLogout());
+  }
+
   };
+  
   const [time, setTime] = useState("");
   const showNowTime = () => {
     const now = new Date();
@@ -51,13 +58,8 @@ export default function Home() {
             {staff ? (
               <div className=" pb-2 text-white font-semibold hover:text-green-400  flex justify-end items-center ">
                 <button
-                  className="border-b duration-300 cursor-pointer"
-                  onClick={() => {
-                    const isConfirmed = window.confirm("本当にログアウトしますか？");
-                    if (isConfirmed) {
-                    logoutStaff();
-                    }
-                  }}
+                  className="border-b duration-300 cursor-default"
+                  onClick={()=>logoutStaff()}
                 >
                   ログアウト
                 </button>
