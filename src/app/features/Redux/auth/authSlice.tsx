@@ -103,14 +103,14 @@ export const fetchAsyncLogout = createAsyncThunk("staff/logout", async () => {
   return data;
 });
 
-interface initialStaffState {
+interface InitialStaffState {
   staff: null | {
     staffId: number;
     staffName: string;
   };
 }
 
-const initialState: initialStaffState = {
+const initialState: InitialStaffState = {
   staff: null,
 };
 

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface initialToggleState {
+interface InitialToggleState {
   isModalOpen: boolean;
   isBarOpen: boolean;
   isCompletedTaskOpen: boolean;
@@ -8,7 +8,7 @@ interface initialToggleState {
   roomId: number;
 }
 
-const initialState: initialToggleState = {
+const initialState: InitialToggleState = {
   isModalOpen: false,
   isBarOpen: false,
   isCompletedTaskOpen: false,
