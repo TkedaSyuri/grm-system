@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppDispatch } from "@/app/features/Redux/hooks";
-import { openModal } from "@/app/features/Redux/modal/modalSlice";
+import { openModal } from "@/app/features/Redux/toggle/toggleSlice";
 
 interface RoomProps {
   id: number;

@@ -1,13 +1,11 @@
 import { useAppDispatch, useAppSelector } from "../../../Redux/hooks";
-import {
-  closeModal,
-  fetchAsyncToggleConsec,
-} from "../../../Redux/modal/modalSlice";
+import { closeModal } from "@/app/features/Redux/toggle/toggleSlice";
 import StateBtn from "./StateBtn/StateBtn";
-import { IoMdClose } from "react-icons/io";
+import { RiArrowGoBackFill } from "react-icons/ri";
+import { fetchAsyncToggleConsec } from "@/app/features/Redux/floor/floorSlice";
 
 const Modal: React.FC = () => {
-  const { roomNumber, roomId } = useAppSelector((state) => state.modal);
+  const { roomNumber, roomId } = useAppSelector((state) => state.toggle);
   const { staff } = useAppSelector((state) => state.staff);
   const dispatch = useAppDispatch();
 
@@ -67,14 +65,14 @@ const Modal: React.FC = () => {
             )}
           </div>
           <div
-            className="text-4xl font-normal flex justify-end items-center"
+            className="text-4xl font-normal flex justify-end items-center "
             onClick={() => dispatch(closeModal())}
           >
-            <IoMdClose className="text-red-600" />
-            <p>閉じる</p>
+            <RiArrowGoBackFill className="text-red-600" />
+            <p>戻る</p>
+          </div>
         </div>
       </div>
-    </div>
   );
 };
 

@@ -1,19 +1,17 @@
-"use client";
-import { FiSend } from "react-icons/fi";
-import React, { useRef, useState, useEffect } from "react";
-import io from "socket.io-client";
 import { useAppSelector } from "@/app/features/Redux/hooks";
-
-const socket = io(`${process.env.NEXT_PUBLIC_API_BASEURL}`);
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { FiSend } from "react-icons/fi";
+import io from "socket.io-client";
 
 interface ChatMessage {
   message: string;
 }
 
-const ChatBar: React.FC = () => {
-  const { staff } = useAppSelector((state) => state.staff);
-  const { taskData } = useAppSelector((state) => state.task);
+const socket = io(`${process.env.NEXT_PUBLIC_API_BASEURL}`);
+
+const ChatBar = () => {
   const [chatList, setChatList] = useState<Array<ChatMessage>>([]);
+  const { staff } = useAppSelector((state) => state.staff);
   const messageRef = useRef<HTMLTextAreaElement | null>(null);
 
   useEffect(() => {
@@ -25,28 +23,26 @@ const ChatBar: React.FC = () => {
     };
   }, []);
 
-  const submitMessage = () => {
+  const submitMessage = useCallback(() => {
     if (messageRef.current?.value) {
       const message = messageRef.current?.value.trim();
       socket.emit("send_message", { message });
       messageRef.current.value = "";
     }
-  };
+  }, []);
 
   return (
-    <div className="w-96 h-full border-2 border-black flex flex-col">
-      <div className="py-2 bg-green-500 border-b-2 border-black flex justify-center">
-        連絡チャット
-      </div>
-      <div className="flex-grow bg-white ">
+    <div className="flex flex-col h-full">
+
+      <div className="flex-grow bg-white overflow-auto">
         {chatList.map((chat, index) => (
-          <div key={index} className="break-words border-b border-gray-200">
+          <div key={index} className="break-words border-b border-gray-200 p-2">
             <p>{chat.message}</p>
           </div>
         ))}
       </div>
-      {staff && (
-        <div className="flex items-center bg-white  p-2">
+      {true && (
+          <div className="p-2 bg-slate-400 flex items-center">
           <textarea
             placeholder="チャットを入力"
             ref={messageRef}
@@ -55,8 +51,9 @@ const ChatBar: React.FC = () => {
           <button
             onClick={submitMessage}
             className="bg-green-500 p-2 border-2 border-gray-500 hover:bg-green-300 rounded-lg"
+            title="メッセージを送信"
           >
-            <FiSend className="text-xl" />
+            <FiSend />
           </button>
         </div>
       )}

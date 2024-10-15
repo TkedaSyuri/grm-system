@@ -4,15 +4,11 @@ import Link from "next/link";
 import StateSign from "../features/Main/components/StateBar/StateSign";
 import FloorTable from "../features/Main/components/FloorTable/FloorTable";
 import FloorLink from "../features/Main/components/FloorLink/FloorLink";
-import ChatBar from "../features/Main/components/ChatBar/ChatBar";
 import { useAppDispatch, useAppSelector } from "../features/Redux/hooks";
 import { fetchAsyncLogout } from "../features/Redux/auth/authSlice";
 import { LuLogOut } from "react-icons/lu";
-import {  useEffect, useState } from "react";
-
-
-
-// import SideBar from "../features/Main/components/SideBar/SideBar";
+import { useEffect, useState } from "react";
+import SideBar from "../features/Main/components/SideBar/SideBar";
 
 export default function Home() {
   const dispatch = useAppDispatch();
@@ -45,14 +41,14 @@ export default function Home() {
     const timer = setInterval(showNowTime, 60 * 1000);
     return () => clearInterval(timer);
   }, []);
-  
+
   return (
-    <main className=" flex min-h-fit overflow-hidden">
-      <div className="flex" style={{ width: "1280px" }}>
-        <div className="w-2/5 flex justify-center h-full">
-          <ChatBar />
+    <main className="  overflow-hidden">
+      <div className="flex w-full max-w-screen-xl mx-auto">
+        <div className="w-4/12">
+          <SideBar />
         </div>
-        <div className="w-3/5">
+        <div className="w-8/12">
           <div className="text-white text-2xl">現在の日時 : {time}</div>
           <div>
             {staff ? (
@@ -69,7 +65,7 @@ export default function Home() {
               <div className="font-semibold text-white flex justify-end pb-2 ">
                 <Link
                   href="/auth/login"
-                  className="border-b hover:text-green-400 duration-300 cursor-pointer "
+                  className="border-b hover:text-green-400 duration-300 cursor-default "
                 >
                   フロントスタッフはこちらへ
                 </Link>
