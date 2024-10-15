@@ -8,7 +8,7 @@ const FloorLink: React.FC = () => {
   const dispatch = useAppDispatch();
   return (
     <div className="text-white grid gap-5">
-      <div className="font-bold text-2xl border-b-2">現在のフロア: {floorNumber}F</div>
+      <div className="font-bold text-2xl border-b-2 cursor-default">現在のフロア: {floorNumber}F</div>
       <div className="flex justify-between gap-5">
         {RoomNumbers.map((roomNumber, index) => (
           <button
