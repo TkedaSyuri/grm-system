@@ -12,6 +12,10 @@ export interface Rooms {
 export interface Tasks {
   id: number;
   task: string;
-  isCompleted: boolean
+  is_completed: boolean
+}
+
+export interface TaskDataProps {
+  taskData: Tasks[];
 }
 
