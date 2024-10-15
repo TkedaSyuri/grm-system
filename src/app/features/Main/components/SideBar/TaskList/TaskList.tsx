@@ -47,10 +47,10 @@ const TaskList: React.FC<TaskDataProps> = ({ taskData }) => {
     ))}
   </div>
 
-  {true && (
+
     <div className="border border-black">
       <div className="p-2 bg-slate-300">
-        {true && (
+        {staff && (
         <div className="flex items-center">
         <textarea
           placeholder="タスクを入力"
@@ -73,7 +73,7 @@ const TaskList: React.FC<TaskDataProps> = ({ taskData }) => {
         </div>
       </div>
     </div>
-  )}
+  
 </div>
   );
 };
