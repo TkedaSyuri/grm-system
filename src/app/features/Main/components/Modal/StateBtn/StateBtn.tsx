@@ -10,10 +10,9 @@ interface StateBtnProps {
   bgHover: string
 }
 
-const StateBtn:React.FC<StateBtnProps> = (props)=> {
+const StateBtn:React.FC<StateBtnProps> = ({state,text,bgHover,bg})=> {
   const { roomId } = useAppSelector((state) => state.toggle);
   const dispatch = useAppDispatch();
-const {state,text,bgHover,bg} = props
 
   const renewState = async (state: RoomState, roomId: number) => {
     await dispatch(fetchAsyncUpdate({ state, roomId }));
