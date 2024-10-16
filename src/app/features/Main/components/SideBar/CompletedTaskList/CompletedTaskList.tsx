@@ -44,14 +44,14 @@ const CompletedTaskList: React.FC<TaskDataProps> = ({ taskData }) => {
           </div>
         ))}
       </div>
-      <div className="p-2 bg-slate-300 border-y border-black flex justify-center ">
-        <button
-          className="p-1 px-10 m-1 font-semibold flex items-center justify-center border border-black bg-orange-500 rounded-sm "
+
+      <div className="p-2 bg-slate-300 border-y border-black  ">
+      <div
+          className="py-1 mt-1 font-semibold text-center bg-orange-500 rounded-sm border border-black cursor-pointer"
           onClick={() => dispatch(toggleCompletedTask())}
         >
           <p>タスク一覧へ戻る</p>
-          <RiArrowGoBackFill />
-        </button>
+        </div>
       </div>
     </div>
   );
