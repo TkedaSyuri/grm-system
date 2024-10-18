@@ -67,7 +67,7 @@ const initialState:InitialTaskState = {
 }
 
 const modalSlice = createSlice({
-    name: "modal",
+    name: "task",
     initialState,
     reducers: {
       setTask: (state,action:PayloadAction<Tasks[]>) => {
