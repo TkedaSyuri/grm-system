@@ -43,12 +43,12 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="  overflow-hidden">
-      <div className="flex w-full max-w-screen-xl mx-auto">
+    <main className="overflow-hidden mb-0">
+      <div className="mt-5 flex w-full max-w-screen-xl mx-auto ">
         <div className="w-4/12">
           <SideBar />
         </div>
-        <div className="w-8/12">
+        <div className=" mt-16  w-8/12 ">
           <div className="text-white text-2xl">現在の日時 : {time}</div>
           <div>
             {staff ? (
@@ -74,7 +74,7 @@ export default function Home() {
             <div>
               <StateSign />
             </div>
-            <div className="py-14">
+            <div className="py-5">
               <FloorTable />
             </div>
             <div>
