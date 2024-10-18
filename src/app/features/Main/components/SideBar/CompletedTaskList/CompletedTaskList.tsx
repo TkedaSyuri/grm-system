@@ -2,7 +2,6 @@ import React from "react";
 import { TaskDataProps} from "../../../../types";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import { fetchAsyncDeleteTask } from "@/app/features/Redux/task/taskSlice";
-import { RiArrowGoBackFill } from "react-icons/ri";
 import { toggleCompletedTask } from "@/app/features/Redux/toggle/toggleSlice";
 
 const CompletedTaskList: React.FC<TaskDataProps> = ({ taskData }) => {
