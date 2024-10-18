@@ -1,16 +1,16 @@
 import useSWR from "swr";
 import { useEffect } from "react";
-import { useAppDispatch } from "../../Redux/hooks";
-import { setTask } from "../../Redux/task/taskSlice";
+import { useAppDispatch } from "../Redux/hooks";
+import { setFloor } from "@/app/features/Redux/floor/floorSlice";
 
 async function fetcher(key: string) {
   return fetch(key).then((res) => res.json());
 }
 
-export const useGetTasks = () => {
+export const useGetData = (floorNumber: string) => {
   const dispatch = useAppDispatch();
   const { data, isLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_API_BASEURL}/api/tasks/all-tasks`,
+    `${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/get/floor/${floorNumber}`,
     fetcher,
     {
       refreshInterval: 3000,
@@ -19,7 +19,7 @@ export const useGetTasks = () => {
 
   useEffect(() => {
     if (data) {
-      dispatch(setTask(data));
+      dispatch(setFloor(data));
     }
   }, [dispatch, data]);
 

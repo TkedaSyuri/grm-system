@@ -1,6 +1,6 @@
 "use client";
 
-import { useGetData } from "@/app/features/Main/hooks/useGetFloor";
+import { useGetData } from "@/app/features/hooks/useGetFloor";
 import { useAppSelector } from "@/app/features/Redux/hooks";
 import { Rooms } from "@/app/features/types";
 import Room from "../Room/Room";
