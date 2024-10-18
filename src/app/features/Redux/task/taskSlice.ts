@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 import { Tasks } from "../../types";
-import { number } from "zod";
 
   interface CompletedTask{
   id: number;
