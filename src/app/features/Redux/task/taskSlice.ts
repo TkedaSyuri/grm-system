@@ -66,7 +66,7 @@ const initialState:InitialTaskState = {
     taskData:[],
 }
 
-const modalSlice = createSlice({
+const taskSlice = createSlice({
     name: "task",
     initialState,
     reducers: {
@@ -76,6 +76,6 @@ const modalSlice = createSlice({
     },
   });
   
-  export const {  setTask } = modalSlice.actions;
-  export default modalSlice.reducer;
+  export const {  setTask } = taskSlice.actions;
+  export default taskSlice.reducer;
    
