@@ -5,8 +5,10 @@ import {
 } from "@/app/features/Redux/task/taskSlice";
 import { useCallback, useRef } from "react";
 import { CiCirclePlus } from "react-icons/ci";
-import { TaskDataProps } from "../../../Types";
+import { TaskDataProps } from "../../../../types";
 import { toggleCompletedTask } from "@/app/features/Redux/toggle/toggleSlice";
+
+
 
 const TaskList: React.FC<TaskDataProps> = ({ taskData }) => {
   const {staff} = useAppSelector((state)=>state.staff)

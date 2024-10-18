@@ -1,4 +1,4 @@
-import { RoomState } from "../../../Types";
+import { RoomState } from "../../../../types";
 import { useAppDispatch, useAppSelector } from "../../../../Redux/hooks";
 import { closeModal } from "@/app/features/Redux/toggle/toggleSlice";
 import { fetchAsyncUpdate } from "@/app/features/Redux/floor/floorSlice";

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import {  Rooms, RoomState} from "../../Main/Types";
+import {  Rooms, RoomState} from "../../types";
 
 export interface UpdateRoomState {
   state: RoomState;
