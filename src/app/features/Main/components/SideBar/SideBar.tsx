@@ -8,7 +8,7 @@ import {
   openChatBar,
 } from "@/app/features/Redux/toggle/toggleSlice";
 
-const SideBar: React.FC = () => {
+const SideBar= () => {
   const { isBarOpen } = useAppSelector((state) => state.toggle);
   const dispatch = useAppDispatch();
   return (
