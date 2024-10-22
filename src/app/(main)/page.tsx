@@ -9,38 +9,20 @@ import { fetchAsyncLogout } from "../features/Redux/auth/authSlice";
 import { LuLogOut } from "react-icons/lu";
 import { useEffect, useState } from "react";
 import SideBar from "../features/Main/components/SideBar/SideBar";
+import { useGetTime } from "../features/hooks/useGetTime";
 
 export default function Home() {
   const dispatch = useAppDispatch();
   const { staff } = useAppSelector((state) => state.staff);
 
   const logoutStaff = () => {
-    const isConfirmed =
-    window.confirm("本当にログアウトしますか？");
-  if (isConfirmed) {
-    dispatch(fetchAsyncLogout());
-  }
-
-  };
-  
-  const [time, setTime] = useState("");
-  const showNowTime = () => {
-    const now = new Date();
-    const month = String(now.getMonth() + 1).padStart(2, "0");
-    const date = String(now.getDate()).padStart(2, "0");
-    const hour = String(now.getHours()).padStart(2, "0");
-    const minute = String(now.getMinutes()).padStart(2, "0");
-
-    const nowTime = `${month}月${date}日 ${hour}時${minute}分`;
-
-    setTime(nowTime);
+    const isConfirmed = window.confirm("本当にログアウトしますか？");
+    if (isConfirmed) {
+      dispatch(fetchAsyncLogout());
+    }
   };
 
-  useEffect(() => {
-    showNowTime();
-    const timer = setInterval(showNowTime, 60 * 1000);
-    return () => clearInterval(timer);
-  }, []);
+  const {time} =useGetTime()
 
   return (
     <main className="overflow-hidden mb-0">
@@ -49,14 +31,13 @@ export default function Home() {
           <SideBar />
         </div>
         <div className=" mt-12  w-8/12 ">
-
           <div className="text-white text-2xl">現在の日時 : {time}</div>
           <div>
             {staff ? (
               <div className=" pb-2 text-white font-semibold hover:text-green-400  flex justify-end items-center ">
                 <button
                   className="border-b duration-300 cursor-default"
-                  onClick={()=>logoutStaff()}
+                  onClick={() => logoutStaff()}
                 >
                   ログアウト
                 </button>
