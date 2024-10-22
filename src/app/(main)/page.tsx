@@ -48,7 +48,8 @@ export default function Home() {
         <div className="w-4/12">
           <SideBar />
         </div>
-        <div className=" mt-16  w-8/12 ">
+        <div className=" mt-12  w-8/12 ">
+
           <div className="text-white text-2xl">現在の日時 : {time}</div>
           <div>
             {staff ? (
