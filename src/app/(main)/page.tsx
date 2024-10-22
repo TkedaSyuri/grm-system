@@ -7,7 +7,6 @@ import FloorLink from "../features/Main/components/FloorLink/FloorLink";
 import { useAppDispatch, useAppSelector } from "../features/Redux/hooks";
 import { fetchAsyncLogout } from "../features/Redux/auth/authSlice";
 import { LuLogOut } from "react-icons/lu";
-import { useEffect, useState } from "react";
 import SideBar from "../features/Main/components/SideBar/SideBar";
 import { useGetTime } from "../features/hooks/useGetTime";
 
