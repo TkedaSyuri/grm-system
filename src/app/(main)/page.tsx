@@ -66,6 +66,7 @@ export default function Home() {
                 <Link
                   href="/auth/login"
                   className="border-b hover:text-green-400 duration-300 cursor-default "
+                  prefetch={false}
                 >
                   フロントスタッフはこちらへ
                 </Link>

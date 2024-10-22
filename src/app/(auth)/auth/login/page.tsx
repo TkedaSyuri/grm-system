@@ -88,6 +88,7 @@ const LoginPage = () => {
               <Link
                 href="/auth/signup"
                 className="text-blue-600 hover:text-green-400 duration-300"
+                prefetch={false}
               >
                 新規登録はこちら
               </Link>
@@ -104,7 +105,7 @@ const LoginPage = () => {
             送信
           </button>
           <div className="pt-3 text-center">
-            <Link href="/">キャンセル</Link>
+            <Link href="/" prefetch={false}>キャンセル</Link>
           </div>
         </form>
       </div>

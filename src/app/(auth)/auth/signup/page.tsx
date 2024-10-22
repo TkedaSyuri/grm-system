@@ -101,7 +101,7 @@ const SignUpPage = () => {
             送信
           </button>
           <div className="pt-3 text-center">
-            <Link href="/" >キャンセル</Link>
+            <Link href="/" prefetch={false} >キャンセル</Link>
           </div>
         </form>
       </div>
