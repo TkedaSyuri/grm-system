@@ -19,3 +19,10 @@ export interface TaskDataProps {
   taskData: Tasks[];
 }
 
+export interface Chats {
+  id:number;
+  message: string;
+  created_at: string
+}
+
+
