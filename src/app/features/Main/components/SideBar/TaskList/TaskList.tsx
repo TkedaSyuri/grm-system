@@ -68,10 +68,10 @@ const TaskList: React.FC<TaskDataProps> = ({ taskData }) => {
 
         )}
         <div
-          className="py-1 mt-1 font-semibold  text-center bg-cyan-500 rounded-sm border border-black cursor-pointer"
+          className="py-1 mt-1 font-semibold  text-center bg-cyan-500 rounded-sm border border-black cursor-pointer hover:text-white duration-300"
           onClick={() => dispatch(toggleCompletedTask())}
         >
-          <p>完了したタスクを確認する</p>
+          <p>完了タスクを確認する</p>
         </div>
       </div>
     </div>

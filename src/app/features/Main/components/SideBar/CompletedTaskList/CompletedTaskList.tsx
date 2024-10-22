@@ -43,7 +43,7 @@ const CompletedTaskList: React.FC<TaskDataProps> = ({ taskData }) => {
 
       <div className="p-2 bg-slate-300 border-y border-black  ">
         <div
-          className="py-1 mt-1 font-semibold text-center bg-green-500 rounded-sm border border-black cursor-pointer"
+          className="py-1 mt-1 font-semibold text-center bg-green-500 rounded-sm border border-black cursor-pointer hover:text-white duration-300"
           onClick={() => dispatch(toggleCompletedTask())}
         >
           <p className="">タスク一覧へ戻る</p>

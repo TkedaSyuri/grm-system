@@ -17,7 +17,7 @@ const SideBar = () => {
     <div className="w-96 h-full border-2 border-black flex flex-col bg-white">
       <div className="flex">
         <div
-          className={`flex-1 px-7 py-1 font-semibold cursor-pointer text-center ${
+          className={`flex-1 px-7 py-1 font-semibold cursor-pointer text-center hover:text-white  hover:bg-green-600 duration-500  ${
             !isBarOpen ? "bg-green-800 text-black " : "  bg-green-600 text-white "
           }`}
           onClick={() => dispatch(openChatBar())}
@@ -27,16 +27,16 @@ const SideBar = () => {
 
         {isCompletedTaskOpen ? (
           <div
-            className={`flex px-7 py-1 font-semibold cursor-pointer text-center  ${
+            className={`flex-1 px-5 py-1 text-center font-semibold hover:text-white  hover:bg-cyan-600 duration-500   cursor-pointer ${
               isBarOpen ? "bg-cyan-800 text-black" : "   bg-cyan-600 text-white"
             }`}
             onClick={() => dispatch(openTaskBar())}
           >
-            完了したタスク一覧
+            完了タスク一覧
           </div>
         ) : (
           <div
-            className={`flex-1 px-7 py-1  font-semibold cursor-pointer text-center ${
+            className={`flex-1 px-5 py-1  text-center font-semibold hover:text-white  hover:bg-green-600 duration-500  cursor-pointer ${
               isBarOpen ? "bg-green-800 text-black " : "  bg-green-600 text-white "
             }`}
             onClick={() => dispatch(openTaskBar())}
