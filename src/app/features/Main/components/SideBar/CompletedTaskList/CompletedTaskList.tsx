@@ -1,5 +1,5 @@
 import React from "react";
-import { TaskDataProps} from "../../../../types";
+import { TaskDataProps } from "../../../../types";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import { fetchAsyncDeleteTask } from "@/app/features/Redux/task/taskSlice";
 import { toggleCompletedTask } from "@/app/features/Redux/toggle/toggleSlice";
@@ -17,9 +17,6 @@ const CompletedTaskList: React.FC<TaskDataProps> = ({ taskData }) => {
 
   return (
     <div className="bg-white h-full flex flex-col justify-between ">
-      <div className="text-2xl font-bold text-center border-y border-black bg-orange-500 ">
-        完了したタスク一覧
-      </div>
       <div className="mt-2 flex-grow overflow-auto">
         {taskData.map((task) => (
           <div key={task.id}>
@@ -45,11 +42,11 @@ const CompletedTaskList: React.FC<TaskDataProps> = ({ taskData }) => {
       </div>
 
       <div className="p-2 bg-slate-300 border-y border-black  ">
-      <div
-          className="py-1 mt-1 font-semibold text-center bg-orange-500 rounded-sm border border-black cursor-pointer"
+        <div
+          className="py-1 mt-1 font-semibold text-center bg-green-500 rounded-sm border border-black cursor-pointer"
           onClick={() => dispatch(toggleCompletedTask())}
         >
-          <p>タスク一覧へ戻る</p>
+          <p className="">タスク一覧へ戻る</p>
         </div>
       </div>
     </div>

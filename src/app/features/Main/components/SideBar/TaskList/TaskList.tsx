@@ -50,7 +50,7 @@ const TaskList: React.FC<TaskDataProps> = ({ taskData }) => {
   </div>
 
 
-    <div className="border border-black">
+    <div className="border-t border-black">
       <div className="p-2 bg-slate-300">
         {staff && (
         <div className="flex items-center">
@@ -68,7 +68,7 @@ const TaskList: React.FC<TaskDataProps> = ({ taskData }) => {
 
         )}
         <div
-          className="py-1 mt-1 font-semibold text-center bg-orange-500 rounded-sm border border-black cursor-pointer"
+          className="py-1 mt-1 font-semibold  text-center bg-cyan-500 rounded-sm border border-black cursor-pointer"
           onClick={() => dispatch(toggleCompletedTask())}
         >
           <p>完了したタスクを確認する</p>
