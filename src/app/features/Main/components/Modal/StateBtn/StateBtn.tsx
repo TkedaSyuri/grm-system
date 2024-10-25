@@ -1,7 +1,7 @@
 import { RoomState } from "../../../../types";
 import { useAppDispatch, useAppSelector } from "../../../../Redux/hooks";
 import { closeModal } from "@/app/features/Redux/toggle/toggleSlice";
-import { fetchAsyncUpdate } from "@/app/features/Redux/floor/floorSlice";
+import { fetchAsyncToggleConsec, fetchAsyncUpdate } from "@/app/features/Redux/floor/floorSlice";
 
 interface StateBtnProps {
   state: RoomState
@@ -10,11 +10,12 @@ interface StateBtnProps {
   bgHover: string
 }
 
-const StateBtn:React.FC<StateBtnProps> = ({state,text,bgHover,bg})=> {
+const StateBtn:React.FC<StateBtnProps> = ({state,text,bgHover,bg,})=> {
+
   const { roomId } = useAppSelector((state) => state.toggle);
   const dispatch = useAppDispatch();
 
-  const renewState = async (state: RoomState, roomId: number) => {
+ const renewState = async (state: RoomState, roomId: number) => {
     await dispatch(fetchAsyncUpdate({ state, roomId }));
     dispatch(closeModal());
   };

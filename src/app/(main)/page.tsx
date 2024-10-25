@@ -21,7 +21,7 @@ export default function Home() {
     }
   };
 
-  const {time} =useGetTime()
+  const {currentTime} =useGetTime()
 
   return (
     <main className="overflow-hidden mb-0">
@@ -30,7 +30,7 @@ export default function Home() {
           <SideBar />
         </div>
         <div className=" mt-12  w-8/12 ">
-          <div className="text-white text-2xl">現在の日時 : {time}</div>
+          <div className="text-white text-2xl">現在の日時 : {currentTime}</div>
           <div>
             {staff ? (
               <div className=" pb-2 text-white font-semibold hover:text-green-400  flex justify-end items-center ">
