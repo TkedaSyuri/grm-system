@@ -4,7 +4,6 @@ import CompletedTask from "../CompletedTaskList/CompletedTaskList";
 import TaskList from "../TaskList/TaskList";
 const TaskBar = () => {
   const { taskData } = useAppSelector((state) => state.task);
-  const { staff } = useAppSelector((state) => state.staff);
   const { isCompletedTaskOpen } = useAppSelector((state) => state.toggle);
 
   const {} = useGetTasks();
