@@ -45,7 +45,7 @@ const ChatBar = () => {
                 minute: "2-digit",
               })}
             </p>
-            {true && (
+            {staff && (
               <button
                 className="p-1 ml-2 font-semibold text-sm bg-red-600 rounded-md border border-black flex-shrink-0"
                 onClick={() => deleteMessage(chat.id)}
