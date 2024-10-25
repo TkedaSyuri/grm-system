@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
-import { Chats, Tasks } from "../../types";
+import { Chats} from "../../types";
 
 
 
@@ -37,7 +37,7 @@ const chatSlice = createSlice({
     name: "chat",
     initialState,
     reducers: {
-      setChat: (state,action) => {
+      setChat: (state,action:PayloadAction<Chats[]>) => {
         state.chatData = action.payload;
       },
     },
