@@ -1,7 +1,7 @@
 import { useGetChats } from "@/app/features/hooks/useGetChats";
 import { fetchAsyncPostMessage } from "@/app/features/Redux/chat/chatSlice";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useRef } from "react";
 import { FiSend } from "react-icons/fi";
 
 const ChatBar = () => {
