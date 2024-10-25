@@ -22,6 +22,20 @@ export const fetchAsyncPostMessage = createAsyncThunk(
     }
   );
 
+export const fetchAsyncDeleteMessage = createAsyncThunk(
+    "chat/delete",
+    async (id:number) => {
+      try {
+        await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/api/chats/chat/${id}`, {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  );
+
 
 
   

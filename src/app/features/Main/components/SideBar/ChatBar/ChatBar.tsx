@@ -1,5 +1,8 @@
 import { useGetChats } from "@/app/features/hooks/useGetChats";
-import { fetchAsyncPostMessage } from "@/app/features/Redux/chat/chatSlice";
+import {
+  fetchAsyncDeleteMessage,
+  fetchAsyncPostMessage,
+} from "@/app/features/Redux/chat/chatSlice";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import React, { useCallback, useRef } from "react";
 import { FiSend } from "react-icons/fi";
@@ -19,6 +22,13 @@ const ChatBar = () => {
     }
   }, []);
 
+  const deleteMessage = (id: number) => {
+    const isConfirmed = window.confirm("本当にタスクを削除しますか？");
+    if (isConfirmed) {
+      dispatch(fetchAsyncDeleteMessage(id));
+    }
+  };
+
   return (
     <div className="flex flex-col h-full">
       <div className="flex-grow bg-white overflow-auto">
@@ -28,12 +38,23 @@ const ChatBar = () => {
             className="break-words border-b border-gray-200 p-2 flex justify-between"
           >
             <p className="font-semibold">{chat.message}</p>
+            <div className="flex items-center">
             <p>
               {new Date(chat.created_at).toLocaleTimeString([], {
                 hour: "2-digit",
                 minute: "2-digit",
               })}
             </p>
+            {true && (
+              <button
+                className="p-1 ml-2 font-semibold text-sm bg-red-600 rounded-md border border-black flex-shrink-0"
+                onClick={() => deleteMessage(chat.id)}
+              >
+                削除
+              </button>
+            )}
+
+            </div>
           </div>
         ))}
       </div>
