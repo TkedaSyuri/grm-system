@@ -39,6 +39,23 @@ export const fetchAsyncDeleteMessage = createAsyncThunk(
 
 
   
+export const fetchAsyncDeleteAllMessage = createAsyncThunk(
+    "chat/all-delete",
+    async () => {
+      try {
+        await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/api/chats/chats`, {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  );
+
+
+
+  
 interface InitialChatState {
     chatData: Chats[]
 }
