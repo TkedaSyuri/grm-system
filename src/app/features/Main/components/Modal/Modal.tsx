@@ -1,12 +1,12 @@
 import { useAppDispatch, useAppSelector } from "../../../Redux/hooks";
-import { closeModal } from "@/app/features/Redux/toggle/toggleSlice";
+import { closeModal, fetchAsyncToggleConsec } from "@/app/features/Redux/toggle/toggleSlice";
 import StateBtn from "./StateBtn/StateBtn";
 import { RiArrowGoBackFill } from "react-icons/ri";
-import { fetchAsyncToggleConsec } from "@/app/features/Redux/floor/floorSlice";
 
 const Modal: React.FC = () => {
   const { roomNumber, roomId } = useAppSelector((state) => state.toggle);
-  const { staff } = useAppSelector((state) => state.staff);
+  const {} = useAppSelector((state) => state.floor);
+  const { staff } =  useAppSelector((state) => state.staff);
   const dispatch = useAppDispatch();
 
   const handleIsConsec = async (roomId: number) => {
