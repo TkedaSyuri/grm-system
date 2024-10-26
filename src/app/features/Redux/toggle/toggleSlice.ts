@@ -1,4 +1,56 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
+
+export const fetchAsyncToggleConsec = createAsyncThunk(
+  "isConsec/toggle",
+  async (roomId: number, thunkAPI) => {
+    try {
+      const currentIsConsecRes = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/get/is-consecutive-nights/${roomId}`
+      );
+      if (!currentIsConsecRes.ok) {
+        return thunkAPI.rejectWithValue("現在の状態の取得に失敗しました。");
+      }
+      const currentIsConsec = await currentIsConsecRes.json();
+
+      const isConsec = currentIsConsec.is_ConsecRoom;
+
+      const reversedIsConsec = !isConsec;
+
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/edit/is-consecutive-nights/${roomId}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ isConsecRoom: reversedIsConsec }),
+        }
+      );
+      if (!res.ok) {
+        return thunkAPI.rejectWithValue("データの変更に失敗しました。");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+);
+export const fetchAsyncConsecFalse = createAsyncThunk(
+  "isConsec/toggle",
+  async (roomId: number, thunkAPI) => {
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/edit/consec-false/${roomId}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      if (!res.ok) {
+        return thunkAPI.rejectWithValue("データの変更に失敗しました。");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+);
 
 interface InitialToggleState {
   isModalOpen: boolean;
@@ -37,11 +89,17 @@ const toggleSlice = createSlice({
     openChatBar: (state) => {
       state.isBarOpen = true;
     },
-    toggleCompletedTask: (state) =>{
-      state.isCompletedTaskOpen = !state.isCompletedTaskOpen
-    }
+    toggleCompletedTask: (state) => {
+      state.isCompletedTaskOpen = !state.isCompletedTaskOpen;
+    },
   },
 });
 
-export const { openModal, closeModal, openTaskBar,openChatBar,toggleCompletedTask} = toggleSlice.actions;
+export const {
+  openModal,
+  closeModal,
+  openTaskBar,
+  openChatBar,
+  toggleCompletedTask,
+} = toggleSlice.actions;
 export default toggleSlice.reducer;
