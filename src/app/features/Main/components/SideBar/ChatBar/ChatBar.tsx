@@ -7,6 +7,7 @@ import {
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import React, { useCallback, useRef } from "react";
 import { FiSend } from "react-icons/fi";
+import { FaTrashAlt } from "react-icons/fa";
 
 const ChatBar = () => {
   const { staff } = useAppSelector((state) => state.staff);
@@ -41,7 +42,7 @@ const ChatBar = () => {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex-grow bg-white overflow-auto">
+      <div className="flex-grow  bg-white overflow-auto">
         {chatData.map((chat) => (
           <div
             key={chat.id}
@@ -49,36 +50,36 @@ const ChatBar = () => {
           >
             <p className="font-semibold">{chat.message}</p>
             <div className="flex items-center">
-            <p>
-              {new Date(chat.created_at).toLocaleTimeString([], {
-                hour: "2-digit",
-                minute: "2-digit",
-              })}
-            </p>
-            {staff && (
-              <button
-                className="p-1 ml-2 font-semibold text-sm bg-red-600 rounded-md border border-black flex-shrink-0"
-                onClick={() => deleteMessage(chat.id)}
-              >
-                削除
-              </button>
-            )}
-
+              <p>
+                {new Date(chat.created_at).toLocaleTimeString([], {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+              </p>
+              {staff && (
+                <button
+                  className="p-1 ml-2 font-semibold text-sm bg-red-500 rounded-md border border-black flex-shrink-0"
+                  onClick={() => deleteMessage(chat.id)}
+                >
+                  <FaTrashAlt/>
+                </button>
+              )}
             </div>
           </div>
         ))}
       </div>
-      <div className="p-2 bg-slate-400 flex items-center">
+      <div className="p-2 bg-slate-400 ">
         <textarea
           placeholder="チャットを入力"
           ref={messageRef}
-          className="outline-none flex-grow mr-2 rounded-lg p-2 border overflow-hidden"
+          className="w-full outline-none flex-grow mr-2 rounded-lg p-2 border overflow-hidden"
         />
-        <button
-          onClick={submitMessage}
-          className="bg-green-500 p-2 border-2 border-gray-500 hover:bg-green-300 rounded-lg"
-          title="メッセージを送信"
-        >
+        <div className="flex justify-between">
+          <button
+            className="px-5 py-1 flex items-center font-semibold bg-green-500   border border-black  hover:bg-green-400 duration-300 rounded-lg"
+            onClick={submitMessage}
+            title="メッセージを送信"
+          >
             送信
             <FiSend/>
 
@@ -90,7 +91,7 @@ const ChatBar = () => {
               title="全てのメッセージを削除"
             >
               リセット
-        </button>
+            </button>
           )}
         </div>
       </div>
