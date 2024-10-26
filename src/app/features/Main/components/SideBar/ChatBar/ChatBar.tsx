@@ -1,5 +1,6 @@
 import { useGetChats } from "@/app/features/hooks/useGetChats";
 import {
+  fetchAsyncDeleteAllMessage,
   fetchAsyncDeleteMessage,
   fetchAsyncPostMessage,
 } from "@/app/features/Redux/chat/chatSlice";
@@ -23,9 +24,18 @@ const ChatBar = () => {
   }, []);
 
   const deleteMessage = (id: number) => {
-    const isConfirmed = window.confirm("本当にタスクを削除しますか？");
+    const isConfirmed = window.confirm("本当にメッセージを削除しますか？");
     if (isConfirmed) {
       dispatch(fetchAsyncDeleteMessage(id));
+    }
+  };
+
+  const deleteAllMessage = () => {
+    const isConfirmed = window.confirm(
+      "本当に全てのメッセージを削除しますか？"
+    );
+    if (isConfirmed) {
+      dispatch(fetchAsyncDeleteAllMessage());
     }
   };
 
@@ -69,8 +79,20 @@ const ChatBar = () => {
           className="bg-green-500 p-2 border-2 border-gray-500 hover:bg-green-300 rounded-lg"
           title="メッセージを送信"
         >
-          <FiSend />
+            送信
+            <FiSend/>
+
+          </button>
+          {staff && (
+            <button
+              className="px-5 py-1  font-semibold text-sm bg-red-600 border border-black flex-shrink-0"
+              onClick={() => deleteAllMessage()}
+              title="全てのメッセージを削除"
+            >
+              リセット
         </button>
+          )}
+        </div>
       </div>
     </div>
   );
