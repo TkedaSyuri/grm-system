@@ -51,8 +51,7 @@ export default function Home() {
                   className="font-semibold text-white flex justify-end  hover:text-green-400 duration-300 cursor-default "
                   prefetch={false}
                 >
-                  <p className="border-b ">                  フロントスタッフはこちらへ
-                  </p>
+                  <p className="border-b "> フロントスタッフはこちらへ</p>
                 </Link>
               </div>
             )}
