@@ -1,7 +1,10 @@
 import React from "react";
 import { TaskDataProps } from "../../../../types";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
-import { fetchAsyncDeleteTask } from "@/app/features/Redux/task/taskSlice";
+import {
+  fetchAsyncDeleteAllTask,
+  fetchAsyncDeleteTask,
+} from "@/app/features/Redux/task/taskSlice";
 import { toggleCompletedTask } from "@/app/features/Redux/toggle/toggleSlice";
 
 const CompletedTaskList: React.FC<TaskDataProps> = ({ taskData }) => {
@@ -15,38 +18,53 @@ const CompletedTaskList: React.FC<TaskDataProps> = ({ taskData }) => {
     }
   };
 
-  return (
-    <div className="bg-white h-full flex flex-col justify-between ">
-      <div className="mt-2 flex-grow overflow-auto">
-        {taskData.map((task) => (
-          <div key={task.id}>
-            {task.is_completed && (
-              <>
-                <div className="p-1 flex justify-between items-center border-b border-gray-400">
-                  <div className="text-black font-semibold flex-grow ">
-                    {task.task}
-                  </div>
-                  {staff && (
-                    <button
-                      className="p-1 ml-2 font-semibold text-sm bg-red-600 rounded-md border border-black flex-shrink-0"
-                      onClick={() => deleteTask(task.id)}
-                    >
-                      削除
-                    </button>
-                  )}
-                </div>
-              </>
-            )}
-          </div>
-        ))}
-      </div>
+  const deleteAllTasks = () => {
+    const isConfirmed = window.confirm("本当にメッセージを削除しますか？");
+    if (isConfirmed) {
+      dispatch(fetchAsyncDeleteAllTask());
+    }
+  };
 
-      <div className="p-2 bg-slate-300 border-y border-black  ">
+  return (
+    <div className="flex-col">
+      <div className="h-96 bg-white overflow-scroll">
+        <ul>
+          {taskData.map((task) => (
+            <li key={task.id}>
+              {task.is_completed && (
+                <>
+                  <div className="p-2   border-b border-gray-400 flex justify-between items-center ">
+                    <li className="font-semibold  ">{task.task}</li>
+                    {staff && (
+                      <button
+                        className="p-1 ml-2 font-semibold text-sm bg-red-600 rounded-md border border-black flex-shrink-0"
+                        onClick={() => deleteTask(task.id)}
+                      >
+                        削除
+                      </button>
+                    )}
+                  </div>
+                </>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="border-t border-black  p-2 bg-slate-300">
         <div
-          className="py-1 mt-1 font-semibold text-center bg-green-500 rounded-sm border border-black cursor-pointer hover:text-white duration-300"
+          className="p-2 px-10 font-semibold bg-green-500 rounded-sm border border-black  hover:text-white duration-300 cursor-pointer"
           onClick={() => dispatch(toggleCompletedTask())}
         >
-          <p className="">タスク一覧へ戻る</p>
+          <p className="text-center">タスク一覧へ戻る</p>
+        </div>
+        <div className="text-end">
+          <button
+            className="px-5 py-1 mt-1  font-semibold  text-sm bg-red-600 border border-black flex-shrink-0 outline-none"
+            onClick={() => deleteAllTasks()}
+            title="全てのメッセージを削除"
+          >
+            リセット
+          </button>
         </div>
       </div>
     </div>

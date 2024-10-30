@@ -9,13 +9,13 @@ const TaskBar = () => {
   const {} = useGetTasks();
 
   return (
-    <div className="flex flex-col h-full ">
+    <>
       {isCompletedTaskOpen ? (
         <CompletedTask taskData={taskData} />
       ) : (
         <TaskList taskData={taskData} />
       )}
-    </div>
+    </>
   );
 };
 

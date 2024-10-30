@@ -41,12 +41,13 @@ const ChatBar = () => {
   };
 
   return (
-    <div className="flex flex-col h-full">
-      <div className="flex-grow  bg-white overflow-auto">
+    <div className="flex-col">
+      <div className="h-96 bg-white overflow-auto">
+        <ul>
         {chatData.map((chat) => (
-          <div
+          <li
             key={chat.id}
-            className="break-words border-b border-gray-200 p-2 flex justify-between"
+            className="p-2 border-b border-gray-200 flex justify-between  break-words "
           >
             <p className="font-semibold">{chat.message}</p>
             <div className="flex items-center">
@@ -61,14 +62,16 @@ const ChatBar = () => {
                   className="p-1 ml-2 font-semibold text-sm bg-red-500 rounded-md border border-black flex-shrink-0"
                   onClick={() => deleteMessage(chat.id)}
                 >
-                  <FaTrashAlt/>
+                  <FaTrashAlt />
                 </button>
               )}
             </div>
-          </div>
+          </li>
         ))}
+
+        </ul>
       </div>
-      <div className="p-2 bg-slate-400 ">
+      <div className="p-2 bg-slate-300 border-t border-black ">
         <textarea
           placeholder="チャットを入力"
           ref={messageRef}
@@ -81,18 +84,19 @@ const ChatBar = () => {
             title="メッセージを送信"
           >
             送信
-            <FiSend/>
-
+            <FiSend />
           </button>
           {staff && (
+          <div className="flex justify-end">
             <button
-              className="px-5 py-1  font-semibold text-sm bg-red-600 border border-black flex-shrink-0"
+              className="px-5 py-1  font-semibold text-sm bg-red-600 hover:bg-red-500 border border-black flex-shrink-0"
               onClick={() => deleteAllMessage()}
               title="全てのメッセージを削除"
             >
               リセット
             </button>
-          )}
+          </div>
+        )}
         </div>
       </div>
     </div>
