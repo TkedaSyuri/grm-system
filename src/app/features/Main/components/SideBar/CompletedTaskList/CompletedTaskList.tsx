@@ -37,7 +37,7 @@ const CompletedTaskList: React.FC<TaskDataProps> = ({ taskData }) => {
                     <li className="font-semibold  ">{task.task}</li>
                     {staff && (
                       <button
-                        className="p-1 ml-2 font-semibold text-sm bg-red-600 rounded-md border border-black flex-shrink-0"
+                        className="p-1 ml-2 font-semibold text-sm bg-red-600 rounded-md border border-black outline-none flex-shrink-0"
                         onClick={() => deleteTask(task.id)}
                       >
                         削除

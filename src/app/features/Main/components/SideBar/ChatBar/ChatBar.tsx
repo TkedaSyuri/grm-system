@@ -79,7 +79,7 @@ const ChatBar = () => {
         />
         <div className="flex justify-between">
           <button
-            className="px-5 py-1 flex items-center font-semibold bg-green-500   border border-black  hover:bg-green-400 duration-300 rounded-lg"
+            className="px-5 py-1 flex items-center font-semibold bg-green-500   border border-black  hover:bg-green-400 duration-300 rounded-lg outline-none"
             onClick={submitMessage}
             title="メッセージを送信"
           >
@@ -89,7 +89,7 @@ const ChatBar = () => {
           {staff && (
           <div className="flex justify-end">
             <button
-              className="px-5 py-1  font-semibold text-sm bg-red-600 hover:bg-red-500 border border-black flex-shrink-0"
+              className="px-5 py-1  font-semibold text-sm bg-red-600 hover:bg-red-500 border border-black flex-shrink-0 outline-none"
               onClick={() => deleteAllMessage()}
               title="全てのメッセージを削除"
             >

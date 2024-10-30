@@ -34,7 +34,7 @@ const TaskList: React.FC<TaskDataProps> = ({ taskData }) => {
                 <div className="p-2 border-b border-gray-200 flex justify-between items-center">
                   <p className="text-black font-semibold ">{task.task}</p>
                   <button
-                    className="p-1 ml-2 font-semibold text-sm bg-green-600 rounded-md border border-black flex-shrink-0"
+                    className="p-1 ml-2 font-semibold text-sm bg-green-600 rounded-md border border-black flex-shrink-0 outline-none"
                     onClick={() =>
                       handleCompletedTask(task.id, task.is_completed)
                     }
@@ -64,12 +64,12 @@ const TaskList: React.FC<TaskDataProps> = ({ taskData }) => {
             </button>
           </div>
         )}
-        <div
-          className=" py-1 mt-2 font-semibold  text-center bg-cyan-500 rounded-sm border border-black cursor-pointer hover:text-white duration-300"
+        <button
+          className=" py-1 mt-2 w-full font-semibold  text-center bg-cyan-500 rounded-sm border border-black cursor-pointer hover:text-white duration-300 outline-none"
           onClick={() => dispatch(toggleCompletedTask())}
         >
           <p>完了タスクを確認する</p>
-        </div>
+        </button>
       </div>
     </div>
   );
