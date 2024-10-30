@@ -21,35 +21,38 @@ export default function Home() {
     }
   };
 
-  const {currentTime} =useGetTime()
+  const { currentTime } = useGetTime();
 
   return (
     <main className="overflow-hidden mb-0">
       <div className="mt-5 flex w-full max-w-screen-xl mx-auto ">
-        <div className="w-4/12">
+        <div className="w-4/12 ">
           <SideBar />
         </div>
         <div className=" mt-12  w-8/12 ">
           <div className="text-white text-2xl">現在の日時 : {currentTime}</div>
           <div>
             {staff ? (
-              <div className=" pb-2 text-white font-semibold hover:text-green-400  flex justify-end items-center ">
-                <button
-                  className="border-b duration-300 cursor-default"
-                  onClick={() => logoutStaff()}
-                >
-                  ログアウト
-                </button>
-                <LuLogOut />
+              <div className=" pb-2 ">
+                <div className="text-white  flex justify-end items-center hover:text-green-400  ">
+                  <button
+                    className=" font-semibold border-b duration-300 cursor-default"
+                    onClick={() => logoutStaff()}
+                  >
+                    ログアウト
+                  </button>
+                  <LuLogOut />
+                </div>
               </div>
             ) : (
-              <div className="font-semibold text-white flex justify-end pb-2 ">
+              <div className="pb-2">
                 <Link
                   href="/auth/login"
-                  className="border-b hover:text-green-400 duration-300 cursor-default "
+                  className="font-semibold text-white flex justify-end  hover:text-green-400 duration-300 cursor-default "
                   prefetch={false}
                 >
-                  フロントスタッフはこちらへ
+                  <p className="border-b ">                  フロントスタッフはこちらへ
+                  </p>
                 </Link>
               </div>
             )}
