@@ -59,6 +59,21 @@ export const fetchAsyncDeleteTask = createAsyncThunk(
     }
   }
 );
+export const fetchAsyncDeleteAllTask = createAsyncThunk(
+  "task/all-delete",
+  async () => {
+    try {
+      await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/tasks/tasks`,
+        {
+          method: "DELETE",
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  }
+);
 
 interface InitialTaskState {
   taskData: Tasks[];
