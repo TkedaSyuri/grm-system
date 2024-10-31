@@ -27,7 +27,7 @@ const FloorTable: React.FC = () => {
       <div className=" flex justify-strech">
         <div className="grid grid-cols-5 gap-4">
           {floorData.map((roomData: Rooms) => (
-            <Main.Room
+            <Main.Rooms
               key={roomData.id}
               id={roomData.id}
               roomNumber={roomData.roomNumber}
