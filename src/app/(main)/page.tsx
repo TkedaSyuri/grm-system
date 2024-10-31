@@ -1,14 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import StateSign from "../features/Main/components/StateSign/StateSign";
-import FloorTable from "../features/Main/components/FloorTable/FloorTable";
-import FloorLink from "../features/Main/components/FloorLink/FloorLink";
 import { useAppDispatch, useAppSelector } from "../features/Redux/hooks";
 import { fetchAsyncLogout } from "../features/Redux/auth/authSlice";
 import { LuLogOut } from "react-icons/lu";
-import SideBar from "../features/Main/components/SideBar/SideBar";
 import { useGetTime } from "../features/hooks/useGetTime";
+import * as Main from "@/app/features/Main/Index"
 
 export default function Home() {
   const dispatch = useAppDispatch();
@@ -49,19 +46,19 @@ export default function Home() {
             )}
           </div>
 
-          <SideBar />
+          <Main.SideBar />
         </div>
         <div className=" mt-12  w-8/12 ">
           <div className="text-white text-2xl">現在の日時 : {currentTime}</div>
           <div>
             <div>
-              <StateSign />
+              <Main.StateSign />
             </div>
             <div className="py-5">
-              <FloorTable />
+              <Main.FloorTable />
             </div>
             <div>
-              <FloorLink />
+              <Main.FloorLink />
             </div>
           </div>
         </div>

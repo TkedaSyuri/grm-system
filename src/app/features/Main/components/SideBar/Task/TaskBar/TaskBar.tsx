@@ -1,6 +1,6 @@
 import {  useAppSelector } from "@/app/features/Redux/hooks";
 import { useGetTasks } from "../../../../../hooks/useGetTasks";
-import * as Task from "@/app/features/Main/components/SideBar/Index"
+import * as Task from "@/app/features/Main/components/SideBar/Task/Index"
 
 
 

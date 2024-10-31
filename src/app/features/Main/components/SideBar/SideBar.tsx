@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
-import * as Task from "@/app/features/Main/components/SideBar/Index"
+import * as Task from "@/app/features/Main/components/SideBar/Task/Index"
 import {
   openTaskBar,
   openChatBar,
