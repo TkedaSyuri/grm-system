@@ -1,12 +1,12 @@
 "use client";
 
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
-import ChatBar from "./Chat/Chat";
 import * as Task from "@/app/features/Main/components/SideBar/Index"
 import {
   openTaskBar,
   openChatBar,
 } from "@/app/features/Redux/toggle/toggleSlice";
+import ChatBar from "./Chat/ChatBar/ChatBar";
 
 
 const SideBar = () => {
