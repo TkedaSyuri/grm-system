@@ -1,13 +1,13 @@
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import {
-  fetchAsyncCompletedTask,
   fetchAsyncPostTask,
 } from "@/app/features/Redux/task/taskSlice";
 import { useCallback, useRef } from "react";
 import { TaskDataProps } from "../../../../../types";
 import { toggleCompletedTask } from "@/app/features/Redux/toggle/toggleSlice";
+import TasksList from "../TasksList/TasksList";
 
-const TaskList: React.FC<TaskDataProps> = ({ taskData }) => {
+const IncompletedTasks: React.FC<TaskDataProps> = ({ taskData }) => {
   const { staff } = useAppSelector((state) => state.staff);
   const dispatch = useAppDispatch();
   const taskRef = useRef<HTMLTextAreaElement | null>(null);
@@ -20,30 +20,13 @@ const TaskList: React.FC<TaskDataProps> = ({ taskData }) => {
     }
   }, []);
 
-  const handleCompletedTask = async (id: number, isCompleted: boolean) => {
-    await dispatch(fetchAsyncCompletedTask({ id, isCompleted }));
-  };
 
   return (
     <div className="flex-col">
       <div className=" h-96 bg-white overflow-auto  scroll-m-0">
         <ul>
           {taskData.map((task) => (
-            <li key={task.id}>
-              {task.is_completed || (
-                <div className="p-2 border-b border-gray-200 flex justify-between items-center">
-                  <p className="text-black font-semibold ">{task.task}</p>
-                  <button
-                    className="p-1 ml-2 font-semibold text-sm bg-green-600 rounded-md border border-black flex-shrink-0 outline-none"
-                    onClick={() =>
-                      handleCompletedTask(task.id, task.is_completed)
-                    }
-                  >
-                    完了
-                  </button>
-                </div>
-              )}
-            </li>
+            <TasksList id={task.id} task={task.task} is_completed={task.is_completed} />
           ))}
         </ul>
       </div>
@@ -75,4 +58,4 @@ const TaskList: React.FC<TaskDataProps> = ({ taskData }) => {
   );
 };
 
-export default TaskList;
+export default IncompletedTasks;

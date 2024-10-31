@@ -6,7 +6,7 @@ import {
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import React, { useCallback, useRef } from "react";
 import { FiSend } from "react-icons/fi";
-import ChatsList from "../ChatsList/ChatsList";
+import ChatsList from "./ChatsList/ChatsList";
 
 const ChatBar = () => {
   const { staff } = useAppSelector((state) => state.staff);
@@ -34,14 +34,18 @@ const ChatBar = () => {
 
   return (
     <div className="flex-col">
-    <div className="h-96 bg-white overflow-auto">
-      <ul>
-      {chatData.map((chat) => (      
-        <ChatsList id={chat.id}  message={chat.message} created_at={chat.created_at} />
-))}
-      </ul>
-     </div>
-      
+      <div className="h-96 bg-white overflow-auto">
+        <ul>
+          {chatData.map((chat) => (
+            <ChatsList
+              id={chat.id}
+              message={chat.message}
+              created_at={chat.created_at}
+            />
+          ))}
+        </ul>
+      </div>
+
       <div className="p-2 bg-slate-300 border-t border-black ">
         <textarea
           placeholder="チャットを入力"
