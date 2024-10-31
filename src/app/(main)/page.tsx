@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import StateSign from "../features/Main/components/StateBar/StateSign";
+import StateSign from "../features/Main/components/StateSign/StateSign";
 import FloorTable from "../features/Main/components/FloorTable/FloorTable";
 import FloorLink from "../features/Main/components/FloorLink/FloorLink";
 import { useAppDispatch, useAppSelector } from "../features/Redux/hooks";
