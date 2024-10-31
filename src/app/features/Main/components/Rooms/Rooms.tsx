@@ -3,16 +3,15 @@
 import { useAppDispatch } from "@/app/features/Redux/hooks";
 import { openModal } from "@/app/features/Redux/toggle/toggleSlice";
 
-interface RoomProps {
+interface RoomsProps {
   id: number;
   roomNumber: string;
   roomState: string;
   isConsec: boolean;
 }
 
-const Room: React.FC<RoomProps> = (props) => {
+const Rooms:React.FC<RoomsProps> = ({ id, roomNumber, roomState, isConsec }) => {
   const dispatch = useAppDispatch();
-  const { id, roomNumber, roomState, isConsec } = props;
 
   let color = "";
   if (roomState === "white") {
@@ -49,4 +48,4 @@ const Room: React.FC<RoomProps> = (props) => {
   );
 };
 
-export default Room;
+export default Rooms;
