@@ -1,12 +1,13 @@
 "use client";
 
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
-import ChatBar from "./ChatBar/ChatBar";
-import TaskBar from "./TaskBar/TaskBar";
+import ChatBar from "./Chat/Chat";
+import * as Task from "@/app/features/Main/components/SideBar/Index"
 import {
   openTaskBar,
   openChatBar,
 } from "@/app/features/Redux/toggle/toggleSlice";
+
 
 const SideBar = () => {
   const { isBarOpen, isCompletedTaskOpen } = useAppSelector(
@@ -45,7 +46,7 @@ const SideBar = () => {
           </div>
         )}
       </div>
-      <div>{isBarOpen ? <ChatBar /> : <TaskBar />}</div>
+      <div>{isBarOpen ? <ChatBar /> : <Task.TaskBar />}</div>
     </aside>
   );
 };

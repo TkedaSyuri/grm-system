@@ -4,7 +4,7 @@ import {
   fetchAsyncPostTask,
 } from "@/app/features/Redux/task/taskSlice";
 import { useCallback, useRef } from "react";
-import { TaskDataProps } from "../../../../types";
+import { TaskDataProps } from "../../../../../types";
 import { toggleCompletedTask } from "@/app/features/Redux/toggle/toggleSlice";
 
 const TaskList: React.FC<TaskDataProps> = ({ taskData }) => {

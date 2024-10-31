@@ -1,7 +1,9 @@
 import {  useAppSelector } from "@/app/features/Redux/hooks";
-import { useGetTasks } from "../../../../hooks/useGetTasks";
-import CompletedTask from "../CompletedTaskList/CompletedTaskList";
-import TaskList from "../TaskList/TaskList";
+import { useGetTasks } from "../../../../../hooks/useGetTasks";
+import * as Task from "@/app/features/Main/components/SideBar/Index"
+
+
+
 const TaskBar = () => {
   const { taskData } = useAppSelector((state) => state.task);
   const { isCompletedTaskOpen } = useAppSelector((state) => state.toggle);
@@ -11,9 +13,9 @@ const TaskBar = () => {
   return (
     <>
       {isCompletedTaskOpen ? (
-        <CompletedTask taskData={taskData} />
+        <Task.CompletedTaskList taskData={taskData} />
       ) : (
-        <TaskList taskData={taskData} />
+        <Task.TaskList taskData={taskData} />
       )}
     </>
   );

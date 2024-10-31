@@ -1,5 +1,5 @@
 import React from "react";
-import { TaskDataProps } from "../../../../types";
+import { TaskDataProps } from "../../../../../types";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import {
   fetchAsyncDeleteAllTask,
