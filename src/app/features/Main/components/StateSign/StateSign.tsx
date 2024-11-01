@@ -2,7 +2,7 @@ import React from 'react'
 
 const StateSign= () => {
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-around">
     <div className="bg-white font-semibold text-xl py-2  px-10 border-2 border-black ">
       空室
     </div>
