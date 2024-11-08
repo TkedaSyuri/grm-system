@@ -84,7 +84,7 @@ export const fetchAsyncStaff = createAsyncThunk("staff/get", async () => {
       },
     }
   );
-  if(!token) return null
+  if (!token) return null;
   const data = await res.json();
   return data;
 });
@@ -105,17 +105,14 @@ export const fetchAsyncLogout = createAsyncThunk("staff/logout", async () => {
 });
 
 interface InitialStaffState {
-  staff:
-    | null
-    | {}
-    | {
-        staffId: number;
-        staffName: string;
-      };
+  staff: null | {
+    staffId: number;
+    staffName: string;
+  };
 }
 
 const initialState: InitialStaffState = {
-  staff: true,
+  staff: null,
 };
 
 const authSlice = createSlice({
