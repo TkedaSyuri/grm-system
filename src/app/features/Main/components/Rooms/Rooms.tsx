@@ -14,15 +14,15 @@ const Rooms:React.FC<RoomsProps> = ({ id, roomNumber, roomState, isConsec }) => 
   const dispatch = useAppDispatch();
 
   let color = "";
-  if (roomState === "white") {
+  if (roomState === "vacant") {
     color = "bg-white";
-  } else if (roomState === "red") {
+  } else if (roomState === "required") {
     color = "bg-red-400";
-  } else if (roomState === "blue") {
+  } else if (roomState === "cleaning") {
     color = "bg-blue-400";
-  } else if (roomState === "green") {
+  } else if (roomState === "completed") {
     color = "bg-green-400";
-  } else if (roomState === "gray") {
+  } else if (roomState === "unnecessary") {
     color = "bg-gray-400";
   }
 

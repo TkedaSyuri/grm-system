@@ -7,7 +7,7 @@ const StateSign= () => {
       空室
     </div>
     <div className="bg-red-500 font-semibold text-xl text-white py-2  px-10  border-2 border-black ">
-      在室中
+      清掃指示
     </div>
     <div className="bg-blue-500 font-semibold text-xl text-white py-2  px-10  border-2 border-black ">
       清掃中

@@ -26,7 +26,7 @@ const IncompletedTasks: React.FC<TaskDataProps> = ({ taskData }) => {
       <div className=" h-96 bg-white overflow-auto  scroll-m-0">
         <ul>
           {taskData.map((task) => (
-            <TasksList key={task.id} id={task.id} task={task.task} is_completed={task.is_completed} />
+            <TasksList key={task.id} id={task.id} task={task.task} is_completed={task.isCompleted} />
           ))}
         </ul>
       </div>

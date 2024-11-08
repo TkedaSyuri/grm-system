@@ -31,6 +31,8 @@ const ChatBar = () => {
       dispatch(fetchAsyncDeleteAllMessage());
     }
   };
+  console.log(chatData);
+  
 
   return (
     <div className="flex-col">
@@ -40,7 +42,7 @@ const ChatBar = () => {
             <ChatsList
               id={chat.id}
               message={chat.message}
-              created_at={chat.created_at}
+              created_at={chat.createdAt}
             />
           ))}
         </ul>

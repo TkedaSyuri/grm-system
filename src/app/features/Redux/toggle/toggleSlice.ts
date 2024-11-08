@@ -12,9 +12,9 @@ export const fetchAsyncToggleConsec = createAsyncThunk(
       }
       const currentIsConsec = await currentIsConsecRes.json();
 
-      const isConsec = currentIsConsec.is_ConsecRoom;
+      const isConsecutiveNight = currentIsConsec.isConsecutiveNight;
 
-      const reversedIsConsec = !isConsec;
+      const reversedIsConsec = !isConsecutiveNight;
 
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/edit/is-consecutive-nights/${roomId}`,

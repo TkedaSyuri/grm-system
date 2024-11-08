@@ -19,7 +19,7 @@ const StateBtn: React.FC<StateBtnProps> = ({ state, text, bgHover, bg }) => {
 
   const renewState = async (state: RoomState, roomId: number) => {
     try {
-      if (state === "white") {
+      if (state === "vacant") {
         await dispatch(fetchAsyncUpdate({ state, roomId }));
         await dispatch(fetchAsyncConsecFalse(roomId));
       } else {

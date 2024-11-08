@@ -26,31 +26,31 @@ const Modal: React.FC = () => {
           </div>
           <div className="text-4xl my-4 flex gap-3  ">
             <StateBtn
-              state="white"
+              state="vacant"
               text="空室"
               bg="bg-white"
               bgHover="hover:bg-slate-100"
             />
             <StateBtn
-              state="red"
+              state="required"
               text="在室中"
               bg="bg-red-400"
               bgHover="hover:bg-red-600"
             />
             <StateBtn
-              state="blue"
+              state="cleaning"
               text="清掃中"
               bg="bg-blue-400"
               bgHover="hover:bg-blue-600"
             />
             <StateBtn
-              state="green"
+              state="completed"
               text="清掃完了"
               bg="bg-green-400"
               bgHover="hover:bg-green-600"
             />
             <StateBtn
-              state="gray"
+              state="unnecessary"
               text="清掃不要"
               bg="bg-gray-400"
               bgHover="hover:bg-gray-600"

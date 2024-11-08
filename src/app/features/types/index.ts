@@ -1,18 +1,18 @@
 
 
-export type RoomState  =  "white" | "red" | "blue" | "green" | "gray" 
+export type RoomState  =  "vacant" | "required" | "cleaning" | "completed" | "unnecessary" 
 
 export interface Rooms {
   id: number;
   roomNumber: string ;
   roomState:  RoomState;
-  is_ConsecRoom: boolean;
+  isConsecutiveNight: boolean;
 }
 
 export interface Tasks {
   id: number;
   task: string;
-  is_completed: boolean
+  isCompleted: boolean
 }
 
 export interface TaskDataProps {
@@ -22,7 +22,7 @@ export interface TaskDataProps {
 export interface Chats {
   id:number;
   message: string;
-  created_at: string
+  createdAt: string
 }
 
 
