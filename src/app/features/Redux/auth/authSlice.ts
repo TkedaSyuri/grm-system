@@ -59,7 +59,7 @@ export const fetchAsyncLogin = createAsyncThunk(
       );
       if (!res.ok) {
         const errorData = await res.json();
-        throw new Error(errorData.message);
+        throw new Error(errorData.error);
       }
       const data = await res.json();
       const token = data.token;
@@ -84,6 +84,7 @@ export const fetchAsyncStaff = createAsyncThunk("staff/get", async () => {
       },
     }
   );
+  if(!token) return null
   const data = await res.json();
   return data;
 });
@@ -104,14 +105,17 @@ export const fetchAsyncLogout = createAsyncThunk("staff/logout", async () => {
 });
 
 interface InitialStaffState {
-  staff: null | {
-    staffId: number;
-    staffName: string;
-  };
+  staff:
+    | null
+    | {}
+    | {
+        staffId: number;
+        staffName: string;
+      };
 }
 
 const initialState: InitialStaffState = {
-  staff: null,
+  staff: true,
 };
 
 const authSlice = createSlice({
