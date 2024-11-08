@@ -5,10 +5,10 @@ import React from "react";
 interface TasksListProps {
     id: number;
     task: string;
-    is_completed:boolean
+    isCompleted:boolean
 }
 
-const TasksList:React.FC<TasksListProps> = ({id,task,is_completed}) => {
+const TasksList:React.FC<TasksListProps> = ({id,task,isCompleted}) => {
 
     const handleCompletedTask = async (id: number, isCompleted: boolean) => {
         const dispatch = useAppDispatch();
@@ -18,12 +18,12 @@ const TasksList:React.FC<TasksListProps> = ({id,task,is_completed}) => {
     
   return (
     <li key={id}>
-      {is_completed || (
+      {isCompleted || (
         <div className="p-2 border-b border-gray-200 flex justify-between items-center">
           <p className="text-black font-semibold ">{task}</p>
           <button
             className="p-1 ml-2 font-semibold text-sm bg-green-600 rounded-md border border-black flex-shrink-0 outline-none"
-            onClick={() => handleCompletedTask(id,is_completed)}
+            onClick={() => handleCompletedTask(id,isCompleted)}
           >
             完了
           </button>
