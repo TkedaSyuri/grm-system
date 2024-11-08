@@ -31,7 +31,7 @@ const CompletedTaskList: React.FC<TaskDataProps> = ({ taskData }) => {
         <ul>
           {taskData.map((task) => (
             <li key={task.id}>
-              {task.is_completed && (
+              {task.isCompleted && (
                 <>
                   <div className="p-2   border-b border-gray-400 flex justify-between items-center ">
                     <li className="font-semibold  ">{task.task}</li>
