@@ -9,9 +9,9 @@ interface TasksListProps {
 }
 
 const TasksList:React.FC<TasksListProps> = ({id,task,isCompleted}) => {
+  const dispatch = useAppDispatch();
 
     const handleCompletedTask = async (id: number, isCompleted: boolean) => {
-        const dispatch = useAppDispatch();
 
         await dispatch(fetchAsyncCompletedTask({ id, isCompleted }));
       };
