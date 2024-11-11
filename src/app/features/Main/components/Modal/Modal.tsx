@@ -33,7 +33,7 @@ const Modal: React.FC = () => {
             />
             <StateBtn
               state="required"
-              text="在室中"
+              text="清掃指示"
               bg="bg-red-400"
               bgHover="hover:bg-red-600"
             />
