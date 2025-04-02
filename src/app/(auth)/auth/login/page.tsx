@@ -102,7 +102,7 @@ const LoginPage = () => {
             type="submit"
             className="w-full p-2 bg-green-700 text-white font-bold rounded-md hover:bg-green-500 transition duration-300 mt-4"
           >
-            送信
+            ログイン
           </button>
           <div className="pt-3 text-center">
             <Link href="/" prefetch={false}>キャンセル</Link>

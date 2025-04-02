@@ -1,6 +1,6 @@
 "use client";
 
-import { useGetData } from "@/app/features/hooks/useGetFloor";
+import { useGetFloor } from "@/app/features/hooks/useGetFloor";
 import { useAppSelector } from "@/app/features/Redux/hooks";
 import { Rooms } from "@/app/features/types";
 import * as Main from "@/app/features/Main/Index"
@@ -9,7 +9,7 @@ import * as Main from "@/app/features/Main/Index"
 const FloorTable: React.FC = () => {
   const { isModalOpen } = useAppSelector((state) => state.toggle);
   const { floorData, floorNumber } = useAppSelector((state) => state.floor);
-  const { isLoading } = useGetData(floorNumber);
+  const { isLoading } = useGetFloor(floorNumber);
 
   if (isLoading)
     return (
