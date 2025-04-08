@@ -22,7 +22,7 @@ const Modal: React.FC = () => {
       <div className="bg-black text-lg fixed inset-0 bg-opacity-50 z-50 flex justify-center items-center cursor-default  ">
         <div className="bg-white p-10 ">
           <div className="text-4xl underline font-semibold">
-            部屋番号 {roomNumber}
+          {roomNumber}号室
           </div>
           <div className="text-4xl my-4 flex gap-3  ">
             <StateBtn
