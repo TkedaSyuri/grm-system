@@ -46,6 +46,21 @@ const LoginPage = () => {
     }
   };
 
+//デバッグ用ログイン
+  const handleDebugLogin = async () => {
+    try {
+      const email = "staff1@gmail.com";
+      const password = "staff1";
+      const result = await dispatch(fetchAsyncLogin({ email, password }));
+      if (fetchAsyncLogin.fulfilled.match(result)) {
+        await dispatch(fetchAsyncStaff());
+        router.push("/");
+      }
+    } catch (err) {
+      console.error("デバッグログイン失敗:", err);
+    }
+  };
+
   return (
     <div className="flex justify-center items-center h-screen bg-gray-200">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
@@ -54,6 +69,13 @@ const LoginPage = () => {
             ログイン
           </h1>
         </div>
+        <button
+          onClick={handleDebugLogin}
+          className="w-full mt-3 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-400 transition"
+        >
+          デバッグログイン
+        </button>
+
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label htmlFor="email" className="block text-sm font-semibold mb-2">
