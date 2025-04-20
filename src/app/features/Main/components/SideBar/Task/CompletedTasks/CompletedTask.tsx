@@ -19,7 +19,7 @@ const CompletedTaskList: React.FC<TaskDataProps> = ({ taskData }) => {
   };
 
   const deleteAllTasks = () => {
-    const isConfirmed = window.confirm("本当にメッセージを削除しますか？");
+    const isConfirmed = window.confirm("本当にリセット(全てのタスクを削除)しますか？");
     if (isConfirmed) {
       dispatch(fetchAsyncDeleteAllTask());
     }
