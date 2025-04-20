@@ -69,13 +69,6 @@ const LoginPage = () => {
             ログイン
           </h1>
         </div>
-        <button
-          onClick={handleDebugLogin}
-          className="w-full mt-3 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-400 transition"
-        >
-          デバッグログイン
-        </button>
-
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label htmlFor="email" className="block text-sm font-semibold mb-2">
@@ -126,9 +119,18 @@ const LoginPage = () => {
           >
             ログイン
           </button>
+          <button
+          onClick={handleDebugLogin}
+          className="w-full mt-3 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-400 transition"
+        >
+          デバッグ用ログイン
+        </button>
+
+
           <div className="pt-3 text-center">
             <Link href="/" prefetch={false}>キャンセル</Link>
           </div>
+          
         </form>
       </div>
     </div>
