@@ -4,7 +4,7 @@ import {
   closeModal,
   fetchAsyncConsecFalse,
 } from "@/app/features/Redux/toggle/toggleSlice";
-import { fetchAsyncUpdate } from "@/app/features/Redux/floor/floorSlice";
+import { fetchAsyncUpdate } from "@/app/features/Redux/floor/floorApi";
 
 interface StateBtnProps {
   state: RoomState;
@@ -30,6 +30,7 @@ const StateBtn: React.FC<StateBtnProps> = ({ state, text, bgHover, bg }) => {
       console.error("State更新に失敗しました:", error);
     }
   };
+  
   return (
     <div
       className={`border-4 border-black px-6 ${bg} ${bgHover}`}
