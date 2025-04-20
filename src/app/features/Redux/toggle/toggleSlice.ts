@@ -4,24 +4,12 @@ export const fetchAsyncToggleConsec = createAsyncThunk(
   "isConsec/toggle",
   async (roomId: number, thunkAPI) => {
     try {
-      const currentIsConsecRes = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/get/is-consecutive-nights/${roomId}`
-      );
-      if (!currentIsConsecRes.ok) {
-        return thunkAPI.rejectWithValue("現在の状態の取得に失敗しました。");
-      }
-      const currentIsConsec = await currentIsConsecRes.json();
-
-      const isConsecutiveNight = currentIsConsec.isConsecutiveNight;
-
-      const reversedIsConsec = !isConsecutiveNight;
-
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/edit/is-consecutive-nights/${roomId}`,
+        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/is-consecutive-nights/${roomId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ isConsecRoom: reversedIsConsec }),
+          body: JSON.stringify({ isConsecRoom: true}),
         }
       );
       if (!res.ok) {
@@ -32,6 +20,7 @@ export const fetchAsyncToggleConsec = createAsyncThunk(
     }
   }
 );
+
 export const fetchAsyncConsecFalse = createAsyncThunk(
   "isConsec/toggle",
   async (roomId: number, thunkAPI) => {
