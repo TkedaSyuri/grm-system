@@ -2,7 +2,6 @@ import { RoomState } from "../../../../types";
 import { useAppDispatch, useAppSelector } from "../../../../Redux/hooks";
 import {
   closeModal,
-  fetchAsyncConsecFalse,
 } from "@/app/features/Redux/toggle/toggleSlice";
 import { fetchAsyncUpdate } from "@/app/features/Redux/floor/floorApi";
 
@@ -21,10 +20,7 @@ const StateBtn: React.FC<StateBtnProps> = ({ state, text, bgHover, bg }) => {
     try {
       if (state === "vacant") {
         await dispatch(fetchAsyncUpdate({ state, roomId }));
-        await dispatch(fetchAsyncConsecFalse(roomId));
-      } else {
-        await dispatch(fetchAsyncUpdate({ state, roomId }));
-      }
+      } 
       dispatch(closeModal());
     } catch (error) {
       console.error("State更新に失敗しました:", error);

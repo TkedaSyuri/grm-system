@@ -21,25 +21,6 @@ export const fetchAsyncToggleConsec = createAsyncThunk(
   }
 );
 
-export const fetchAsyncConsecFalse = createAsyncThunk(
-  "isConsec/toggle",
-  async (roomId: number, thunkAPI) => {
-    try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/edit/consec-false/${roomId}`,
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-      if (!res.ok) {
-        return thunkAPI.rejectWithValue("データの変更に失敗しました。");
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  }
-);
 
 interface InitialToggleState {
   isModalOpen: boolean;
