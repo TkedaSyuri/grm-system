@@ -33,7 +33,7 @@ const SideBar = () => {
             }`}
             onClick={() => dispatch(openTaskBar())}
           >
-            完了業務一覧
+            完了した業務一覧
           </div>
         ) : (
           <div

@@ -34,7 +34,7 @@ const IncompletedTasks: React.FC<TaskDataProps> = ({ taskData }) => {
         {staff && (
           <div className="flex items-center">
             <textarea
-              placeholder="業務を入力"
+              placeholder="業務内容を入力"
               ref={taskRef}
               className="outline-none flex-grow mr-2 rounded-lg border overflow-hidden"
             />
@@ -51,7 +51,7 @@ const IncompletedTasks: React.FC<TaskDataProps> = ({ taskData }) => {
           className=" py-1 mt-2 w-full font-semibold  text-center bg-cyan-500 rounded-sm border border-black cursor-pointer hover:text-white duration-300 outline-none"
           onClick={() => dispatch(toggleCompletedTask())}
         >
-          <p>完了業務を確認する</p>
+          <p>完了した業務を確認する</p>
         </button>
       </div>
     </div>
