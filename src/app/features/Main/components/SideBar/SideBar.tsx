@@ -33,7 +33,7 @@ const SideBar = () => {
             }`}
             onClick={() => dispatch(openTaskBar())}
           >
-            完了タスク一覧
+            完了業務一覧
           </div>
         ) : (
           <div
@@ -42,7 +42,7 @@ const SideBar = () => {
             }`}
             onClick={() => dispatch(openTaskBar())}
           >
-            タスク一覧
+            業務一覧
           </div>
         )}
       </div>

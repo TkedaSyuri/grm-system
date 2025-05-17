@@ -12,14 +12,14 @@ const CompletedTaskList: React.FC<TaskDataProps> = ({ taskData }) => {
   const dispatch = useAppDispatch();
 
   const deleteTask = (id: number) => {
-    const isConfirmed = window.confirm("本当にタスクを削除しますか？");
+    const isConfirmed = window.confirm("本当に業務を削除しますか？");
     if (isConfirmed) {
       dispatch(fetchAsyncDeleteTask(id));
     }
   };
 
   const deleteAllTasks = () => {
-    const isConfirmed = window.confirm("本当にリセット(全てのタスクを削除)しますか？");
+    const isConfirmed = window.confirm("本当にリセット(全ての業務を削除)しますか？");
     if (isConfirmed) {
       dispatch(fetchAsyncDeleteAllTask());
     }
@@ -55,7 +55,7 @@ const CompletedTaskList: React.FC<TaskDataProps> = ({ taskData }) => {
           className="p-2 px-10 font-semibold bg-green-500 rounded-sm border border-black  hover:text-white duration-300 cursor-pointer"
           onClick={() => dispatch(toggleCompletedTask())}
         >
-          <p className="text-center">タスク一覧へ戻る</p>
+          <p className="text-center">業務一覧へ戻る</p>
         </div>
         <div className="text-end">
           <button
