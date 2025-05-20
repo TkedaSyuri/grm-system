@@ -38,7 +38,7 @@ const Rooms:React.FC<RoomsProps> = ({ id, roomNumber, roomState, isConsec }) => 
       <div className=" w-auto whitespace-nowrap ">
         <div > {roomNumber}</div>
         <div>
-          {isConsec && roomState !== "white" ? (
+          {isConsec && roomState !== "vacant" ? (
             <p className="flex justify-center absolute px-1 bg-yellow-400 rounded-sm text-xl">
               連泊
             </p>
