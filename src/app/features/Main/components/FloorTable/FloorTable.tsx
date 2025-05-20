@@ -7,7 +7,8 @@ import * as Main from "@/app/features/Main/Index"
 
 
 const FloorTable: React.FC = () => {
-  const { isModalOpen } = useAppSelector((state) => state.toggle);
+  const { isRoomModalOpen } = useAppSelector((state) => state.toggle);
+  const { isTaskModalOpen } = useAppSelector((state) => state.toggle);
   const { floorData, floorNumber } = useAppSelector((state) => state.floor);
   const { isLoading } = useGetFloor(floorNumber);
 
@@ -23,7 +24,8 @@ const FloorTable: React.FC = () => {
 
   return (
     <div>
-      {isModalOpen && <Main.Modal />}
+      {isRoomModalOpen && <Main.RoomModal />}
+      {isTaskModalOpen && <Main.TaskModal />}
       <div className=" flex justify-strech">
         <div className="grid grid-cols-5 gap-4">
           {floorData.map((roomData: Rooms) => (

@@ -9,7 +9,7 @@ export const fetchAsyncToggleConsec = createAsyncThunk(
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ isConsecRoom: true}),
+          body: JSON.stringify({ isConsecRoom: true }),
         }
       );
       if (!res.ok) {
@@ -21,9 +21,9 @@ export const fetchAsyncToggleConsec = createAsyncThunk(
   }
 );
 
-
 interface InitialToggleState {
-  isModalOpen: boolean;
+  isRoomModalOpen: boolean;
+  isTaskModalOpen: boolean;
   isBarOpen: boolean;
   isCompletedTaskOpen: boolean;
   roomNumber: string;
@@ -31,7 +31,8 @@ interface InitialToggleState {
 }
 
 const initialState: InitialToggleState = {
-  isModalOpen: false,
+  isRoomModalOpen: false,
+  isTaskModalOpen: true,
   isBarOpen: false,
   isCompletedTaskOpen: false,
   roomNumber: "",
@@ -42,16 +43,28 @@ const toggleSlice = createSlice({
   name: "toggle",
   initialState,
   reducers: {
-    openModal: (
+
+    //部屋モーダルを表示する
+    openRoomModal: (
       state,
       action: PayloadAction<{ roomNumber: string; roomId: number }>
     ) => {
-      state.isModalOpen = !state.isModalOpen;
+      state.isRoomModalOpen = !state.isRoomModalOpen;
       state.roomNumber = action.payload.roomNumber;
       state.roomId = action.payload.roomId;
     },
-    closeModal: (state) => {
-      state.isModalOpen = !state.isModalOpen;
+    closeRoomModal: (state) => {
+      state.isRoomModalOpen = !state.isRoomModalOpen;
+    },
+    
+    //タスク作成モーダルを表示する
+    openTaskModal: (
+      state,
+    ) => {
+      state.isTaskModalOpen = !state.isTaskModalOpen;
+    },
+    closeTaskModal: (state) => {
+      state.isTaskModalOpen = !state.isTaskModalOpen;
     },
     openTaskBar: (state) => {
       state.isBarOpen = false;
@@ -66,8 +79,10 @@ const toggleSlice = createSlice({
 });
 
 export const {
-  openModal,
-  closeModal,
+  openRoomModal,
+  closeRoomModal,
+  openTaskModal,
+  closeTaskModal,
   openTaskBar,
   openChatBar,
   toggleCompletedTask,

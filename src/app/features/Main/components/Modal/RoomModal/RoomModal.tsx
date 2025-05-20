@@ -1,18 +1,17 @@
-import { useAppDispatch, useAppSelector } from "../../../Redux/hooks";
-import { closeModal, fetchAsyncToggleConsec } from "@/app/features/Redux/toggle/toggleSlice";
-import StateBtn from "./StateBtn/StateBtn";
+import { useAppDispatch, useAppSelector } from "../../../../Redux/hooks";
+import { closeRoomModal, fetchAsyncToggleConsec } from "@/app/features/Redux/toggle/toggleSlice";
 import { RiArrowGoBackFill } from "react-icons/ri";
+import StateBtn from "../../StateBtn/StateBtn";
 
-const Modal: React.FC = () => {
+const RoomModal: React.FC = () => {
   const { roomNumber, roomId } = useAppSelector((state) => state.toggle);
-  const {} = useAppSelector((state) => state.floor);
   const { staff } =  useAppSelector((state) => state.staff);
   const dispatch = useAppDispatch();
 
   const handleIsConsec = async (roomId: number) => {
     try{
       await dispatch(fetchAsyncToggleConsec(roomId));
-      dispatch(closeModal());
+      dispatch(closeRoomModal());
     }catch(err){
       console.log(err)
     }
@@ -57,7 +56,7 @@ const Modal: React.FC = () => {
             />
             {staff && (
               <button
-                className="border-4 border-black px-6 bg-yellow-400 hover:bg-yellow-500"
+                className="border-4 border-black px-6 bg-yellow-400 hover:bg-yellow-500 "
                 onClick={() => handleIsConsec(roomId)}
               >
                 連泊
@@ -66,7 +65,7 @@ const Modal: React.FC = () => {
           </div>
           <div
             className="text-4xl font-normal flex justify-end items-center "
-            onClick={() => dispatch(closeModal())}
+            onClick={() => dispatch(closeRoomModal())}
           >
             <RiArrowGoBackFill className="text-red-600" />
             <p>戻る</p>
@@ -76,4 +75,4 @@ const Modal: React.FC = () => {
   );
 };
 
-export default Modal;
+export default RoomModal;

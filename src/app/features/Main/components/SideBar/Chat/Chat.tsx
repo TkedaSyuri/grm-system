@@ -13,7 +13,7 @@ const ChatBar = () => {
   const { chatData } = useAppSelector((state) => state.chat);
   const dispatch = useAppDispatch();
   const messageRef = useRef<HTMLTextAreaElement | null>(null);
-  const {} = useGetChats();
+   useGetChats();
 
   const submitMessage = useCallback(() => {
     if (messageRef.current?.value) {

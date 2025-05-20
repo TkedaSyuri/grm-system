@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppDispatch } from "@/app/features/Redux/hooks";
-import { openModal } from "@/app/features/Redux/toggle/toggleSlice";
+import { openRoomModal } from "@/app/features/Redux/toggle/toggleSlice";
 
 interface RoomsProps {
   id: number;
@@ -31,7 +31,7 @@ const Rooms:React.FC<RoomsProps> = ({ id, roomNumber, roomState, isConsec }) => 
       key={id}
       className={`${color} py-8 px-16 text-2xl font-semibold   border-black flex justify-center border-2  overflow-hidden rounded transition-all duration-300  hover:ring-4 hover:ring-green-600 hover:ring-offset-2 cursor-default`}
       onClick={() =>
-        dispatch(openModal({ roomNumber: roomNumber, roomId: id }))
+        dispatch(openRoomModal({ roomNumber: roomNumber, roomId: id }))
       }
     >
       <div className=" w-auto whitespace-nowrap ">

@@ -1,9 +1,10 @@
 import AuthBtn from "./components/AuthBtn/AuthBtn";
 import FloorLink from "./components/FloorLink/FloorLink";
 import FloorTable from "./components/FloorTable/FloorTable";
-import Modal from "./components/Modal/Modal";
+import RoomModal from "./components/Modal/RoomModal/RoomModal";
+import TaskModal from "./components/Modal/TaskModal/TaskModal";
 import Rooms from "./components/Rooms/Rooms";
 import SideBar from "./components/SideBar/SideBar";
 import StateSign from "./components/StateSign/StateSign";
 
-export {FloorLink,FloorTable,Modal,Rooms,SideBar,StateSign,AuthBtn};
+export {FloorLink,FloorTable,RoomModal,TaskModal,Rooms,SideBar,StateSign,AuthBtn};
