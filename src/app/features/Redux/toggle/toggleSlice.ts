@@ -32,7 +32,7 @@ interface InitialToggleState {
 
 const initialState: InitialToggleState = {
   isRoomModalOpen: false,
-  isTaskModalOpen: true,
+  isTaskModalOpen: false,
   isBarOpen: false,
   isCompletedTaskOpen: false,
   roomNumber: "",

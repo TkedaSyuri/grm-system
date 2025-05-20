@@ -20,7 +20,7 @@ const IncompletedTasks: React.FC<TaskDataProps> = ({ taskData }) => {
         </ul>
       </div>
       <div className="border-t border-black  p-2 bg-slate-300">
-        {!staff && (
+        {staff && (
         <button
           className=" py-1 mt-2 w-full font-semibold  text-center bg-green-500 rounded-sm border border-black cursor-pointer hover:text-white duration-300 outline-none"
           onClick={() => dispatch(openTaskModal())}
