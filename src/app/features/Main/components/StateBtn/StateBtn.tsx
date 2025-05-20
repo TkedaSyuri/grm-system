@@ -1,8 +1,6 @@
 import { RoomState } from "../../../types";
 import { useAppDispatch, useAppSelector } from "../../../Redux/hooks";
-import {
-  closeRoomModal,
-} from "@/app/features/Redux/toggle/toggleSlice";
+import { closeRoomModal } from "@/app/features/Redux/toggle/toggleSlice";
 import { fetchAsyncUpdate } from "@/app/features/Redux/floor/floorApi";
 
 interface StateBtnProps {
@@ -18,15 +16,13 @@ const StateBtn: React.FC<StateBtnProps> = ({ state, text, bgHover, bg }) => {
 
   const renewState = async (state: RoomState, roomId: number) => {
     try {
-      if (state === "vacant") {
-        await dispatch(fetchAsyncUpdate({ state, roomId }));
-      } 
+      await dispatch(fetchAsyncUpdate({ state, roomId }));
       dispatch(closeRoomModal());
     } catch (error) {
       console.error("State更新に失敗しました:", error);
     }
   };
-  
+
   return (
     <div
       className={`border-4 border-black px-6 ${bg} ${bgHover}`}
