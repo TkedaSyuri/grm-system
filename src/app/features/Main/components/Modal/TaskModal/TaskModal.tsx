@@ -18,7 +18,6 @@ const TaskModal: React.FC = () => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
       <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-lg relative">
-        {/* 業務内容を入力するフォーム*/}
         <div className="space-y-4 m-2">
           <div>
             <label className="text-2xl block font mb-1">業務を作成</label>
