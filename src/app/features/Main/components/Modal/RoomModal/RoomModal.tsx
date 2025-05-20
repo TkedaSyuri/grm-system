@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from "../../../../Redux/hooks";
 import { closeRoomModal, fetchAsyncToggleConsec } from "@/app/features/Redux/toggle/toggleSlice";
 import { RiArrowGoBackFill } from "react-icons/ri";
-import StateBtn from "../../StateBtn/StateBtn";
+import StateBtn from "./StateBtn/StateBtn";
 
 const RoomModal: React.FC = () => {
   const { roomNumber, roomId } = useAppSelector((state) => state.toggle);
