@@ -14,8 +14,9 @@ const Rooms:React.FC<RoomsProps> = ({ id, roomNumber, roomState, isConsec }) => 
   const dispatch = useAppDispatch();
 
   let color = "";
+  let textColor = "black"
   if (roomState === "vacant") {
-    color = "bg-white";
+    textColor = "text-white";
   } else if (roomState === "required") {
     color = "bg-red-400";
   } else if (roomState === "cleaning") {
@@ -29,13 +30,13 @@ const Rooms:React.FC<RoomsProps> = ({ id, roomNumber, roomState, isConsec }) => 
   return (
     <div
       key={id}
-      className={`${color} py-8 px-16 text-2xl font-semibold   border-black flex justify-center border-2  overflow-hidden rounded transition-all duration-300  hover:ring-4 hover:ring-green-600 hover:ring-offset-2 cursor-default`}
+      className={`${color} ${textColor} py-8 px-16 text-2xl font-semibold border  flex justify-center  rounded  duration-300  hover:ring-4 hover:ring-green-600   hover:ring-offset-2  cursor-default`}
       onClick={() =>
         dispatch(openRoomModal({ roomNumber: roomNumber, roomId: id }))
       }
     >
       <div className=" w-auto whitespace-nowrap ">
-        <div> {roomNumber}</div>
+        <div > {roomNumber}</div>
         <div>
           {isConsec && roomState !== "white" ? (
             <p className="flex justify-center absolute px-1 bg-yellow-400 rounded-sm text-xl">
