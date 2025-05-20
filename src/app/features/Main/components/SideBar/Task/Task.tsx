@@ -9,7 +9,7 @@ const Task = () => {
   const { taskData } = useAppSelector((state) => state.task);
   const { isCompletedTaskOpen } = useAppSelector((state) => state.toggle);
 
-  const {} = useGetTasks();
+   useGetTasks();
 
   return (
     <>
