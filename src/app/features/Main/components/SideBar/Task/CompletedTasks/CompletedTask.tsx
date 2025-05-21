@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TaskDataProps } from "../../../../../types";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import {
@@ -8,18 +8,30 @@ import {
 import { toggleCompletedTask } from "@/app/features/Redux/toggle/toggleSlice";
 
 const CompletedTaskList: React.FC<TaskDataProps> = ({ taskData }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const { staff } = useAppSelector((state) => state.staff);
   const dispatch = useAppDispatch();
 
-  const deleteTask = (id: number) => {
-    const isConfirmed = window.confirm("本当に業務を削除しますか？");
-    if (isConfirmed) {
-      dispatch(fetchAsyncDeleteTask(id));
+  const deleteTask = async (id: number) => {
+    try {
+      setIsLoading(true);
+
+      const isConfirmed = window.confirm("本当に業務を削除しますか？");
+      if (isConfirmed) {
+        await dispatch(fetchAsyncDeleteTask(id));
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+      }
+    } catch (err) {
+      console.error("削除処理に失敗", err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const deleteAllTasks = () => {
-    const isConfirmed = window.confirm("本当にリセット(全ての業務を削除)しますか？");
+    const isConfirmed = window.confirm(
+      "本当にリセット(全ての業務を削除)しますか？"
+    );
     if (isConfirmed) {
       dispatch(fetchAsyncDeleteAllTask());
     }
@@ -34,15 +46,21 @@ const CompletedTaskList: React.FC<TaskDataProps> = ({ taskData }) => {
               {task.isCompleted && (
                 <>
                   <div className="p-2   border-b border-gray-400 flex justify-between items-center ">
-                    <li className="font-semibold  ">{task.task}</li>
-                    {staff && (
-                      <button
-                        className="p-1 ml-2 font-semibold text-sm bg-red-600 rounded-md border border-black outline-none flex-shrink-0"
-                        onClick={() => deleteTask(task.id)}
-                      >
-                        削除
-                      </button>
-                    )}
+                    <p className="font-semibold  ">{task.task}</p>
+                    {staff && 
+                      <div>
+                        {isLoading ? (
+                          <div className="mr-2 w-4 h-4 border-2 border-y-red-600 rounded-full animate-spin"></div>
+                        ) : (
+                          <button
+                            className="p-1 ml-2 font-semibold text-sm bg-red-600 rounded-md border border-black outline-none flex-shrink-0"
+                            onClick={() => deleteTask(task.id)}
+                          >
+                            削除
+                          </button>
+                        )}
+                      </div>
+                    }
                   </div>
                 </>
               )}
