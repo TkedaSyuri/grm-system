@@ -6,8 +6,11 @@ import { Providers } from "./features/Redux/provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "GRM-SYSTEM",
-  description: "Please Check Gest Room",
+  title: "GRM-SYSTEM s",
+  description: "Please Check Gest Room State",
+  icons:{
+    icon:"/favicon.ico"
+  }
 };
 
 export default function RootLayout({
