@@ -6,7 +6,7 @@ import { Providers } from "./features/Redux/provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "GRM-SYSTEM s",
+  title: "LINEN-SYSTEM",
   description: "Please Check Gest Room State",
   icons:{
     icon:"/favicon.ico"
