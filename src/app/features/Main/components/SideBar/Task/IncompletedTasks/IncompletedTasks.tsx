@@ -5,7 +5,6 @@ import TasksList from "../TasksList/TasksList";
 
 const IncompletedTasks: React.FC<TaskDataProps> = ({ taskData }) => {
   const { staff } = useAppSelector((state) => state.staff);
-  
   const dispatch = useAppDispatch();
 
 
