@@ -14,19 +14,17 @@ export const useGetFloor = (floorNumber: string) => {
   const { data, mutate, isLoading } = useSWR(
     `${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/get/floor/${floorNumber}`,
     fetcher,
-    {revalidateOnFocus: false}
+    { revalidateOnFocus: false }
   );
 
-
-useEffect(() => {
+  useEffect(() => {
     if (data) {
-      dispatch(setFloor(data));  
+      dispatch(setFloor(data));
     }
   }, [data, dispatch]);
 
-
+  // Socket.IO接続開始
   useEffect(() => {
-    // Socket.IO接続開始
     socketRef.current = io(process.env.NEXT_PUBLIC_API_BASEURL || "");
 
     socketRef.current.on("connect", () => {
