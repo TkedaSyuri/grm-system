@@ -34,7 +34,7 @@ useEffect(() => {
     });
 
     // サーバーからの更新通知受信
-    socketRef.current.on("roomStateUpdated", (msg) => {
+    socketRef.current.on("updatedRoomState", (msg) => {
       console.log("roomStateUpdated received:", msg);
 
       // データを再取得してReduxを更新
