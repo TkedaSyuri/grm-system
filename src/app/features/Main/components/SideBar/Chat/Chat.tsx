@@ -13,7 +13,7 @@ const ChatBar = () => {
   const { chatData } = useAppSelector((state) => state.chat);
   const dispatch = useAppDispatch();
   const messageRef = useRef<HTMLTextAreaElement | null>(null);
-   useGetChats();
+  useGetChats();
 
   const submitMessage = useCallback(() => {
     if (messageRef.current?.value) {
@@ -32,7 +32,6 @@ const ChatBar = () => {
     }
   };
   console.log(chatData);
-  
 
   return (
     <div className="flex-col">
@@ -40,6 +39,7 @@ const ChatBar = () => {
         <ul>
           {chatData.map((chat) => (
             <ChatsList
+              key={chat.id}
               id={chat.id}
               message={chat.message}
               created_at={chat.createdAt}
