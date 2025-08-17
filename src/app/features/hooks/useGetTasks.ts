@@ -18,7 +18,6 @@ export const useGetTasks = () => {
   );
 
   useEffect(() => {
-        console.log("dfa")
 
     if (data) {
       dispatch(setTask(data));
