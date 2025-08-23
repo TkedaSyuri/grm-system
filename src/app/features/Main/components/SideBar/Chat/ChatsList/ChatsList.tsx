@@ -27,7 +27,6 @@ const ChatsList:React.FC<ChatsListProps> = ({id,message,created_at}) => {
 
   return (
           <li
-            key={id}
             className="p-2 border-b border-gray-200 flex justify-between  break-words "
           >
             <p className="font-semibold">{message}</p>
