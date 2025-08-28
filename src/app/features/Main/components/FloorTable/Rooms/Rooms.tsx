@@ -1,6 +1,6 @@
 "use client";
 
-import { useAppDispatch } from "@/app/features/Redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import { openRoomModal } from "@/app/features/Redux/toggle/toggleSlice";
 
 interface RoomsProps {
@@ -10,11 +10,21 @@ interface RoomsProps {
   isConsec: boolean;
 }
 
-const Rooms:React.FC<RoomsProps> = ({ id, roomNumber, roomState, isConsec }) => {
+const Rooms: React.FC<RoomsProps> = ({
+  id,
+  roomNumber,
+  roomState,
+  isConsec,
+}) => {
   const dispatch = useAppDispatch();
+  const { staff } = useAppSelector((state) => state.staff);
+
+  const isDisabled = staff === null && roomState === "vacant";
+
+
 
   let color = "";
-  let textColor = "black"
+  let textColor = "black";
   if (roomState === "vacant") {
     textColor = "text-white";
   } else if (roomState === "required") {
@@ -28,24 +38,27 @@ const Rooms:React.FC<RoomsProps> = ({ id, roomNumber, roomState, isConsec }) => 
   }
 
   return (
-    <div
-      key={id}
-      className={`${color} ${textColor} py-8 px-16 text-2xl font-semibold border  flex justify-center  rounded  duration-300  hover:ring-4 hover:ring-green-600   hover:ring-offset-2  cursor-default`}
-      onClick={() =>
-        dispatch(openRoomModal({ roomNumber: roomNumber, roomId: id }))
-      }
-    >
-      <div className=" w-auto whitespace-nowrap ">
-        <div > {roomNumber}</div>
-        <div>
-          {isConsec && roomState !== "vacant" ? (
-            <p className="flex justify-center absolute px-1 bg-yellow-400 rounded-sm text-xl">
-              連泊
-            </p>
-          ) : null}
+    <>
+      <button
+        key={id}
+        className={`${color} ${textColor} py-8 px-16 text-2xl font-semibold border  flex justify-center  rounded  duration-300  hover:ring-4 hover:ring-green-600   hover:ring-offset-2  cursor-default`}
+        disabled={isDisabled}
+        onClick={() =>
+          dispatch(openRoomModal({ roomNumber: roomNumber, roomId: id }))
+        }
+      >
+        <div className=" w-auto whitespace-nowrap ">
+          <div> {roomNumber}</div>
+          <div>
+            {isConsec && roomState !== "vacant" ? (
+              <p className="flex justify-center absolute px-1 bg-yellow-400 rounded-sm text-xl">
+                連泊
+              </p>
+            ) : null}
+          </div>
         </div>
-      </div>
-    </div>
+      </button>
+    </>
   );
 };
 
