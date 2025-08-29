@@ -3,7 +3,6 @@ import {
   closeRoomModal,
   fetchAsyncToggleConsec,
 } from "@/app/features/Redux/toggle/toggleSlice";
-import { RiArrowGoBackFill } from "react-icons/ri";
 import StateBtn from "./StateBtn/StateBtn";
 
 const RoomModal: React.FC = () => {
@@ -21,18 +20,12 @@ const RoomModal: React.FC = () => {
   };
 
   return (
-    <div className="bg-black text-lg fixed inset-0 bg-opacity-50 z-50 flex justify-center items-center cursor-default  ">
-      <div className="bg-white p-10 ">
-        <div className="text-4xl underline text-center font-semibold">{roomNumber}号室</div>
+    <div className="bg-black  text-lg fixed inset-0 bg-opacity-50 z-50 flex justify-center items-center cursor-default  ">
+      <div className="bg-white p-10 border-2 border-black ">
+        <p className="text-4xl text-center font-semibold">
+          {roomNumber}号室
+        </p>
         <div className="text-4xl my-4 flex gap-3  ">
-          {staff && (
-            <StateBtn
-              state="vacant"
-              text="空室"
-              bg="bg-white"
-              bgHover="hover:bg-slate-100"
-            />
-          )}
           <StateBtn
             state="required"
             text="清掃指示"
@@ -58,8 +51,17 @@ const RoomModal: React.FC = () => {
             bgHover="hover:bg-gray-600"
           />
           {staff && (
+            <StateBtn
+              state="vacant"
+              text="空室"
+              bg="bg-white"
+              bgHover="hover:bg-slate-100"
+            />
+          )}
+
+          {staff && (
             <button
-              className="border-4 border-black px-6 bg-yellow-400 hover:bg-yellow-500 "
+              className="border-2 border-black px-6 bg-yellow-400 hover:bg-yellow-500 "
               onClick={() => handleIsConsec(roomId)}
             >
               連泊
@@ -70,7 +72,6 @@ const RoomModal: React.FC = () => {
           className="text-3xl font-normal flex justify-end items-center "
           onClick={() => dispatch(closeRoomModal())}
         >
-         
           <p>戻る</p>
         </div>
       </div>

@@ -25,7 +25,7 @@ const StateBtn: React.FC<StateBtnProps> = ({ state, text, bgHover, bg }) => {
 
   return (
     <div
-      className={`border-4 border-black px-6 ${bg} ${bgHover}`}
+      className={`border-2 border-black py-2 px-6 ${bg} ${bgHover}`}
       onClick={() => renewState(`${state}`, roomId)}
     >
       {text}
