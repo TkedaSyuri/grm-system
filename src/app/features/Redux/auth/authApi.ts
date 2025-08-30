@@ -11,7 +11,7 @@ interface LoginValue {
   password: string;
 }
 
-//サインアップする関数
+//サインアップするapi
 export const fetchAsyncSingup = createAsyncThunk(
   "register/post",
   async ({ staffName, email, password }: SignupValue) => {
@@ -41,7 +41,7 @@ export const fetchAsyncSingup = createAsyncThunk(
   }
 );
 
-//ログインする関数
+//ログインするapi
 export const fetchAsyncLogin = createAsyncThunk(
   "login/post",
   async ({ email, password }: LoginValue,thunkAPI) => {
@@ -73,6 +73,7 @@ export const fetchAsyncLogin = createAsyncThunk(
   }
 );
 
+//ログイン後にトークンを取得するapi
 export const fetchAsyncFindToken = createAsyncThunk("staff/get", async () => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_BASEURL}/api/staff/find`,
@@ -85,7 +86,7 @@ export const fetchAsyncFindToken = createAsyncThunk("staff/get", async () => {
   return data;
 });
 
-//ログアウトする関数
+//ログアウトするapi
 export const fetchAsyncLogout = createAsyncThunk("staff/logout", async () => {
   await fetch(
     `${process.env.NEXT_PUBLIC_API_BASEURL}/api/staff/find`,
