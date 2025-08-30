@@ -1,4 +1,4 @@
-import {  createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 interface SignupValue {
   staffName: string;
@@ -10,9 +10,6 @@ interface LoginValue {
   email: string;
   password: string;
 }
-
-
-
 
 //サインアップする関数
 export const fetchAsyncSingup = createAsyncThunk(
@@ -47,7 +44,7 @@ export const fetchAsyncSingup = createAsyncThunk(
 //ログインする関数
 export const fetchAsyncLogin = createAsyncThunk(
   "login/post",
-  async ({ email, password }: LoginValue) => {
+  async ({ email, password }: LoginValue,thunkAPI) => {
     try {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_BASEURL}/api/auth/login`,
@@ -65,9 +62,10 @@ export const fetchAsyncLogin = createAsyncThunk(
       );
       if (!res.ok) {
         const errorData = await res.json();
-        throw new Error(errorData.error);
+        return thunkAPI.rejectWithValue(errorData.error);
       }
-      return true;
+      const data = await res.json();
+      return data;
     } catch (err: any) {
       console.log(err);
       alert(`エラー: ${err.message}`);
@@ -89,15 +87,11 @@ export const fetchAsyncFindToken = createAsyncThunk("staff/get", async () => {
 
 //ログアウトする関数
 export const fetchAsyncLogout = createAsyncThunk("staff/logout", async () => {
-  const res = await fetch(
+  await fetch(
     `${process.env.NEXT_PUBLIC_API_BASEURL}/api/staff/find`,
     {
       method: "POST",
-       credentials: "include",
+      credentials: "include",
     }
   );
-  const data = await res.json();
-  return data;
 });
-
-

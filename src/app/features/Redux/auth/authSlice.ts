@@ -1,7 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchAsyncFindToken, fetchAsyncLogout } from "./authApi";
-
-
+import {
+  fetchAsyncFindToken,
+  fetchAsyncLogin,
+  fetchAsyncLogout,
+} from "./authApi";
 
 interface InitialStaffState {
   staff: null | {
@@ -19,6 +21,14 @@ const authSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(fetchAsyncLogin.fulfilled, (state, action) => {
+      console.log("ログイン成功", action.payload);
+      state.staff = action.payload
+    });
+    builder.addCase(fetchAsyncLogin.rejected, (state, action) => {
+      console.error("ログイン失敗", action.payload);
+      alert(action.payload as string);
+    });
     builder.addCase(
       fetchAsyncFindToken.fulfilled,
       (
@@ -28,9 +38,6 @@ const authSlice = createSlice({
         state.staff = action.payload;
       }
     );
-    builder.addCase(fetchAsyncLogout.fulfilled, (state, action) => {
-      state.staff = action.payload;
-    });
   },
 });
 
