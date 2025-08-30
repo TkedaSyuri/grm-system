@@ -2,7 +2,7 @@ import React from "react";
 import { LuLogOut } from "react-icons/lu";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
-import { fetchAsyncLogout } from "@/app/features/Redux/auth/authSlice";
+import { fetchAsyncLogout } from "@/app/features/Redux/auth/authApi";
 
 const AuthBtn = () => {
   const { staff } = useAppSelector((state) => state.staff);

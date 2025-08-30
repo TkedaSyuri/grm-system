@@ -5,8 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { signupFormSchema } from "@/app/features/Auth/utils/AuthFormSchema";
-import { fetchAsyncSingup } from "@/app/features/Redux/auth/authSlice";
 import { useAppDispatch } from "@/app/features/Redux/hooks";
+import { fetchAsyncSingup } from "@/app/features/Redux/auth/authApi";
 
 export interface SignUpForm {
   staffName: string;
