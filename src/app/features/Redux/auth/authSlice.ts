@@ -2,7 +2,6 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
   fetchAsyncFindToken,
   fetchAsyncLogin,
-  fetchAsyncLogout,
 } from "./authApi";
 
 interface InitialStaffState {
