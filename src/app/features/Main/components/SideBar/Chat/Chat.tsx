@@ -1,12 +1,9 @@
 import { useGetChats } from "@/app/features/hooks/useGetChats";
-import {
-  fetchAsyncDeleteAllMessage,
-  fetchAsyncPostMessage,
-} from "@/app/features/Redux/chat/chatSlice";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import React, { useCallback, useRef } from "react";
 import { FiSend } from "react-icons/fi";
 import ChatsList from "./ChatsList/ChatsList";
+import { fetchAsyncDeleteAllMessage, fetchAsyncPostMessage } from "@/app/features/Redux/chat/chatApi";
 
 const ChatBar = () => {
   const { staff } = useAppSelector((state) => state.staff);

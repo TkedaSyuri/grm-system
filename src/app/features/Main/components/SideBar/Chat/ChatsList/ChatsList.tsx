@@ -1,4 +1,4 @@
-import { fetchAsyncDeleteMessage } from "@/app/features/Redux/chat/chatSlice";
+import { fetchAsyncDeleteMessage } from "@/app/features/Redux/chat/chatApi";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import React from "react";
 import { FaTrashAlt } from "react-icons/fa";

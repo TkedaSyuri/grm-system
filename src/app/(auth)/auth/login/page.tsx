@@ -5,11 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { loginFormSchema } from "@/app/features/Auth/utils/AuthFormSchema";
 import Link from "next/link";
-import {
-  fetchAsyncLogin,
-  fetchAsyncStaff,
-} from "@/app/features/Redux/auth/authSlice";
 import { useAppDispatch} from "@/app/features/Redux/hooks";
+import { fetchAsyncFindToken, fetchAsyncLogin } from "@/app/features/Redux/auth/authApi";
 
 interface LoginForm {
   name: string;
@@ -38,7 +35,7 @@ const LoginPage = () => {
     try {
       const result = await dispatch(fetchAsyncLogin({ email, password }));
       if (fetchAsyncLogin.fulfilled.match(result)) {
-        await dispatch(fetchAsyncStaff());
+        await dispatch(fetchAsyncFindToken());
       }
       router.push("/");
     } catch (err) {
@@ -53,7 +50,7 @@ const LoginPage = () => {
       const password = "staff1";
       const result = await dispatch(fetchAsyncLogin({ email, password }));
       if (fetchAsyncLogin.fulfilled.match(result)) {
-        await dispatch(fetchAsyncStaff());
+        await dispatch(fetchAsyncFindToken());
         router.push("/");
       }
     } catch (err) {

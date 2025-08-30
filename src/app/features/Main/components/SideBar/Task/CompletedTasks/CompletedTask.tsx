@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { TaskDataProps } from "../../../../../types";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
-import {
-  fetchAsyncDeleteAllTask,
-  fetchAsyncDeleteTask,
-} from "@/app/features/Redux/task/taskSlice";
 import { toggleCompletedTask } from "@/app/features/Redux/toggle/toggleSlice";
+import { fetchAsyncDeleteAllTask, fetchAsyncDeleteTask } from "@/app/features/Redux/task/taskApi";
 
 const CompletedTaskList: React.FC<TaskDataProps> = ({ taskData }) => {
   const [isLoading, setIsLoading] = useState(false);

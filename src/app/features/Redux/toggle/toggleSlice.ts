@@ -1,25 +1,5 @@
-import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction} from "@reduxjs/toolkit";
 
-export const fetchAsyncToggleConsec = createAsyncThunk(
-  "isConsec/toggle",
-  async (roomId: number, thunkAPI) => {
-    try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/is-consecutive-nights/${roomId}`,
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ isConsecRoom: true }),
-        }
-      );
-      if (!res.ok) {
-        return thunkAPI.rejectWithValue("データの変更に失敗しました。");
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  }
-);
 
 interface InitialToggleState {
   isRoomModalOpen: boolean;

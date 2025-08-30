@@ -1,5 +1,5 @@
 import { useAppDispatch } from "@/app/features/Redux/hooks";
-import { fetchAsyncCompletedTask } from "@/app/features/Redux/task/taskSlice";
+import { fetchAsyncCompletedTask } from "@/app/features/Redux/task/taskApi";
 import React, { useState } from "react";
 
 interface TasksListProps {
