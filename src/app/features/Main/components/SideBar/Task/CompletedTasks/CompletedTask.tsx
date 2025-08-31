@@ -3,6 +3,8 @@ import { TaskDataProps } from "../../../../../types";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import { toggleCompletedTask } from "@/app/features/Redux/toggle/toggleSlice";
 import { fetchAsyncDeleteAllTask, fetchAsyncDeleteTask } from "@/app/features/Redux/task/taskApi";
+import { FaTrashAlt } from "react-icons/fa";
+
 
 const CompletedTaskList: React.FC<TaskDataProps> = ({ taskData }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +15,7 @@ const CompletedTaskList: React.FC<TaskDataProps> = ({ taskData }) => {
     try {
       setIsLoading(true);
 
-      const isConfirmed = window.confirm("本当に業務を削除しますか？");
+      const isConfirmed = window.confirm("業務を削除しますか？");
       if (isConfirmed) {
         await dispatch(fetchAsyncDeleteTask(id));
         await new Promise((resolve) => setTimeout(resolve, 3000));
@@ -53,7 +55,8 @@ const CompletedTaskList: React.FC<TaskDataProps> = ({ taskData }) => {
                             className="p-1 ml-2 font-semibold text-sm bg-red-600 rounded-md border border-black outline-none flex-shrink-0"
                             onClick={() => deleteTask(task.id)}
                           >
-                            削除
+                                              <FaTrashAlt />
+
                           </button>
                         )}
                       </div>

@@ -1,6 +1,8 @@
 import { useAppDispatch } from "@/app/features/Redux/hooks";
 import { fetchAsyncCompletedTask } from "@/app/features/Redux/task/taskApi";
 import React, { useState } from "react";
+import { IoMdCheckmark } from "react-icons/io";
+
 
 interface TasksListProps {
   id: number;
@@ -36,7 +38,7 @@ const TasksList: React.FC<TasksListProps> = ({ id, task, isCompleted }) => {
               className="p-1 ml-2 font-semibold text-sm bg-green-600 rounded-md border border-black flex-shrink-0 outline-none"
               onClick={() => handleCompletedTask(id, isCompleted)}
             >
-              完了
+              <IoMdCheckmark/>
             </button>
           )}
         </div>
