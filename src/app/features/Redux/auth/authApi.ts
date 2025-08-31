@@ -89,7 +89,7 @@ export const fetchAsyncFindToken = createAsyncThunk("staff/get", async () => {
 //ログアウトするapi
 export const fetchAsyncLogout = createAsyncThunk("staff/logout", async () => {
   await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASEURL}/api/staff/find`,
+    `${process.env.NEXT_PUBLIC_API_BASEURL}/api/auth/logout`,
     {
       method: "POST",
       credentials: "include",

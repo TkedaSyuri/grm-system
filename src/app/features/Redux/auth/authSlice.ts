@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
   fetchAsyncFindToken,
   fetchAsyncLogin,
+  fetchAsyncLogout,
 } from "./authApi";
 
 interface InitialStaffState {
@@ -37,6 +38,9 @@ const authSlice = createSlice({
         state.staff = action.payload;
       }
     );
+    builder.addCase(fetchAsyncLogout.fulfilled,(state)=>{
+      state.staff = null;
+    })
   },
 });
 
