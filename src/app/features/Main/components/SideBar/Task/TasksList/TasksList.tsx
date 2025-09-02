@@ -30,7 +30,7 @@ const TasksList: React.FC<TasksListProps> = ({ id, task, isCompleted }) => {
     <li key={id}>
       {isCompleted || (
         <div className="p-2 border-b border-gray-200 flex justify-between items-center">
-          <p className="text-black font-semibold ">{task}</p>
+          <p className="text-black font-semibold break-words break-all ">{task}</p>
           {isLoading ? (
             <div className="mr-2 w-4 h-4 border-2 border-y-green-500 rounded-full animate-spin"></div>
           ) : (

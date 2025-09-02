@@ -43,7 +43,7 @@ const CompleteList: React.FC<CompleteListProps> = ({
     <li key={id}>
       {isCompleted && (
         <div className="p-2   border-b border-gray-400 flex justify-between items-center ">
-          <p className="font-semibold  ">{task}</p>
+          <p className="font-semibold break-words break-all  ">{task}</p>
           {staff && (
             <div>
               {isLoading ? (
