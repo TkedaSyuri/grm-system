@@ -2,9 +2,11 @@
 
 import { useGetTime } from "../features/hooks/useGetTime";
 import * as Main from "@/app/features/Main/Index";
+import { useAppSelector } from "../features/Redux/hooks";
 
 export default function Home() {
   const { currentTime } = useGetTime();
+  const { staff } = useAppSelector((state) => state.staff);
 
   return (
     <main className="overflow-hidden mb-0">
@@ -14,6 +16,19 @@ export default function Home() {
             <Main.AuthBtn />
           </div>
           <div>
+            <div className="text-white text-2xl flex gap-4">
+              <p>オペレーター:</p>
+              {staff ? (
+                <>
+                  <p>フロントスタッフ</p>
+                </>
+              ) : (
+                <>
+                  <p>ハウスキーパー</p>
+                </>
+              )}
+            </div>
+
             <Main.SideBar />
           </div>
         </div>

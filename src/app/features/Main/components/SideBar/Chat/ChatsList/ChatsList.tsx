@@ -14,7 +14,6 @@ interface ChatsListProps{
 
 const ChatsList:React.FC<ChatsListProps> = ({id,message,created_at}) => {
   const { staff } = useAppSelector((state) => state.staff);
-
   const dispatch = useAppDispatch();
 
 
