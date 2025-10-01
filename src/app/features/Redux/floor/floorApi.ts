@@ -13,7 +13,7 @@ export const fetchAsyncUpdate = createAsyncThunk(
     "floor/put",
     async ({ state, roomId }: UpdateRoomState, thunkAPI) => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/edit/room-state/${roomId}`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/api/rooms/${roomId}/state`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ roomState: `${state}` }),

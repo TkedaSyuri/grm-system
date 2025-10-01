@@ -10,7 +10,7 @@ export const fetchAsyncPostTask = createAsyncThunk(
   async (task: string) => {
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/tasks/create-task`,
+        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/tasks`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -29,7 +29,7 @@ export const fetchAsyncCompletedTask = createAsyncThunk(
   async ({ id, isCompleted }: CompletedTask) => {
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/tasks/edit-completed-task/${id}`,
+        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/tasks/${id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -48,7 +48,7 @@ export const fetchAsyncDeleteTask = createAsyncThunk(
   async (id: number) => {
     try {
       await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/tasks/delete-task/${id}`,
+        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/tasks/${id}`,
         {
           method: "DELETE",
         }
@@ -63,7 +63,7 @@ export const fetchAsyncDeleteAllTask = createAsyncThunk(
   async () => {
     try {
       await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/tasks/tasks`,
+        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/tasks/`,
         {
           method: "DELETE",
         }

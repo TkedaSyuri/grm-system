@@ -8,7 +8,7 @@ export const fetchAsyncPostMessage = createAsyncThunk(
     "chat/post",
     async (message:string) => {
       try {
-        const res= await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/api/chats/chat`, {
+        const res= await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/api/chats`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({message: message})
@@ -24,7 +24,7 @@ export const fetchAsyncDeleteMessage = createAsyncThunk(
     "chat/delete",
     async (id:number) => {
       try {
-        await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/api/chats/chat/${id}`, {
+        await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/api/chats/${id}`, {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
         });
@@ -41,7 +41,7 @@ export const fetchAsyncDeleteAllMessage = createAsyncThunk(
     "chat/all-delete",
     async () => {
       try {
-        await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/api/chats/chats`, {
+        await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/api/chats`, {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
         });

@@ -13,7 +13,7 @@ export const useGetChats = () => {
   
   const dispatch = useAppDispatch();
   const { data,mutate, isLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_API_BASEURL}/api/chats/chats`,
+    `${process.env.NEXT_PUBLIC_API_BASEURL}/api/chats`,
     fetcher,
     {
       refreshInterval: 3000,

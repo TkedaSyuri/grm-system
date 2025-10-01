@@ -13,7 +13,7 @@ export const useGetTasks = () => {
   const socketRef = useRef<Socket | null>(null);
 
   const { data, mutate, isLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_API_BASEURL}/api/tasks/all-tasks`,
+    `${process.env.NEXT_PUBLIC_API_BASEURL}/api/tasks`,
     fetcher
   );
 

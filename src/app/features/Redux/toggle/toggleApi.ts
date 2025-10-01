@@ -6,7 +6,7 @@ export const fetchAsyncToggleConsec = createAsyncThunk(
   async (roomId: number, thunkAPI) => {
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/is-consecutive-nights/${roomId}`,
+        `${process.env.NEXT_PUBLIC_API_BASEURL}/api/rooms/${roomId}/is-consecutive-nights`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

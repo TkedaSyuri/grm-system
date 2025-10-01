@@ -12,7 +12,7 @@ export const useGetFloor = (floorNumber: string) => {
   const dispatch = useAppDispatch();
   const socketRef = useRef<Socket | null>(null);
   const { data, mutate, isLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_API_BASEURL}/api/room/get/floor/${floorNumber}`,
+    `${process.env.NEXT_PUBLIC_API_BASEURL}/api/rooms/${floorNumber}`,
     fetcher,
     { revalidateOnFocus: false }
   );
