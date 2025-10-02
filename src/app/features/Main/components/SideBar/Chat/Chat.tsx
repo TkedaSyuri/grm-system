@@ -39,7 +39,6 @@ const ChatBar = () => {
   return (
     <div className="flex-col">
       <div className="h-96 bg-white overflow-auto">
-        <div>ddd{floorNumber}</div>
         <ul>
           {chatData.map((chat) => (
             <ChatsList
