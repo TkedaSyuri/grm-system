@@ -23,6 +23,7 @@ export interface Chats {
   id:number;
   message: string;
   createdAt: string
+  sender: "housekeeper" | "front"
 }
 
 

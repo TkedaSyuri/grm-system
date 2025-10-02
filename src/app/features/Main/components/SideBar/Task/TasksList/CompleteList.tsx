@@ -17,27 +17,23 @@ const CompleteList: React.FC<CompleteListProps> = ({
   const [isLoading, setIsLoading] = useState(false);
   const { staff } = useAppSelector((state) => state.staff);
 
-    const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
+  const deleteTask = async (id: number) => {
+    try {
+      setIsLoading(true);
 
-
-    const deleteTask = async (id: number) => {
-      try {
-        setIsLoading(true);
-  
-        const isConfirmed = window.confirm("業務を削除しますか？");
-        if (isConfirmed) {
-          await dispatch(fetchAsyncDeleteTask(id));
-          await new Promise((resolve) => setTimeout(resolve, 1000));
-        }
-      } catch (err) {
-        console.error("削除処理に失敗", err);
-      } finally {
-        setIsLoading(false);
+      const isConfirmed = window.confirm("業務を削除しますか？");
+      if (isConfirmed) {
+        await dispatch(fetchAsyncDeleteTask(id));
+        await new Promise((resolve) => setTimeout(resolve, 1000));
       }
-    };
-  
-  
+    } catch (err) {
+      console.error("削除処理に失敗", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <li key={id}>

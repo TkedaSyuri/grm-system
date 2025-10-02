@@ -10,15 +10,17 @@ const ChatBar = () => {
   const { chatData } = useAppSelector((state) => state.chat);
   const dispatch = useAppDispatch();
   const messageRef = useRef<HTMLTextAreaElement | null>(null);
+
   useGetChats();
 
   const submitMessage = useCallback(() => {
     if (messageRef.current?.value) {
       const message = messageRef.current?.value.trim();
-      dispatch(fetchAsyncPostMessage(message));
+      const sender = staff ? "front": "housekeeper"
+      dispatch(fetchAsyncPostMessage({message,sender}));
       messageRef.current.value = "";
     }
-  }, []);
+  }, [staff]);
 
   const deleteAllMessage = () => {
     const isConfirmed = window.confirm(
@@ -40,6 +42,7 @@ const ChatBar = () => {
               id={chat.id}
               message={chat.message}
               created_at={chat.createdAt}
+              sender={chat.sender}
             />
           ))}
         </ul>
