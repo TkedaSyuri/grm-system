@@ -31,26 +31,19 @@ const ChatsList: React.FC<ChatsListProps> = ({
   return (
     <li className="p-2 border-b border-gray-200 break-all">
       {/* 送信者 */}
-      <div className="bg-blue-700 w-fit px-4">
-        <p className="text-white">
-          {sender === "housekeeper"
-            ? `ハウスキーパー: ${floorNumber}階`
-            : "フロントスタッフ"}
-        </p>
-      </div>
+
+      {sender === "front" ? (
+        <div className="bg-blue-700 w-44 text-center px-2 py-1 rounded ">
+          <p className="text-white text-md ">フロント</p>
+        </div>
+      ) : (
+        <div className="bg-green-700 w-44 text-center px-2 py-1 rounded ">
+          <p className="text-white text-md ">ハウスキーパー: {floorNumber}F</p>
+        </div>
+      )}
       {/* メッセージ */}
       <div>
         <p className="font-semibold">{message}</p>
-        <div className="flex items-center">
-          {staff && (
-            <button
-              className="p-1 ml-2 font-semibold text-sm bg-red-500 rounded-md border border-black flex-shrink-0"
-              onClick={() => deleteMessage(id)}
-            >
-              <FaTrashAlt />
-            </button>
-          )}
-        </div>
         {/* 送信時間 */}
         <div className="text-right">
           <p>
@@ -59,6 +52,16 @@ const ChatsList: React.FC<ChatsListProps> = ({
               minute: "2-digit",
             })}
           </p>
+        </div>
+        <div className="text-right">
+          {staff && (
+            <button
+              className="p-1 ml-2 font-semibold text-sm bg-red-500 rounded-md border border-black flex-shrink-0"
+              onClick={() => deleteMessage(id)}
+            >
+              <FaTrashAlt />
+            </button>
+          )}
         </div>
       </div>
     </li>
