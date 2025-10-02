@@ -29,21 +29,20 @@ const ChatsList: React.FC<ChatsListProps> = ({
   };
 
   return (
-    <li className="p-2 border-b border-gray-200 break-all">
+    <li className="p-2 border-b border-gray-200 ">
       {/* 送信者 */}
-
       {sender === "front" ? (
         <div className="bg-blue-700 w-44 text-center px-2 py-1 rounded ">
-          <p className="text-white text-md ">フロント</p>
+          <p className="text-white text-sm ">フロント</p>
         </div>
       ) : (
         <div className="bg-green-700 w-44 text-center px-2 py-1 rounded ">
-          <p className="text-white text-md ">ハウスキーパー: {floorNumber}F</p>
+          <p className="text-white text-sm ">ハウスキーパー: {floorNumber}F</p>
         </div>
       )}
       {/* メッセージ */}
       <div>
-        <p className="font-semibold">{message}</p>
+        <p className="font-semibold break-all">{message}</p>
         {/* 送信時間 */}
         <div className="text-right">
           <p>
