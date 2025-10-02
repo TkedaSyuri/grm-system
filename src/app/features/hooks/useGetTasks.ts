@@ -1,4 +1,4 @@
-import useSWR, { mutate } from "swr";
+import useSWR from "swr";
 import { useEffect, useRef } from "react";
 import { useAppDispatch } from "../Redux/hooks";
 import { setTask } from "../Redux/task/taskSlice";
