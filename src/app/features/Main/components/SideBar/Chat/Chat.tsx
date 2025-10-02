@@ -3,11 +3,15 @@ import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import React, { useCallback, useRef } from "react";
 import { FiSend } from "react-icons/fi";
 import ChatsList from "./ChatsList/ChatsList";
-import { fetchAsyncDeleteAllMessage, fetchAsyncPostMessage } from "@/app/features/Redux/chat/chatApi";
+import {
+  fetchAsyncDeleteAllMessage,
+  fetchAsyncPostMessage,
+} from "@/app/features/Redux/chat/chatApi";
 
 const ChatBar = () => {
   const { staff } = useAppSelector((state) => state.staff);
   const { chatData } = useAppSelector((state) => state.chat);
+  const { floorNumber } = useAppSelector((state) => state.floor);
   const dispatch = useAppDispatch();
   const messageRef = useRef<HTMLTextAreaElement | null>(null);
 
@@ -16,11 +20,13 @@ const ChatBar = () => {
   const submitMessage = useCallback(() => {
     if (messageRef.current?.value) {
       const message = messageRef.current?.value.trim();
-      const sender = staff ? "front": "housekeeper"
-      dispatch(fetchAsyncPostMessage({message,sender}));
+      const sender = staff ? "front" : "housekeeper";
+      console.log("関数側",floorNumber, typeof floorNumber);
+
+      dispatch(fetchAsyncPostMessage({ message, sender, floorNumber }));
       messageRef.current.value = "";
     }
-  }, [staff]);
+  }, [staff, floorNumber]);
 
   const deleteAllMessage = () => {
     const isConfirmed = window.confirm(
@@ -30,11 +36,11 @@ const ChatBar = () => {
       dispatch(fetchAsyncDeleteAllMessage());
     }
   };
-  console.log(chatData);
 
   return (
     <div className="flex-col">
       <div className="h-96 bg-white overflow-auto">
+        <div>ddd{floorNumber}</div>
         <ul>
           {chatData.map((chat) => (
             <ChatsList
@@ -43,6 +49,7 @@ const ChatBar = () => {
               message={chat.message}
               created_at={chat.createdAt}
               sender={chat.sender}
+              floorNumber={chat.floorNumber}
             />
           ))}
         </ul>

@@ -1,18 +1,21 @@
-
-
-export type RoomState  =  "vacant" | "required" | "cleaning" | "completed" | "unnecessary" 
+export type RoomState =
+  | "vacant"
+  | "required"
+  | "cleaning"
+  | "completed"
+  | "unnecessary";
 
 export interface Rooms {
   id: number;
-  roomNumber: string ;
-  roomState:  RoomState;
+  roomNumber: string;
+  roomState: RoomState;
   isConsecutiveNight: boolean;
 }
 
 export interface Tasks {
   id: number;
   task: string;
-  isCompleted: boolean
+  isCompleted: boolean;
 }
 
 export interface TaskDataProps {
@@ -20,10 +23,22 @@ export interface TaskDataProps {
 }
 
 export interface Chats {
-  id:number;
+  id: number;
   message: string;
-  createdAt: string
-  sender: "housekeeper" | "front"
+  createdAt: string;
+  sender: "housekeeper" | "front";
+  floorNumber:
+    | "2"
+    | "3"
+    | "4"
+    | "5"
+    | "6"
+    | "7"
+    | "8"
+    | "9"
+    | "10"
+    | "11"
+    | "12"
+    | "13"
+    | "14";
 }
-
-

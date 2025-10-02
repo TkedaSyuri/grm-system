@@ -8,6 +8,7 @@ interface ChatsListProps {
   message: string;
   created_at: string;
   sender: string;
+  floorNumber:string
 }
 
 const ChatsList: React.FC<ChatsListProps> = ({
@@ -15,6 +16,7 @@ const ChatsList: React.FC<ChatsListProps> = ({
   message,
   created_at,
   sender,
+  floorNumber
 }) => {
   const { staff } = useAppSelector((state) => state.staff);
   const dispatch = useAppDispatch();
@@ -29,9 +31,9 @@ const ChatsList: React.FC<ChatsListProps> = ({
   return (
     <li className="p-2 border-b border-gray-200 break-all">
       {/* 送信者 */}
-      <div className="bg-blue-700 w-fit px-4 ">
+      <div className="bg-blue-700 w-fit px-4">
         <p className="text-white">
-          {sender === "housekeeper" ? "ハウスキーパー" : "フロントスタッフ"}
+          {sender === "housekeeper" ? `ハウスキーパー: ${floorNumber}階` : "フロントスタッフ"}
         </p>
       </div>
       {/* メッセージ */}

@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Rooms } from "../../types";
+
 export interface FloorInitialState {
   floorData: Rooms[];
   floorNumber: string;
@@ -17,7 +18,7 @@ const floorSlice = createSlice({
     setFloor: (state, action: PayloadAction<Rooms[]>) => {
       state.floorData = action.payload;
     },
-    changeFloor: (state, action) => {
+    changeFloor: (state, action:PayloadAction<string>) => {
       state.floorNumber = action.payload;
     },
   },

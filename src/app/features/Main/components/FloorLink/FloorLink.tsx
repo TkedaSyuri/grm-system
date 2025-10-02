@@ -1,7 +1,7 @@
 import { changeFloor } from "@/app/features/Redux/floor/floorSlice";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 
-const RoomNumbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, , 11, 12, 13, 14];
+const RoomNumbers = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"];
 
 const FloorLink: React.FC = () => {
   const {floorNumber} = useAppSelector((state)=>state.floor)
