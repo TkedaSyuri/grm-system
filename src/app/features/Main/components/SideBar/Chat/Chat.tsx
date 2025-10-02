@@ -21,7 +21,6 @@ const ChatBar = () => {
     if (messageRef.current?.value) {
       const message = messageRef.current?.value.trim();
       const sender = staff ? "front" : "housekeeper";
-      console.log("関数側",floorNumber, typeof floorNumber);
 
       dispatch(fetchAsyncPostMessage({ message, sender, floorNumber }));
       messageRef.current.value = "";
