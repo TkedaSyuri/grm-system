@@ -3,7 +3,7 @@ import {
   openTaskModal,
   toggleCompletedTask,
 } from "@/app/features/Redux/toggle/toggleSlice";
-import TasksList from "../TasksList/IncompletedList";
+import IncompletedTaskItem from "../TaskItems/IncompletedTaskItem";
 
 const IncompletedBoard = () => {
   const { taskData } = useAppSelector((state) => state.task);
@@ -15,7 +15,7 @@ const IncompletedBoard = () => {
       <div className=" h-96 bg-white overflow-auto  scroll-m-0">
         <ul>
           {taskData.map((task) => (
-            <TasksList
+            <IncompletedTaskItem
               key={task.id}
               id={task.id}
               task={task.task}

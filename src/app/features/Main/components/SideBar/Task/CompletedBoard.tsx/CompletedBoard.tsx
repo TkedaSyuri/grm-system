@@ -2,7 +2,7 @@ import React from "react";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import { toggleCompletedTask } from "@/app/features/Redux/toggle/toggleSlice";
 import { fetchAsyncDeleteAllTask } from "@/app/features/Redux/task/taskApi";
-import CompleteList from "../TasksList/CompletedList";
+import CompletedTaskItem from "../TaskItems/CompletedTaskItem";
 
 const CompletedBoard= () => {
   const { taskData } = useAppSelector((state) => state.task);
@@ -21,7 +21,7 @@ const CompletedBoard= () => {
       <div className="h-96 bg-white overflow-scroll">
         <ul>
           {taskData.map((tasks) => (
-            <CompleteList
+            <CompletedTaskItem
               id={tasks.id}
               task={tasks.task}
               isCompleted={tasks.isCompleted}

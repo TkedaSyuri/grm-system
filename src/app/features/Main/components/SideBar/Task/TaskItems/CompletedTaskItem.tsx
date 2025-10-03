@@ -9,7 +9,7 @@ interface CompleteListProps {
   isCompleted: boolean;
 }
 
-const CompleteList: React.FC<CompleteListProps> = ({
+const CompletedTaskItem: React.FC<CompleteListProps> = ({
   id,
   task,
   isCompleted,
@@ -60,4 +60,4 @@ const CompleteList: React.FC<CompleteListProps> = ({
   );
 };
 
-export default CompleteList;
+export default CompletedTaskItem;

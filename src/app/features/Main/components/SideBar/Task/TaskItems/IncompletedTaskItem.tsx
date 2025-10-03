@@ -10,7 +10,7 @@ interface TasksListProps {
   isCompleted: boolean;
 }
 
-const TasksList: React.FC<TasksListProps> = ({ id, task, isCompleted }) => {
+const IncompletedTaskItem: React.FC<TasksListProps> = ({ id, task, isCompleted }) => {
   const dispatch = useAppDispatch();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -47,4 +47,4 @@ const TasksList: React.FC<TasksListProps> = ({ id, task, isCompleted }) => {
   );
 };
 
-export default TasksList;
+export default IncompletedTaskItem;
