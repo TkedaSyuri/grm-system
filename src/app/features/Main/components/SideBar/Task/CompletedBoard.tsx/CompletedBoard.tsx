@@ -2,7 +2,7 @@ import React from "react";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import { toggleCompletedTask } from "@/app/features/Redux/toggle/toggleSlice";
 import { fetchAsyncDeleteAllTask } from "@/app/features/Redux/task/taskApi";
-import CompletedTaskItem from "../TaskItems/CompletedTaskItem";
+import CompletedTaskItem from "../TaskItem/CompletedTaskItem";
 
 const CompletedBoard= () => {
   const { taskData } = useAppSelector((state) => state.task);

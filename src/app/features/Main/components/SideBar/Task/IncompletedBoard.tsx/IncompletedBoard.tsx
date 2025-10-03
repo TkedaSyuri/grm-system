@@ -3,7 +3,7 @@ import {
   openTaskModal,
   toggleCompletedTask,
 } from "@/app/features/Redux/toggle/toggleSlice";
-import IncompletedTaskItem from "../TaskItems/IncompletedTaskItem";
+import IncompletedTaskItem from "../TaskItem/IncompletedTaskItem";
 
 const IncompletedBoard = () => {
   const { taskData } = useAppSelector((state) => state.task);
