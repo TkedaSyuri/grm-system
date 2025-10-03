@@ -1,7 +1,7 @@
 import {  useAppSelector } from "@/app/features/Redux/hooks";
 import { useGetTasks } from "../../../../hooks/useGetTasks";
-import IncompletedTasks from "./IncompletedTasks/IncompletedTasks";
-import CompletedTasks from "./CompletedTasks/CompletedTasks";
+import CompletedBoard from "./CompletedBoard.tsx/CompletedBoard";
+import IncompletedBoard from "./IncompletedBoard.tsx/IncompletedBoard";
 
 
 
@@ -13,9 +13,9 @@ const Task = () => {
   return (
     <>
       {isCompletedTaskOpen ? (
-        <CompletedTasks  />
+        <CompletedBoard  />
       ) : (
-        <IncompletedTasks  />
+        <IncompletedBoard  />
       )}
     </>
   );

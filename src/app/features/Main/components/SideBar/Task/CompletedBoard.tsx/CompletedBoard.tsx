@@ -1,11 +1,10 @@
 import React from "react";
-import { TaskDataProps } from "../../../../../types";
 import { useAppDispatch, useAppSelector } from "@/app/features/Redux/hooks";
 import { toggleCompletedTask } from "@/app/features/Redux/toggle/toggleSlice";
 import { fetchAsyncDeleteAllTask } from "@/app/features/Redux/task/taskApi";
-import CompleteList from "../TasksList/CompleteList";
+import CompleteList from "../TasksList/CompletedList";
 
-const CompletedTasks= () => {
+const CompletedBoard= () => {
   const { taskData } = useAppSelector((state) => state.task);
   const dispatch = useAppDispatch();
   const deleteAllTasks = () => {
@@ -51,4 +50,4 @@ const CompletedTasks= () => {
   );
 };
 
-export default CompletedTasks;
+export default CompletedBoard;

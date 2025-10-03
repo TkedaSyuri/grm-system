@@ -3,9 +3,9 @@ import {
   openTaskModal,
   toggleCompletedTask,
 } from "@/app/features/Redux/toggle/toggleSlice";
-import TasksList from "../TasksList/TasksList";
+import TasksList from "../TasksList/IncompletedList";
 
-const IncompletedTasks = () => {
+const IncompletedBoard = () => {
   const { taskData } = useAppSelector((state) => state.task);
   const { staff } = useAppSelector((state) => state.staff);
   const dispatch = useAppDispatch();
@@ -44,4 +44,4 @@ const IncompletedTasks = () => {
   );
 };
 
-export default IncompletedTasks;
+export default IncompletedBoard;
