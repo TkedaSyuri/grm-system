@@ -3,14 +3,19 @@ import { fetchAsyncCompletedTask } from "@/app/features/Redux/task/taskApi";
 import React, { useState } from "react";
 import { IoMdCheckmark } from "react-icons/io";
 
-
 interface TasksListProps {
   id: number;
   task: string;
   isCompleted: boolean;
+  targetFloor: number;
 }
 
-const IncompletedTaskItem: React.FC<TasksListProps> = ({ id, task, isCompleted }) => {
+const IncompletedTaskItem: React.FC<TasksListProps> = ({
+  id,
+  task,
+  isCompleted,
+  targetFloor,
+}) => {
   const dispatch = useAppDispatch();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -27,20 +32,32 @@ const IncompletedTaskItem: React.FC<TasksListProps> = ({ id, task, isCompleted }
   };
 
   return (
-    <li key={id}>
+    <li key={id} className="px-1">
       {isCompleted || (
-        <div className="p-2 border-b border-gray-200 flex justify-between items-center">
-          <p className="text-black font-semibold break-words break-all ">{task}</p>
-          {isLoading ? (
-            <div className="mr-2 w-4 h-4 border-2 border-y-green-500 rounded-full animate-spin"></div>
-          ) : (
-            <button
-              className="p-1 ml-2 font-semibold text-sm bg-green-600 rounded-md border border-black flex-shrink-0 outline-none"
-              onClick={() => handleCompletedTask(id, isCompleted)}
-            >
-              <IoMdCheckmark/>
-            </button>
-          )}
+        <div className="py-1 border-b border-gray-200">
+          <div className="p-2  flex justify-between items-center">
+            <p className="text-black font-semibold break-words break-all ">
+              {task}
+            </p>
+          </div>
+          <div className="flex justify-between">
+            {targetFloor !== 0  ? (
+              <p className="text-md font-bold">対象階: {targetFloor}階</p>
+            ) : (
+              <p className="text-md font-bold">対象階: 全階</p>
+            )}
+
+            {isLoading ? (
+              <div className="mr-2 w-4 h-4 border-2 border-y-green-500 rounded-full animate-spin"></div>
+            ) : (
+              <button
+                className="p-1 ml-2 font-semibold  text-sm bg-green-600 rounded-md border border-black flex-shrink-0 outline-none"
+                onClick={() => handleCompletedTask(id, isCompleted)}
+              >
+                <IoMdCheckmark />
+              </button>
+            )}
+          </div>
         </div>
       )}
     </li>

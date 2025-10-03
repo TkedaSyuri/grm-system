@@ -20,6 +20,7 @@ const IncompletedBoard = () => {
               id={task.id}
               task={task.task}
               isCompleted={task.isCompleted}
+              targetFloor={task.targetFloor}
             />
           ))}
         </ul>

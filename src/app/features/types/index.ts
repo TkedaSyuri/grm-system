@@ -16,6 +16,7 @@ export interface Tasks {
   id: number;
   task: string;
   isCompleted: boolean;
+  targetFloor:number
 }
 
 export interface TaskDataProps {
