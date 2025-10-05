@@ -8,6 +8,7 @@ async function fetcher(key: string) {
   return fetch(key).then((res) => res.json());
 }
 
+//タスクを取得
 export const useGetTasks = () => {
   const dispatch = useAppDispatch();
   const socketRef = useRef<Socket | null>(null);
