@@ -1,6 +1,6 @@
 import useSWR from "swr";
 import { useEffect, useRef } from "react";
-import { useAppDispatch } from "../Redux/hooks";
+import { useAppDispatch, useAppSelector } from "../Redux/hooks";
 import { setFloor } from "@/app/features/Redux/floor/floorSlice";
 import { io, Socket } from "socket.io-client";
 
@@ -8,20 +8,22 @@ async function fetcher(key: string) {
   return fetch(key).then((res) => res.json());
 }
 
-export const useGetFloor = (floorNumber: string) => {
+export const useGetFloor = () => {
+  const { floorNumber } = useAppSelector((state) => state.floor);
   const dispatch = useAppDispatch();
   const socketRef = useRef<Socket | null>(null);
+  const floorId = floorNumber;
+
   const { data, mutate, isLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_API_BASEURL}/api/rooms/${floorNumber}`,
-    fetcher,
-    { revalidateOnFocus: false }
+    `${process.env.NEXT_PUBLIC_API_BASEURL}/api/rooms/${floorId}`,
+    fetcher
   );
 
   useEffect(() => {
     if (data) {
       dispatch(setFloor(data));
     }
-  }, [data, dispatch]);
+  }, [dispatch, data, floorNumber]);
 
   // Socket.IO接続開始
   useEffect(() => {

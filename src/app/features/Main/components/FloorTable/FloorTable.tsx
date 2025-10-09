@@ -9,8 +9,8 @@ import * as Main from "@/app/features/Main/Index"
 const FloorTable: React.FC = () => {
   const { isRoomModalOpen } = useAppSelector((state) => state.toggle);
   const { isTaskModalOpen } = useAppSelector((state) => state.toggle);
-  const { floorData, floorNumber } = useAppSelector((state) => state.floor);
-  const { isLoading } = useGetFloor(floorNumber);
+  const { floorData} = useAppSelector((state) => state.floor);
+  const { isLoading } = useGetFloor();
 
   if (isLoading)
     return (
