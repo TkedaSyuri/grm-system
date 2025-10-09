@@ -35,18 +35,19 @@ const IncompletedTaskItem: React.FC<TasksListProps> = ({
     <li key={id} className="px-1">
       {isCompleted || (
         <div className="py-1 border-b border-gray-200">
-          <div className="p-2  flex justify-between items-center">
-            <p className="text-black font-semibold break-words break-all ">
-              {task}
-            </p>
-          </div>
-          <div className="flex justify-between">
-            {targetFloor !== 0  ? (
+                                  {targetFloor !== 0  ? (
               <p className="text-md font-bold">対象階: {targetFloor}階</p>
             ) : (
               <p className="text-md font-bold">対象階: 全階</p>
             )}
 
+
+          <div className="p-2  flex justify-between items-center">
+            <p className="text-black font-semibold break-words break-all ">
+              {task}
+            </p>
+          </div>
+          <div className="text-right">
             {isLoading ? (
               <div className="mr-2 w-4 h-4 border-2 border-y-green-500 rounded-full animate-spin"></div>
             ) : (
@@ -57,6 +58,7 @@ const IncompletedTaskItem: React.FC<TasksListProps> = ({
                 <IoMdCheckmark />
               </button>
             )}
+
           </div>
         </div>
       )}
