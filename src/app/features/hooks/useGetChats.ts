@@ -10,14 +10,11 @@ async function fetcher(key: string) {
 
 export const useGetChats = () => {
     const socketRef = useRef<Socket | null>(null);
-  
+  console.log("dlfasj")
   const dispatch = useAppDispatch();
   const { data,mutate, isLoading } = useSWR(
     `${process.env.NEXT_PUBLIC_API_BASEURL}/api/chats`,
-    fetcher,
-    {
-      refreshInterval: 3000,
-    }
+    fetcher
   );
 
   useEffect(() => {
@@ -25,6 +22,7 @@ export const useGetChats = () => {
       dispatch(setChat(data));
     }
   }, [dispatch, data]);
+  
   // Socket.IO接続開始
   useEffect(() => {
     socketRef.current = io(process.env.NEXT_PUBLIC_API_BASEURL || "");
