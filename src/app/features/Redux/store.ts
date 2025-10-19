@@ -4,6 +4,7 @@ import authReducer from "./auth/authSlice";
 import taskReducer from "./task/taskSlice"
 import toggleReducer from "./toggle/toggleSlice"
 import chatReducer from "./chat/chatSlice"
+import salesReducer from "./sales/salesSlice"
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +12,8 @@ export const store = configureStore({
     staff:authReducer,
     task: taskReducer,
     toggle: toggleReducer,
-    chat:chatReducer
+    chat:chatReducer,
+    sales:salesReducer
   },
 });
 
