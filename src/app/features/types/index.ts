@@ -46,3 +46,11 @@ export interface Chats {
   sender: "housekeeper" | "front";
   floorNumber: floorNumber;
 }
+
+export interface Status {
+  id: number;
+  roomNumber: string;
+  roomState: RoomState;
+  isConsecutiveNight: boolean;
+}
+
