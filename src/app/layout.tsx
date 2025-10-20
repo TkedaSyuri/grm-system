@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${inter.className} overflow-hidden bg-gray-900`}>
+      <body className={`${inter.className}  bg-gray-900`}>
         <Providers>{children}</Providers>
       </body>
     </html>
