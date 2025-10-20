@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction} from "@reduxjs/toolkit";
-import { Rooms } from "../../types";
+import { Rooms, Status } from "../../types";
 
 export interface SalesInitialState {
-  floorData: Rooms[];
+  statusData: Status[];
 }
 
   const initialState:SalesInitialState = {
-    floorData: []
+    statusData: []
   }
 
 const salesSlice = createSlice({
