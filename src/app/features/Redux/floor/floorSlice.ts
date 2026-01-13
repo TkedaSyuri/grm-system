@@ -4,10 +4,12 @@ import { Rooms } from "../../types";
 export interface FloorInitialState {
   floorData: Rooms[];
   floorNumber: string;
+  allRoomsData: Rooms[];
 }
 
 const initialState: FloorInitialState = {
   floorData: [],
+  allRoomsData: [],
   floorNumber: "2",
 };
 
@@ -18,11 +20,14 @@ const floorSlice = createSlice({
     setFloor: (state, action: PayloadAction<Rooms[]>) => {
       state.floorData = action.payload;
     },
-    changeFloor: (state, action:PayloadAction<string>) => {
+    setAllRooms: (state, action: PayloadAction<Rooms[]>) => {
+      state.allRoomsData = action.payload;
+    },
+    changeFloor: (state, action: PayloadAction<string>) => {
       state.floorNumber = action.payload;
     },
   },
 });
 
 export default floorSlice.reducer;
-export const { setFloor, changeFloor } = floorSlice.actions;
+export const { setFloor, setAllRooms,changeFloor, } = floorSlice.actions;

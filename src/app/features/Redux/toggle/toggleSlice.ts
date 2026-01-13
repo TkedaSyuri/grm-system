@@ -1,11 +1,11 @@
-import { createSlice, PayloadAction} from "@reduxjs/toolkit";
-
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface InitialToggleState {
   isRoomModalOpen: boolean;
   isTaskModalOpen: boolean;
   isBarOpen: boolean;
   isCompletedTaskOpen: boolean;
+  isSalesOpen: boolean;
   roomNumber: string;
   roomId: number;
 }
@@ -15,6 +15,7 @@ const initialState: InitialToggleState = {
   isTaskModalOpen: false,
   isBarOpen: false,
   isCompletedTaskOpen: false,
+  isSalesOpen: false,
   roomNumber: "",
   roomId: 0,
 };
@@ -23,7 +24,6 @@ const toggleSlice = createSlice({
   name: "toggle",
   initialState,
   reducers: {
-
     //部屋モーダルを表示する
     openRoomModal: (
       state,
@@ -36,11 +36,9 @@ const toggleSlice = createSlice({
     closeRoomModal: (state) => {
       state.isRoomModalOpen = !state.isRoomModalOpen;
     },
-    
+
     //タスク作成モーダルを表示する
-    openTaskModal: (
-      state,
-    ) => {
+    openTaskModal: (state) => {
       state.isTaskModalOpen = !state.isTaskModalOpen;
     },
     closeTaskModal: (state) => {
@@ -55,6 +53,12 @@ const toggleSlice = createSlice({
     toggleCompletedTask: (state) => {
       state.isCompletedTaskOpen = !state.isCompletedTaskOpen;
     },
+    openSales: (state) => {
+      state.isSalesOpen = true;
+    },
+    closeSales: (state) => {
+      state.isSalesOpen = false;
+    },
   },
 });
 
@@ -66,5 +70,7 @@ export const {
   openTaskBar,
   openChatBar,
   toggleCompletedTask,
+  openSales,
+  closeSales
 } = toggleSlice.actions;
 export default toggleSlice.reducer;
