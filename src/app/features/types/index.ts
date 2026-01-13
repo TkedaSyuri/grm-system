@@ -47,10 +47,4 @@ export interface Chats {
   floorNumber: floorNumber;
 }
 
-export interface Status {
-  id: number;
-  roomNumber: string;
-  roomState: RoomState;
-  isConsecutiveNight: boolean;
-}
 
