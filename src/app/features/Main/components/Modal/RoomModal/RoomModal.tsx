@@ -3,7 +3,7 @@ import {
   closeRoomModal,
 } from "@/app/features/Redux/toggle/toggleSlice";
 import StateBtn from "./StateBtn/StateBtn";
-import { fetchAsyncToggleConsec } from "@/app/features/Redux/toggle/toggleApi";
+import { fetchAsyncToggleConsec } from "@/app/features/Redux/floor/floorApi";
 
 const RoomModal: React.FC = () => {
   const { roomNumber, roomId } = useAppSelector((state) => state.toggle);
